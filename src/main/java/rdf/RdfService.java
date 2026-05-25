@@ -186,7 +186,7 @@ public class RdfService {
     // ===============================
     public void exportWeatherDay(WeatherDay wd) {
 
-        Resource weather = model.createResource(NS + "weather/" + wd.getWatherId());
+        Resource weather = model.createResource(NS + "weather/" + wd.getWeatherId());
         weather.addProperty(RDF.type, WEATHER_CLASS);
 
         if (wd.getTempMax() != null) weather.addLiteral(TEMP_MAX, wd.getTempMax());
@@ -200,15 +200,30 @@ public class RdfService {
     // ===============================
     public void exportRiskAssessment(RiskAssessment risk) {
 
+        if (risk == null) {
+            throw new IllegalArgumentException("RiskAssessment non può essere null");
+        }
+
         Resource riskRes = model.createResource(NS + "risk/" + risk.getRiskId());
 
         riskRes.addProperty(RDF.type, RISK_ASSESSMENT_CLASS);
         riskRes.addProperty(RDF.type, RISK_CLASS);
 
-        riskRes.addProperty(RISK_CALDO, risk.getRiskCaldo().name());
-        riskRes.addProperty(RISK_FREDDO, risk.getRiskFreddo().name());
-        riskRes.addProperty(RISK_VENTO, risk.getRiskVento().name());
-        riskRes.addProperty(RISK_MALATTIA, risk.getRiskMalattia().name());
+        if (risk.getRiskCaldo() != null) {
+            riskRes.addProperty(RISK_CALDO, risk.getRiskCaldo().name());
+        }
+
+        if (risk.getRiskFreddo() != null) {
+            riskRes.addProperty(RISK_FREDDO, risk.getRiskFreddo().name());
+        }
+
+        if (risk.getRiskVento() != null) {
+            riskRes.addProperty(RISK_VENTO, risk.getRiskVento().name());
+        }
+
+        if (risk.getRiskMalattia() != null) {
+            riskRes.addProperty(RISK_MALATTIA, risk.getRiskMalattia().name());
+        }
 
         if (risk.getConsigli() != null) {
             riskRes.addProperty(CONSIGLI, risk.getConsigli());
@@ -254,7 +269,7 @@ public class RdfService {
     public void collegaRelazioni(PlantInstance pianta, WeatherDay wd, RiskAssessment risk) {
 
         Resource plant = model.createResource(NS + "plant/" + pianta.getPlantId());
-        Resource weather = model.createResource(NS + "weather/" + wd.getWatherId());
+        Resource weather = model.createResource(NS + "weather/" + wd.getWeatherId());
         Resource riskRes = model.createResource(NS + "risk/" + risk.getRiskId());
 
         plant.addProperty(INFLUENCED_BY, weather);

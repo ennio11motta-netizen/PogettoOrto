@@ -4,6 +4,8 @@ import exception.GrowthStage;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class PlantInstance {
@@ -26,10 +28,17 @@ public class PlantInstance {
     private String note;
 
 //    //1 PlantInstance → N GrowthForecast
-//    private Set<GrowthForecast> growthForecasts;
+    @OneToMany(mappedBy = "plantInstance")
+   private Set<GrowthForecast> growthForecasts = new HashSet<>();
 //
 //    //1 PlantInstance → N RiskAssessment
-//    private Set<RiskAssessment> riskAssessments;
+    @OneToMany(mappedBy = "plantInstance")
+    private Set<RiskAssessment> riskAssessments =new  HashSet<>();
+
+
+
+    public PlantInstance() {
+    }
 
 
     public LocalDateTime getDataInsert() {
@@ -72,16 +81,6 @@ public class PlantInstance {
         this.storeGDD = storeGDD;
     }
 
-    public PlantInstance(LocalDateTime dataInsert, GrowthStage growthStage, String note, Long plantId, PlantSpecie plantSpecie, Double storeGDD) {
-        this.dataInsert = dataInsert;
-        this.growthStage = growthStage;
-        this.note = note;
-        this.plantSpecie = plantSpecie;
-        this.storeGDD = storeGDD;
-    }
-
-    public PlantInstance() {
-    }
 
     public PlantSpecie getPlantSpecie() {
         return plantSpecie;

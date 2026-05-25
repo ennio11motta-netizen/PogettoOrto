@@ -27,12 +27,9 @@ public class GrowthForecast {
 
 
 
-
-
-
-    public LocalDateTime getDateTime() {
-        return dateTime;
-    }
+//    public LocalDateTime getDateTime() {
+//        return dateTime;
+//    }
 
     public void setDateTime(LocalDateTime dateTime) {
         this.dateTime = dateTime;
@@ -46,17 +43,17 @@ public class GrowthForecast {
         this.forecastId = forecastId;
     }
 
-    public Double getGddPrevistiGiorn() {
-        return gddPrevistiGiorn;
-    }
+//    public Double getGddPrevistiGiorn() {
+//        return gddPrevistiGiorn;
+//    }
 
     public void setGddPrevistiGiorn(Double gddPrevistiGiorn) {
         this.gddPrevistiGiorn = gddPrevistiGiorn;
     }
 
-    public Integer getGiorniNuovoStadio() {
-        return giorniNuovoStadio;
-    }
+//    public Integer getGiorniNuovoStadio() {
+//        return giorniNuovoStadio;
+//    }
 
     public void setGiorniNuovoStadio(Integer giorniNuovoStadio) {
         this.giorniNuovoStadio = giorniNuovoStadio;
@@ -70,17 +67,17 @@ public class GrowthForecast {
         this.percentCiclo = percentCiclo;
     }
 
-    public PlantInstance getPlantInstance() {
-        return plantInstance;
-    }
+//    public PlantInstance getPlantInstance() {
+//        return plantInstance;
+//    }
 
     public void setPlantInstance(PlantInstance plantInstance) {
         this.plantInstance = plantInstance;
     }
 
-    public GrowthStage getStadioPrevisto() {
-        return stadioPrevisto;
-    }
+//    public GrowthStage getStadioPrevisto() {
+//        return stadioPrevisto;
+//    }
 
     public void setStadioPrevisto(GrowthStage stadioPrevisto) {
         this.stadioPrevisto = stadioPrevisto;
@@ -89,15 +86,6 @@ public class GrowthForecast {
     public GrowthForecast() {
     }
 
-    public GrowthForecast(LocalDateTime dateTime, Long forecastId, Double gddPrevistiGiorn, Integer giorniNuovoStadio, Double percentCiclo, PlantInstance plantInstance, GrowthStage stadioPrevisto) {
-        this.dateTime = dateTime;
-
-        this.gddPrevistiGiorn = gddPrevistiGiorn;
-        this.giorniNuovoStadio = giorniNuovoStadio;
-        this.percentCiclo = percentCiclo;
-        this.plantInstance = plantInstance;
-        this.stadioPrevisto = stadioPrevisto;
-    }
 
 
     @Override
@@ -105,7 +93,7 @@ public class GrowthForecast {
         return "GrowthForecast{" +
                 "dateTime=" + dateTime +
                 ", forecastId=" + forecastId +
-                ", plantInstance=" + plantInstance +
+//                ", plantInstance=" + plantInstance +
                 ", gddPrevistiGiorn=" + gddPrevistiGiorn +
                 ", percentCiclo=" + percentCiclo +
                 ", stadioPrevisto=" + stadioPrevisto +

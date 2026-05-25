@@ -33,6 +33,7 @@ public class RiskCalculator {
 
         RiskAssessment assessment = new RiskAssessment();
         assessment.setPlantInstance(pianta);
+        assessment.setWeatherDay(weatherDay);
         assessment.setDateTime(weatherDay.getData());
 
         RiskLevel riskCaldo = calcolaRischioCaldo(specie, weatherDay);

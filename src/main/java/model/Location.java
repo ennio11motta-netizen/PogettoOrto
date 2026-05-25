@@ -1,9 +1,9 @@
 package model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Location {
@@ -19,30 +19,28 @@ public class Location {
     private Double longitudine;
 
     //relazione dati meteo per ogni giorno della settimana
+    @OneToMany(mappedBy = "location")
+    private Set<WeatherDay> weatherDays=new HashSet<WeatherDay>();
 
-    //private Set<WeatherDay> weatherDays;
 
 
-
-//Set<WeatherDay> weatherDays
-    public Location(Double latitudine, Double longitudine, String nome) {
-        this.latitudine = latitudine;
-        this.longitudine = longitudine;
-        this.nome = nome;
-        //this.weatherDays = weatherDays;
-    }
+//    public Location(Double latitudine, Double longitudine, String nome) {
+//        this.latitudine = latitudine;
+//        this.longitudine = longitudine;
+//        this.nome = nome;
+//    }
 
     public Location() {
 
     }
 
-    public Integer getLocationId() {
-        return locationid;
-    }
-
-    public void setId(Integer id) {
-        this.locationid = id;
-    }
+//    public Integer getLocationId() {
+//        return locationid;
+//    }
+//
+//    public void setLocationId(Integer locationid) {
+//        this.locationid = locationid;
+//    }
 
     public Double getLatitudine() {
         return latitudine;
@@ -61,7 +59,7 @@ public class Location {
     }
 
     public String getNome() {
-        return nome;
+       return nome;
     }
 
     public void setNome(String nome) {

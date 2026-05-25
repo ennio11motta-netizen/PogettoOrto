@@ -9,7 +9,7 @@ public class WeatherDay {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer watherId;
+    private Integer weatherId;
 
     @ManyToOne
     @JoinColumn(name = "location_id")
@@ -30,25 +30,8 @@ public class WeatherDay {
     private Double uvIndex;
 
 
-
-
-
-
-    public WeatherDay(LocalDateTime data, Location location, Double precipitazione, Double tempMax, Double tempMin, Double umidita, Double uvIndex, Double ventoKmh) {
-        this.data = data;
-        this.location = location;
-        this.precipitazione = precipitazione;
-        this.tempMax = tempMax;
-        this.tempMin = tempMin;
-        this.umidita = umidita;
-        this.uvIndex = uvIndex;
-        this.ventoKmh = ventoKmh;
-    }
-
     public WeatherDay() {
     }
-
-
 
     public LocalDateTime getData() {
         return data;
@@ -114,19 +97,19 @@ public class WeatherDay {
         this.ventoKmh = ventoKmh;
     }
 
-    public Integer getWatherId() {
-        return watherId;
+    public Integer getWeatherId() {
+        return weatherId;
     }
 
-    public void setWatherId(Integer watherId) {
-        this.watherId = watherId;
+    public void setWeatherId(Integer weatherId) {
+        this.weatherId = weatherId;
     }
 
     @Override
     public String toString() {
         return "WeatherDay{" +
                 "data=" + data +
-                ", watherId=" + watherId +
+                ", weatherId=" + weatherId +
                 ", location=" + location +
                 ", tempMin=" + tempMin +
                 ", tempMax=" + tempMax +

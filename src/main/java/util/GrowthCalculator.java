@@ -189,4 +189,7 @@ public class GrowthCalculator {
 
         return (int) Math.ceil(gddMancanti / gddMedioPrevisto);
     }
+
+
+
 }

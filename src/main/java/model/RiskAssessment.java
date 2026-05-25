@@ -16,6 +16,12 @@ public class RiskAssessment {
     @JoinColumn(name = "plant_instance_id")
     private PlantInstance plantInstance;
 
+
+    @ManyToOne
+    @JoinColumn(name = "weather_day_id")
+    private WeatherDay weatherDay;
+
+
     private LocalDateTime dateTime;
 
     @Enumerated(EnumType.STRING)
@@ -28,6 +34,8 @@ public class RiskAssessment {
     private RiskLevel riskMalattia;
 
     private String consigli;
+
+
 
 
     public String getConsigli() {
@@ -94,26 +102,22 @@ public class RiskAssessment {
         this.riskVento = riskVento;
     }
 
-    public RiskAssessment(String consigli, LocalDateTime dateTime, PlantInstance plantInstance, RiskLevel riskCaldo, RiskLevel riskFreddo, Long riskId, RiskLevel riskMalattia, RiskLevel riskVento) {
-        this.consigli = consigli;
-        this.dateTime = dateTime;
-        this.plantInstance = plantInstance;
-        this.riskCaldo = riskCaldo;
-        this.riskFreddo = riskFreddo;
-        this.riskMalattia = riskMalattia;
-        this.riskVento = riskVento;
-    }
-
     public RiskAssessment() {
     }
 
+    public WeatherDay getWeatherDay() {
+        return weatherDay;
+    }
+
+    public void setWeatherDay(WeatherDay weatherDay) {
+        this.weatherDay = weatherDay;
+    }
 
     @Override
     public String toString() {
         return "RiskAssessment{" +
                 "consigli='" + consigli + '\'' +
                 ", riskId=" + riskId +
-                ", plantInstance=" + plantInstance +
                 ", dateTime=" + dateTime +
                 ", riskCaldo=" + riskCaldo +
                 ", riskFreddo=" + riskFreddo +

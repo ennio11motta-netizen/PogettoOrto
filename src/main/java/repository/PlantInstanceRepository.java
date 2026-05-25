@@ -1,18 +1,10 @@
 package repository;
-
 import model.PlantInstance;
-
 import java.util.List;
-
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
-
 import model.PlantSpecie;
-
-
 import java.util.Optional;
-
-
 public class PlantInstanceRepository {
 
     private final EntityManager em;

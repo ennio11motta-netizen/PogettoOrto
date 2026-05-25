@@ -15,6 +15,7 @@
        <class>model.RiskAssessment</class>
 
 
+
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
             <property name="jakarta.persistence.jdbc.url"
@@ -27,7 +28,7 @@
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
             <property name="hibernate.highlight_sql" value="true"/>
-            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
         </properties>
 
     </persistence-unit>

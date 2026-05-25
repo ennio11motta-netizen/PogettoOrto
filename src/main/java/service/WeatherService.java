@@ -39,15 +39,6 @@ public class WeatherService {
         return weatherDayRepository.save(weatherDay);
     }
 
-    public Double calcolaMediaGiornaliera(WeatherDay weatherDay) {
-        validateWeatherDay(weatherDay);
-
-        if (weatherDay.getTempMin() == null || weatherDay.getTempMax() == null) {
-            throw new IllegalArgumentException("Temperature non disponibili");
-        }
-
-        return (weatherDay.getTempMin() + weatherDay.getTempMax()) / 2.0;
-    }
 
 
     private void validateWeatherDay(WeatherDay weatherDay) {
