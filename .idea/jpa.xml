@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JpaPluginProjectSettings" isShowLibraryClassesInOrmView="true" />
+  <component name="PersistenceUnitSettings">
+    <persistence-units>
+      <persistence-unit name="NewUnit" framework="JPA" ormUnit="custom_pu_1778590306357" />
+      <persistence-unit name="NewUnit" framework="JPA" ormUnit="custom_pu_1778590515495" />
+    </persistence-units>
+  </component>
+</project>

@@ -1,0 +1,305 @@
+PREFIX orto: <http://orto.example/>
+
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#List>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/2000/01/rdf-schema#Resource> .
+
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#object>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement>;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://www.w3.org/1999/02/22-rdf-syntax-ns#object> .
+
+<http://www.w3.org/2000/01/rdf-schema#domain>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property>;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2000/01/rdf-schema#Class> .
+
+<http://www.w3.org/2000/01/rdf-schema#Resource>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/2000/01/rdf-schema#Resource> .
+
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#predicate>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement>;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://www.w3.org/1999/02/22-rdf-syntax-ns#predicate> .
+
+<http://www.w3.org/2000/01/rdf-schema#comment>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2000/01/rdf-schema#Literal> .
+
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#subject>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement>;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://www.w3.org/1999/02/22-rdf-syntax-ns#subject> .
+
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#first>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.w3.org/1999/02/22-rdf-syntax-ns#List>;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> .
+
+orto:Plant  a   <http://www.w3.org/2000/01/rdf-schema#Class> , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/2000/01/rdf-schema#Resource> , orto:Plant .
+
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#Property>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/2000/01/rdf-schema#Resource> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#nil>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> , <http://www.w3.org/2000/01/rdf-schema#Resource> .
+
+<http://www.w3.org/2000/01/rdf-schema#range>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property>;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2000/01/rdf-schema#Class> .
+
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/2000/01/rdf-schema#Resource> .
+
+<http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property>;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+
+orto:GrowthForecast  a  <http://www.w3.org/2000/01/rdf-schema#Class> , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/2000/01/rdf-schema#Resource> , orto:GrowthForecast .
+
+orto:Risk  a    <http://www.w3.org/2000/01/rdf-schema#Class> , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/2000/01/rdf-schema#Resource> , orto:Risk .
+
+<http://www.w3.org/2000/01/rdf-schema#Class>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/2000/01/rdf-schema#Resource> , <http://www.w3.org/2000/01/rdf-schema#Class> .
+
+<http://www.w3.org/2000/01/rdf-schema#Literal>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/2000/01/rdf-schema#Resource> .
+
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2000/01/rdf-schema#Class> .
+
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral>
+        a       <http://www.w3.org/2000/01/rdf-schema#Datatype> , <http://www.w3.org/2000/01/rdf-schema#Class> , <http://www.w3.org/2000/01/rdf-schema#Resource> .
+
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#rest>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.w3.org/1999/02/22-rdf-syntax-ns#List>;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/1999/02/22-rdf-syntax-ns#List>;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> .
+
+<http://www.w3.org/2000/01/rdf-schema#label>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2000/01/rdf-schema#Literal> .
+
+<http://www.w3.org/2000/01/rdf-schema#subClassOf>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                <http://www.w3.org/2000/01/rdf-schema#Class>;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                <http://www.w3.org/2000/01/rdf-schema#Class> .
+
+<http://orto.example/risk/5>
+        a                  orto:LowRisk , orto:Risk , orto:RiskAssessment , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        orto:consigli      "Nessun rischio rilevante.";
+        orto:riskCaldo     "LOW";
+        orto:riskFreddo    "LOW";
+        orto:riskMalattia  "LOW";
+        orto:riskVento     "LOW" .
+
+orto:generatesRisk  a  <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                orto:Risk .
+
+<http://orto.example/forecast/5>
+        a                  orto:GrowthForecast , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        orto:percentCiclo  "83.48125"^^<http://www.w3.org/2001/XMLSchema#double> .
+
+orto:EarlyGrowthStage
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                orto:GrowthStage , orto:EarlyGrowthStage .
+
+orto:LowRisk  a  <http://www.w3.org/2000/01/rdf-schema#Class> , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                orto:Risk , orto:LowRisk , <http://www.w3.org/2000/01/rdf-schema#Resource> .
+
+<http://orto.example/plant/2>
+        a                  orto:Plant , orto:AdvancedGrowthStage , orto:PlantInstance , orto:GrowthStage , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        orto:growthStage   "FRUTTIFICAZIONE";
+        orto:hasForecast   <http://orto.example/forecast/4> , <http://orto.example/forecast/6> , <http://orto.example/forecast/5>;
+        orto:hasRisk       <http://orto.example/risk/6> , <http://orto.example/risk/5> , <http://orto.example/risk/4> , <http://orto.example/risk/7>;
+        orto:influencedBy  <http://orto.example/weather/4> , <http://orto.example/weather/5> , <http://orto.example/weather/6> , <http://orto.example/weather/7>;
+        orto:storeGDD      "667.85"^^<http://www.w3.org/2001/XMLSchema#double> , "658.2"^^<http://www.w3.org/2001/XMLSchema#double> , "678.6"^^<http://www.w3.org/2001/XMLSchema#double> .
+
+orto:hasForecast  a  <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                orto:Plant;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                orto:GrowthForecast .
+
+<http://orto.example/weather/6>
+        a                    orto:WeatherDay;
+        orto:generatesRisk   <http://orto.example/risk/6>;
+        orto:precipitazione  "0.0"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:tempMax         "28.8"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:tempMin         "12.7"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:umidita         "47.958333333333336"^^<http://www.w3.org/2001/XMLSchema#double> .
+
+orto:hasRisk  a  <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                orto:Plant;
+        <http://www.w3.org/2000/01/rdf-schema#range>
+                orto:Risk .
+
+<http://orto.example/risk/6>
+        a                  orto:LowRisk , orto:Risk , orto:RiskAssessment , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        orto:consigli      "Nessun rischio rilevante.";
+        orto:riskCaldo     "LOW";
+        orto:riskFreddo    "LOW";
+        orto:riskMalattia  "LOW";
+        orto:riskVento     "LOW" .
+
+orto:ModerateRisk  a  <http://www.w3.org/2000/01/rdf-schema#Class> , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                orto:Risk , orto:ModerateRisk , <http://www.w3.org/2000/01/rdf-schema#Resource> .
+
+orto:CriticalRisk  a  <http://www.w3.org/2000/01/rdf-schema#Class> , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                orto:Risk , orto:CriticalRisk , <http://www.w3.org/2000/01/rdf-schema#Resource> .
+
+<http://orto.example/forecast/6>
+        a                  orto:GrowthForecast , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        orto:percentCiclo  "84.825"^^<http://www.w3.org/2001/XMLSchema#double> .
+
+orto:AdvancedGrowthStage
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                orto:GrowthStage , orto:AdvancedGrowthStage .
+
+<http://orto.example/weather/4>
+        a                    orto:WeatherDay;
+        orto:generatesRisk   <http://orto.example/risk/4>;
+        orto:precipitazione  "0.0"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:tempMax         "24.9"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:tempMin         "11.5"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:umidita         "51.583333333333336"^^<http://www.w3.org/2001/XMLSchema#double> .
+
+<http://orto.example/risk/4>
+        a                  orto:LowRisk , orto:Risk , orto:RiskAssessment , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        orto:consigli      "Nessun rischio rilevante.";
+        orto:riskCaldo     "LOW";
+        orto:riskFreddo    "LOW";
+        orto:riskMalattia  "LOW";
+        orto:riskVento     "LOW" .
+
+orto:influencedBy  a  <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        <http://www.w3.org/2000/01/rdf-schema#domain>
+                orto:Plant .
+
+<http://orto.example/forecast/4>
+        a                  orto:GrowthForecast , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        orto:percentCiclo  "82.275"^^<http://www.w3.org/2001/XMLSchema#double> .
+
+<http://orto.example/weather/7>
+        a                    orto:WeatherDay;
+        orto:generatesRisk   <http://orto.example/risk/7>;
+        orto:precipitazione  "7.0"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:tempMax         "38.0"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:tempMin         "24.0"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:umidita         "85.0"^^<http://www.w3.org/2001/XMLSchema#double> .
+
+<http://orto.example/risk/7>
+        a                  orto:ModerateRisk , orto:Risk , orto:RiskAssessment , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        orto:consigli      "Rischio caldo medio: monitorare temperature. Rischio malattie medio: monitorare ventilazione.";
+        orto:riskCaldo     "MEDIUM";
+        orto:riskFreddo    "LOW";
+        orto:riskMalattia  "MEDIUM";
+        orto:riskVento     "LOW" .
+
+<http://orto.example/weather/5>
+        a                    orto:WeatherDay;
+        orto:generatesRisk   <http://orto.example/risk/5>;
+        orto:precipitazione  "0.0"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:tempMax         "26.1"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:tempMin         "13.2"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:umidita         "50.791666666666664"^^<http://www.w3.org/2001/XMLSchema#double> .
+
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> , <http://www.w3.org/2000/01/rdf-schema#Container> .
+
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#Alt>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/1999/02/22-rdf-syntax-ns#Alt> , <http://www.w3.org/2000/01/rdf-schema#Container> .
+
+<http://www.w3.org/2000/01/rdf-schema#Datatype>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/2000/01/rdf-schema#Datatype> , <http://www.w3.org/2000/01/rdf-schema#Class> .
+
+orto:GrowthStage  a  <http://www.w3.org/2000/01/rdf-schema#Class> , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                orto:GrowthStage .
+
+<http://www.w3.org/2000/01/rdf-schema#Container>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/2000/01/rdf-schema#Container> .
+
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> , <http://www.w3.org/2000/01/rdf-schema#Container> .
+
+<http://www.w3.org/2000/01/rdf-schema#ContainerMembershipProperty>
+        a       <http://www.w3.org/2000/01/rdf-schema#Class> , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
+                <http://www.w3.org/2000/01/rdf-schema#ContainerMembershipProperty> , <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+
+<http://www.w3.org/2000/01/rdf-schema#isDefinedBy>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> , <http://www.w3.org/2000/01/rdf-schema#seeAlso> .
+
+<http://www.w3.org/2000/01/rdf-schema#seeAlso>
+        a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/2000/01/rdf-schema#Resource>;
+        <http://www.w3.org/2000/01/rdf-schema#subPropertyOf>
+                <http://www.w3.org/2000/01/rdf-schema#seeAlso> .
+
+orto:RiskAssessment  a  <http://www.w3.org/2000/01/rdf-schema#Class> , <http://www.w3.org/2000/01/rdf-schema#Resource> .
+
+orto:PlantInstance  a  <http://www.w3.org/2000/01/rdf-schema#Class> , <http://www.w3.org/2000/01/rdf-schema#Resource> .
+
+orto:WeatherDay  a  <http://www.w3.org/2000/01/rdf-schema#Class> , <http://www.w3.org/2000/01/rdf-schema#Resource> .
