@@ -51,6 +51,7 @@ public class ExternalWeatherService {
         validateInput(location, days);
 
         String url = buildUrl(location, days);
+        System.out.println("URL Open-Meteo generata: " + url);
 
         try {
             String responseBody = sendRequest(url);
@@ -111,16 +112,26 @@ public class ExternalWeatherService {
                 .GET()
                 .build();
 
-        HttpResponse<String> response =
-                client.send(request, HttpResponse.BodyHandlers.ofString());
+        int maxAttempts = 1;
 
-        if (response.statusCode() != 200) {
-            throw new RuntimeException(
-                    "Errore API meteo - status: " + response.statusCode()
+        for (int attempt = 1; attempt <= maxAttempts; attempt++) {
+            HttpResponse<String> response =
+                    client.send(request, HttpResponse.BodyHandlers.ofString());
+
+            if (response.statusCode() == 200) {
+                return response.body();
+            }
+
+            System.err.println(
+                    "Tentativo " + attempt + " fallito. Status Open-Meteo: " + response.statusCode()
             );
+
+            if (attempt < maxAttempts) {
+                Thread.sleep(1000L * attempt);
+            }
         }
 
-        return response.body();
+        throw new RuntimeException("Errore API meteo - status: 502");
     }
 
     private List<WeatherApiDTO> parseForecastToDTO(String json) {

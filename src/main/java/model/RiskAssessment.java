@@ -6,10 +6,12 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "risk_assessment")
 public class RiskAssessment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "risk_id")
     private Integer riskId;
 
     @ManyToOne
@@ -105,9 +107,9 @@ public class RiskAssessment {
     public RiskAssessment() {
     }
 
-    public WeatherDay getWeatherDay() {
-        return weatherDay;
-    }
+//    public WeatherDay getWeatherDay() {
+//        return weatherDay;
+//    }
 
     public void setWeatherDay(WeatherDay weatherDay) {
         this.weatherDay = weatherDay;

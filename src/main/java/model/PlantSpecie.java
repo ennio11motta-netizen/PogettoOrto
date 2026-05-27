@@ -6,10 +6,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Table(name = "plant_specie")
 public class PlantSpecie {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "specie_id")
     private Integer specieId;
 
     private String nome;

@@ -8,6 +8,10 @@ import org.apache.jena.reasoner.Reasoner;
 import org.apache.jena.vocabulary.RDF;
 import org.apache.jena.vocabulary.RDFS;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+
 /**
  * RdfService gestisce:
  * - trasformazione oggetti Java → RDF
@@ -19,7 +23,7 @@ public class RdfService {
 
     private static final String NS = "http://orto.example/";
 
-    private final Model model;
+    private final InfModel model;
 
     // ===============================
     // PROPRIETA'
@@ -68,7 +72,12 @@ public class RdfService {
     private final Resource PLANT_CLASS;
     private final Resource GROWTH_STAGE_CLASS;
 
+    private static final String RDF_FILE = "data/orto.ttl";
+
+
     public RdfService() {
+
+
 
         Model baseModel = ModelFactory.createDefaultModel();
 
@@ -145,6 +154,11 @@ public class RdfService {
 
         GENERATES_RISK.addProperty(RDFS.range, RISK_CLASS);
         INFLUENCED_BY.addProperty(RDFS.domain, PLANT_CLASS);
+
+
+        //carica DOPO aver definito tutto
+        caricaRDFDaFile(RDF_FILE);
+
     }
 
     public Model getModel() {
@@ -311,13 +325,36 @@ public class RdfService {
      * Salva il modello RDF su file in formato Turtle (.ttl)
      */
     public void salvaRDFSuFile(String filename) {
+        File file= new File(filename);
+        File parent= file.getParentFile();
 
+        if(parent != null && !parent.exists()){
+            parent.mkdirs();
+        }
         try (java.io.FileOutputStream fos = new java.io.FileOutputStream(filename)) {
 
-            model.write(fos, "TURTLE");
+            model.getRawModel().write(fos, "TURTLE");
+            System.out.println("RDF salvato correttamente ✅");
+
 
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new RuntimeException("Errore nel salvataggio RDF: " + filename, e);
+        }
+    }
+
+
+
+    public void caricaRDFDaFile(String filename) {
+        File file = new File(filename);
+
+        if (!file.exists()) {
+            return;
+        }
+
+        try (FileInputStream fis = new FileInputStream(file)) {
+            model.read(fis, null, "TURTLE");
+        } catch (IOException e) {
+            throw new RuntimeException("Errore durante il caricamento RDF da file: " + filename, e);
         }
     }
 

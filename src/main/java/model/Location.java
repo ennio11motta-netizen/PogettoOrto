@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Table(name = "location")
 public class Location {
 
     @Id
@@ -34,13 +35,13 @@ public class Location {
 
     }
 
-//    public Integer getLocationId() {
-//        return locationid;
-//    }
-//
-//    public void setLocationId(Integer locationid) {
-//        this.locationid = locationid;
-//    }
+   public Integer getLocationId() {
+       return locationid;
+    }
+
+    public void setLocationId(Integer locationid) {
+        this.locationid = locationid;
+    }
 
     public Double getLatitudine() {
         return latitudine;
@@ -66,13 +67,6 @@ public class Location {
         this.nome = nome;
     }
 
-//   // public Set<WeatherDay> getWeatherDays() {
-//        return weatherDays;
-//    }
-
-//    public void setWeatherDays(Set<WeatherDay> weatherDays) {
-//        this.weatherDays = weatherDays;
-//    }
 
     @Override
     public String toString() {

@@ -5,11 +5,12 @@ import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 @Entity
-//@Table(name = "growth_forecast")
-
+@Table(name = "growth_forecast")
 public class GrowthForecast {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "forecast_id")
     private Integer forecastId;
 
     @ManyToOne
@@ -43,17 +44,17 @@ public class GrowthForecast {
         this.forecastId = forecastId;
     }
 
-//    public Double getGddPrevistiGiorn() {
-//        return gddPrevistiGiorn;
-//    }
+   public Double getGddPrevistiGiorn() {
+       return gddPrevistiGiorn;
+    }
 
     public void setGddPrevistiGiorn(Double gddPrevistiGiorn) {
         this.gddPrevistiGiorn = gddPrevistiGiorn;
     }
 
-//    public Integer getGiorniNuovoStadio() {
-//        return giorniNuovoStadio;
-//    }
+    public Integer getGiorniNuovoStadio() {
+        return giorniNuovoStadio;
+   }
 
     public void setGiorniNuovoStadio(Integer giorniNuovoStadio) {
         this.giorniNuovoStadio = giorniNuovoStadio;
@@ -67,21 +68,20 @@ public class GrowthForecast {
         this.percentCiclo = percentCiclo;
     }
 
-//    public PlantInstance getPlantInstance() {
-//        return plantInstance;
-//    }
 
     public void setPlantInstance(PlantInstance plantInstance) {
         this.plantInstance = plantInstance;
     }
 
-//    public GrowthStage getStadioPrevisto() {
-//        return stadioPrevisto;
-//    }
-
     public void setStadioPrevisto(GrowthStage stadioPrevisto) {
         this.stadioPrevisto = stadioPrevisto;
     }
+
+
+    public GrowthStage getStadioPrevisto() {
+        return stadioPrevisto;
+    }
+
 
     public GrowthForecast() {
     }

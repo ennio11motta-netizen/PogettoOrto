@@ -8,10 +8,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Table(name = "plant_instance")
 public class PlantInstance {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "plant_id")
     private Integer plantId;
 
     @ManyToOne
