@@ -1,4 +1,4 @@
-package dto_mapper;
+package dto;
 
 
 import java.util.List;

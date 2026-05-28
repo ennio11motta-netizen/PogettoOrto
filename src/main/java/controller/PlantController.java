@@ -2,8 +2,8 @@ package controller;
 
 
 
-import dto_mapper.CreatePlantRequest;
-import dto_mapper.PlantDTO;
+import reqResp.CreatePlantRequest;
+import dto.PlantDTO;
 import exception.GrowthStage;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;

@@ -1,7 +1,7 @@
 package controller;
 
-import dto_mapper.GardenSetupRequest;
-import dto_mapper.GardenSetupResponse;
+import reqResp.GardenSetupRequest;
+import reqResp.GardenSetupResponse;
 import exception.GrowthStage;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;

@@ -14,7 +14,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
         "rdf",
         "util",
         "config",
-        "dto_mapper",
+        "mapper",
         "exception"
 })
 @EntityScan(basePackages = "model")

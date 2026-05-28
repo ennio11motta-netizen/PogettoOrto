@@ -1,8 +1,9 @@
-package dto_mapper;
+package mapper;
 
 
 
 
+import dto.WeatherApiDTO;
 import model.Location;
 import model.WeatherDay;
 

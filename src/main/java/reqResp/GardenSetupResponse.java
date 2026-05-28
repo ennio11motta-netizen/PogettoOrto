@@ -1,4 +1,4 @@
-package dto_mapper;
+package reqResp;
 
 public class GardenSetupResponse {
 

@@ -3,8 +3,8 @@ package service;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import dto_mapper.WeatherApiDTO;
-import dto_mapper.WeatherMapper;
+import dto.WeatherApiDTO;
+import mapper.WeatherMapper;
 import model.Location;
 import model.WeatherDay;
 

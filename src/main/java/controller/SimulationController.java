@@ -1,8 +1,8 @@
 package controller;
 
-import dto_mapper.GardenSimulationRequest;
-import dto_mapper.PlantSimulationResultDTO;
-import dto_mapper.SimulationStepDTO;
+import reqResp.GardenSimulationRequest;
+import dto.PlantSimulationResultDTO;
+import dto.SimulationStepDTO;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import model.GrowthForecast;
@@ -12,6 +12,7 @@ import model.RiskAssessment;
 import model.WeatherDay;
 import org.springframework.web.bind.annotation.*;
 import repository.PlantInstanceRepository;
+import reqResp.SimulationRunRequest;
 import simulation.SimulationService;
 import simulation.SimulationStepResult;
 import util.IrrigationCalculator;
@@ -177,11 +178,6 @@ public class SimulationController {
 
 
 
-
-
-
-
-
     @PostMapping("/run-garden")
     public List<PlantSimulationResultDTO> runGardenSimulation(
             @RequestBody GardenSimulationRequest request
@@ -213,11 +209,22 @@ public class SimulationController {
 
             SimulationService simulationService = new SimulationService(em);
 
+            /*
+             * Ottimizzazione:
+             * recuperiamo il forecast una sola volta per tutto l'orto.
+             */
+            List<WeatherDay> forecast =
+                    simulationService.recuperaForecast(location, request.getGiorni());
+
             List<PlantSimulationResultDTO> response = new ArrayList<>();
 
             for (PlantInstance plant : plants) {
+                /*
+                 * Ogni pianta viene simulata usando lo stesso forecast.
+                 * Non viene fatta una nuova chiamata a Open-Meteo.
+                 */
                 List<SimulationStepResult> results =
-                        simulationService.simula(location, plant, request.getGiorni());
+                        simulationService.simulaConForecast(plant, forecast);
 
                 List<SimulationStepDTO> dtoResults = toDTOList(results);
 
@@ -230,12 +237,19 @@ public class SimulationController {
                 ));
             }
 
+            /*
+             * RDF salvato una sola volta alla fine della simulazione dell'orto.
+             */
+            simulationService.finalizzaRDF();
+
             return response;
 
         } finally {
             em.close();
         }
     }
+
+
 
 
     private void validateGardenSimulationRequest(GardenSimulationRequest request) {

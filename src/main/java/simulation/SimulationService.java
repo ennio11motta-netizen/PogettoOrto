@@ -28,6 +28,100 @@ import java.util.List;
  * - calcolo rischio
  * - export RDF
  */
+//public class SimulationService {
+//
+//    private final ExternalWeatherService externalWeatherService;
+//    private final WeatherService weatherService;
+//    private final PlantService plantService;
+//    private final RiskService riskService;
+//    private final RdfService rdfService;
+//    private final SimulationProcessor simulationProcessor;
+//
+//    public SimulationService(EntityManager em) {
+//        if (em == null) {
+//            throw new IllegalArgumentException("EntityManager non può essere null");
+//        }
+//
+//        this.externalWeatherService = new ExternalWeatherService();
+//        this.weatherService = new WeatherService(em);
+//        this.plantService = new PlantService(em);
+//        this.riskService = new RiskService(em);
+//        this.rdfService = new RdfService();
+//
+//        this.simulationProcessor = new SimulationProcessor(
+//                weatherService,
+//                plantService,
+//                riskService,
+//                rdfService
+//        );
+//    }
+//
+//    public List<SimulationStepResult> simula(Location location, PlantInstance pianta, Integer giorni) {
+//        validateInput(location, pianta, giorni);
+//
+//        /*
+//         * 1. Recupero dati meteo previsionali.
+//         */
+//        List<WeatherDay> forecast =
+//                externalWeatherService.fetchForecast(location, giorni);
+//
+//        /*
+//         * 2. Elaborazione giornaliera delegata al processor.
+//         */
+//        List<SimulationStepResult> results = new ArrayList<>();
+//
+//        for (WeatherDay weatherDay : forecast) {
+//            SimulationStepResult result =
+//                    simulationProcessor.processStep(pianta, weatherDay);
+//
+//            results.add(result);
+//        }
+//        //  Applica inferenza RDF
+//        rdfService.applicaInferenzaPiantePericolose();
+//
+//        //  Salva su file RDF
+//        rdfService.salvaRDFSuFile("data/orto.ttl");
+//
+//        return results;
+//    }
+//
+//    public void stampaRDF() {
+//        rdfService.printRDF();
+//    }
+//
+//    public RdfService getRdfService() {
+//        return rdfService;
+//    }
+//
+//    private void validateInput(
+//            Location location,
+//            PlantInstance pianta,
+//            Integer giorni
+//    ) {
+//        if (location == null) {
+//            throw new IllegalArgumentException("Location non può essere null");
+//        }
+//
+//        if (pianta == null) {
+//            throw new IllegalArgumentException("PlantInstance non può essere null");
+//        }
+//
+//        if (giorni == null || giorni <= 0) {
+//            throw new IllegalArgumentException("Numero giorni non valido");
+//        }
+//    }
+//}
+
+
+
+/**
+ * Service orchestratore del sistema.
+ *
+ * Responsabilità:
+ * - validare la simulazione generale
+ * - recuperare dati meteo previsionali
+ * - delegare l'elaborazione giornaliera a SimulationProcessor
+ */
 public class SimulationService {
 
     private final ExternalWeatherService externalWeatherService;
@@ -56,18 +150,47 @@ public class SimulationService {
         );
     }
 
-    public List<SimulationStepResult> simula(Location location, PlantInstance pianta, Integer giorni) {
+    /**
+     * Simulazione classica di una singola pianta.
+     * Manteniamo questo metodo perché è già usato da /api/simulation/run.
+     */
+    public List<SimulationStepResult> simula(
+            Location location,
+            PlantInstance pianta,
+            Integer giorni
+    ) {
         validateInput(location, pianta, giorni);
 
-        /*
-         * 1. Recupero dati meteo previsionali.
-         */
-        List<WeatherDay> forecast =
-                externalWeatherService.fetchForecast(location, giorni);
+        List<WeatherDay> forecast = recuperaForecast(location, giorni);
 
-        /*
-         * 2. Elaborazione giornaliera delegata al processor.
-         */
+        List<SimulationStepResult> results =
+                simulaConForecast(pianta, forecast);
+
+        finalizzaRDF();
+
+        return results;
+    }
+
+    /**
+     * Recupera il forecast una sola volta per una Location.
+     * Questo metodo serve soprattutto per simulare più piante dello stesso orto.
+     */
+    public List<WeatherDay> recuperaForecast(Location location, Integer giorni) {
+        validateForecastInput(location, giorni);
+
+        return externalWeatherService.fetchForecast(location, giorni);
+    }
+
+    /**
+     * Simula una pianta usando un forecast già recuperato.
+     * Non richiama Open-Meteo.
+     */
+    public List<SimulationStepResult> simulaConForecast(
+            PlantInstance pianta,
+            List<WeatherDay> forecast
+    ) {
+        validateSimulaConForecastInput(pianta, forecast);
+
         List<SimulationStepResult> results = new ArrayList<>();
 
         for (WeatherDay weatherDay : forecast) {
@@ -76,13 +199,17 @@ public class SimulationService {
 
             results.add(result);
         }
-        //  Applica inferenza RDF
-        rdfService.applicaInferenzaPiantePericolose();
-
-        //  Salva su file RDF
-        rdfService.salvaRDFSuFile("data/orto.ttl");
 
         return results;
+    }
+
+    /**
+     * Applica inferenza RDF e salva il file.
+     * In run-garden va chiamato una sola volta, dopo aver simulato tutte le piante.
+     */
+    public void finalizzaRDF() {
+        rdfService.applicaInferenzaPiantePericolose();
+        rdfService.salvaRDFSuFile("data/orto.ttl");
     }
 
     public void stampaRDF() {
@@ -98,16 +225,37 @@ public class SimulationService {
             PlantInstance pianta,
             Integer giorni
     ) {
-        if (location == null) {
-            throw new IllegalArgumentException("Location non può essere null");
-        }
+        validateForecastInput(location, giorni);
 
         if (pianta == null) {
             throw new IllegalArgumentException("PlantInstance non può essere null");
         }
+    }
+
+    private void validateForecastInput(Location location, Integer giorni) {
+        if (location == null) {
+            throw new IllegalArgumentException("Location non può essere null");
+        }
 
         if (giorni == null || giorni <= 0) {
             throw new IllegalArgumentException("Numero giorni non valido");
+        }
+
+        if (giorni > 16) {
+            throw new IllegalArgumentException("Numero giorni non valido: massimo 16");
+        }
+    }
+
+    private void validateSimulaConForecastInput(
+            PlantInstance pianta,
+            List<WeatherDay> forecast
+    ) {
+        if (pianta == null) {
+            throw new IllegalArgumentException("PlantInstance non può essere null");
+        }
+
+        if (forecast == null || forecast.isEmpty()) {
+            throw new IllegalArgumentException("Forecast meteo vuoto o null");
         }
     }
 }
