@@ -24,6 +24,10 @@ public class Location {
     private Set<WeatherDay> weatherDays=new HashSet<WeatherDay>();
 
 
+    @OneToMany(mappedBy = "location")
+    private Set<PlantInstance> plantInstances = new HashSet<>();
+
+
 
 //    public Location(Double latitudine, Double longitudine, String nome) {
 //        this.latitudine = latitudine;
@@ -67,6 +71,21 @@ public class Location {
         this.nome = nome;
     }
 
+    public Set<PlantInstance> getPlantInstances() {
+        return plantInstances;
+    }
+
+    public void setPlantInstances(Set<PlantInstance> plantInstances) {
+        this.plantInstances = plantInstances;
+    }
+
+    public Set<WeatherDay> getWeatherDays() {
+        return weatherDays;
+    }
+
+    public void setWeatherDays(Set<WeatherDay> weatherDays) {
+        this.weatherDays = weatherDays;
+    }
 
     @Override
     public String toString() {

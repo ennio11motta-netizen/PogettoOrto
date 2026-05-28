@@ -1,4 +1,4 @@
-package controller;
+package dto_mapper;
 
 public class SimulationStepDTO {
 
@@ -36,6 +36,14 @@ public class SimulationStepDTO {
     private String riskVento;
     private String riskMalattia;
     private String consigli;
+
+    //==========================
+    //DATI IRRIGAZIONE
+    //========================
+
+    private String irrigationLevel;
+    private String irrigationAdvice;
+
 
     public SimulationStepDTO() {
     }
@@ -206,5 +214,21 @@ public class SimulationStepDTO {
 
     public void setConsigli(String consigli) {
         this.consigli = consigli;
+    }
+
+    public String getIrrigationAdvice() {
+        return irrigationAdvice;
+    }
+
+    public void setIrrigationAdvice(String irrigationAdvice) {
+        this.irrigationAdvice = irrigationAdvice;
+    }
+
+    public String getIrrigationLevel() {
+        return irrigationLevel;
+    }
+
+    public void setIrrigationLevel(String irrigationLevel) {
+        this.irrigationLevel = irrigationLevel;
     }
 }
