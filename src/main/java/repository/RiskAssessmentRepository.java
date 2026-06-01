@@ -4,10 +4,13 @@ import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.NoResultException;
 import model.PlantInstance;
 import model.RiskAssessment;
+import org.springframework.stereotype.Repository;
+
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public class RiskAssessmentRepository {
 
     private final EntityManager em;
@@ -17,35 +20,15 @@ public class RiskAssessmentRepository {
     }
 
     public RiskAssessment save(RiskAssessment risk) {
-        EntityTransaction tx = em.getTransaction();
 
-        try {
-            tx.begin();
-            em.persist(risk);
-            tx.commit();
-            return risk;
-        } catch (Exception e) {
-            if (tx.isActive()) {
-                tx.rollback();
-            }
-            throw e;
-        }
+        em.persist(risk);
+        return risk;
+
     }
 
     public RiskAssessment update(RiskAssessment risk) {
-        EntityTransaction tx = em.getTransaction();
+        return em.merge(risk);
 
-        try {
-            tx.begin();
-            RiskAssessment updated = em.merge(risk);
-            tx.commit();
-            return updated;
-        } catch (Exception e) {
-            if (tx.isActive()) {
-                tx.rollback();
-            }
-            throw e;
-        }
     }
 
     public Optional<RiskAssessment> findById(Integer id) {
@@ -128,24 +111,13 @@ public class RiskAssessmentRepository {
     }
 
     public void deleteById(Integer id) {
-        EntityTransaction tx = em.getTransaction();
 
-        try {
-            tx.begin();
+        RiskAssessment risk = em.find(RiskAssessment.class, id);
 
-            RiskAssessment risk = em.find(RiskAssessment.class, id);
-
-            if (risk != null) {
-                em.remove(risk);
-            }
-
-            tx.commit();
-        } catch (Exception e) {
-            if (tx.isActive()) {
-                tx.rollback();
-            }
-            throw e;
+        if (risk != null) {
+            em.remove(risk);
         }
+
     }
 
     private void validateAssessmentForSaveOrUpdate(RiskAssessment assessment) {

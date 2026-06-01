@@ -1,22 +1,28 @@
+
 package service;
 
-import jakarta.persistence.EntityManager;
 import model.WeatherDay;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import repository.WeatherDayRepository;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Optional;
 
+@Service
 public class WeatherService {
 
     private final WeatherDayRepository weatherDayRepository;
 
-    public WeatherService(EntityManager em) {
-        this.weatherDayRepository = new WeatherDayRepository(em);
-    }
+    public WeatherService(WeatherDayRepository weatherDayRepository) {
+        if (weatherDayRepository == null) {
+            throw new IllegalArgumentException("WeatherDayRepository non può essere null");
+        }
 
+        this.weatherDayRepository = weatherDayRepository;
+    }
+    @Transactional
     public WeatherDay salvaWeatherDay(WeatherDay weatherDay) {
         validateWeatherDay(weatherDay);
 
@@ -38,8 +44,6 @@ public class WeatherService {
 
         return weatherDayRepository.save(weatherDay);
     }
-
-
 
     private void validateWeatherDay(WeatherDay weatherDay) {
         if (weatherDay == null) {

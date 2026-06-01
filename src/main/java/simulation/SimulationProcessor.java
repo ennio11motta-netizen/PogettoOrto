@@ -1,15 +1,18 @@
-package simulation;
 
+package simulation;
 
 import model.GrowthForecast;
 import model.PlantInstance;
 import model.RiskAssessment;
 import model.WeatherDay;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import rdf.RdfService;
 import service.PlantService;
 import service.RiskService;
 import service.WeatherService;
 
+@Service
 public class SimulationProcessor {
 
     private final WeatherService weatherService;
@@ -45,6 +48,7 @@ public class SimulationProcessor {
         this.rdfService = rdfService;
     }
 
+    @Transactional
     public SimulationStepResult processStep(
             PlantInstance pianta,
             WeatherDay weatherDay

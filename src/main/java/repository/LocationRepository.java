@@ -3,9 +3,12 @@ import model.Location;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.NoResultException;
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public class LocationRepository {
 
     private final EntityManager em;
@@ -18,17 +21,8 @@ public class LocationRepository {
     // SAVE
     // ===============================
     public Location save(Location location) {
-        EntityTransaction tx = em.getTransaction();
-
-        try {
-            tx.begin();
-            em.persist(location);
-            tx.commit();
-            return location;
-        } catch (Exception e) {
-            if (tx.isActive()) tx.rollback();
-            throw e;
-        }
+        em.persist(location);
+        return  location;
     }
 
     // ===============================
@@ -69,33 +63,21 @@ public class LocationRepository {
     // UPDATE
     // ===============================
     public Location update(Location location) {
-        EntityTransaction tx = em.getTransaction();
+        return em.merge(location);
 
-        try {
-            tx.begin();
-            Location updated = em.merge(location);
-            tx.commit();
-            return updated;
-        } catch (Exception e) {
-            if (tx.isActive()) tx.rollback();
-            throw e;
-        }
     }
 
     // ===============================
     // DELETE
     // ===============================
     public void deleteById(Integer id) {
-        EntityTransaction tx = em.getTransaction();
 
-        try {
-            tx.begin();
-            Location location = em.find(Location.class, id);
-            if (location != null) em.remove(location);
-            tx.commit();
-        } catch (Exception e) {
-            if (tx.isActive()) tx.rollback();
-            throw e;
+        Location location = em.find(Location.class, id);
+
+        if (location != null) {
+            em.remove(location);
         }
     }
+
+
 }

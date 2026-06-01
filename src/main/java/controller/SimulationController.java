@@ -3,26 +3,15 @@ package controller;
 import reqResp.GardenSimulationRequest;
 import dto.PlantSimulationResultDTO;
 import dto.SimulationStepDTO;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import model.GrowthForecast;
-import model.Location;
-import model.PlantInstance;
-import model.RiskAssessment;
-import model.WeatherDay;
+
 import org.springframework.web.bind.annotation.*;
-import repository.PlantInstanceRepository;
+
 import reqResp.SimulationRunRequest;
-import simulation.SimulationService;
-import simulation.SimulationStepResult;
-import util.IrrigationCalculator;
-import util.IrrigationResult;
 
-import java.util.ArrayList;
+import service.SimulationService;
+
+
 import java.util.List;
-
-
-
 
 @RestController
 @RequestMapping("/api/simulation")
@@ -30,151 +19,26 @@ import java.util.List;
 
 public class SimulationController {
 
-    private final EntityManagerFactory entityManagerFactory;
+    private final SimulationService simulationService;
 
-    public SimulationController(EntityManagerFactory entityManagerFactory) {
-        this.entityManagerFactory = entityManagerFactory;
+
+    public SimulationController(SimulationService simulationService) {
+        this.simulationService = simulationService;
     }
+
+
 
     @PostMapping("/run")
     public List<SimulationStepDTO> runSimulation(@RequestBody SimulationRunRequest request) {
 
-        EntityManager em = entityManagerFactory.createEntityManager();
 
-        try {
-            Location location = em.find(Location.class, request.getLocationId());
-            PlantInstance plant = em.find(PlantInstance.class, request.getPlantId());
-
-            if (location == null) {
-                throw new IllegalArgumentException(
-                        "Location non trovata con id: " + request.getLocationId()
+               return simulationService.runSimulation(
+                        request.getLocationId(),
+                        request.getPlantId(),
+                        request.getGiorni()
                 );
-            }
 
-            if (plant == null) {
-                throw new IllegalArgumentException(
-                        "PlantInstance non trovata con id: " + request.getPlantId()
-                );
-            }
-
-            SimulationService simulationService = new SimulationService(em);
-
-            List<SimulationStepResult> results =
-                    simulationService.simula(location, plant, request.getGiorni());
-
-            return toDTOList(results);
-
-        } finally {
-            em.close();
-        }
     }
-
-    private List<SimulationStepDTO> toDTOList(List<SimulationStepResult> results) {
-        List<SimulationStepDTO> dtoList = new ArrayList<>();
-
-        for (SimulationStepResult result : results) {
-            dtoList.add(toDTO(result));
-        }
-
-        return dtoList;
-    }
-
-//
-    private SimulationStepDTO toDTO(SimulationStepResult result) {
-        SimulationStepDTO dto = new SimulationStepDTO();
-
-        WeatherDay weather = result.getWeatherDay();
-        GrowthForecast forecast = result.getGrowthForecast();
-        RiskAssessment risk = result.getRiskAssessment();
-
-        if (weather != null) {
-            dto.setWeatherId(weather.getWeatherId());
-
-            if (weather.getData() != null) {
-                dto.setDate(weather.getData().toString());
-            }
-
-            dto.setTempMin(weather.getTempMin());
-            dto.setTempMax(weather.getTempMax());
-            dto.setUmidita(weather.getUmidita());
-            dto.setPrecipitazione(weather.getPrecipitazione());
-            dto.setVentoKmh(weather.getVentoKmh());
-            dto.setUvIndex(weather.getUvIndex());
-        }
-
-        if (forecast != null) {
-            dto.setForecastId(forecast.getForecastId());
-            dto.setPercentCiclo(forecast.getPercentCiclo());
-
-            /*
-             * Nel PlantService il campo gddPrevistiGiorn viene valorizzato
-             * con il GDD giornaliero calcolato.
-             */
-            dto.setGddGiornaliero(forecast.getGddPrevistiGiorn());
-
-            if (forecast.getStadioPrevisto() != null) {
-                dto.setGrowthStage(forecast.getStadioPrevisto().name());
-            }
-
-            dto.setGiorniAllaMaturazione(forecast.getGiorniNuovoStadio());
-        }
-
-        if (risk != null) {
-            dto.setRiskId(risk.getRiskId());
-
-            if (risk.getPlantInstance() != null) {
-                dto.setPlantId(risk.getPlantInstance().getPlantId());
-                dto.setStoreGDD(risk.getPlantInstance().getStoreGDD());
-
-                if (risk.getPlantInstance().getGrowthStage() != null) {
-                    dto.setGrowthStage(risk.getPlantInstance().getGrowthStage().name());
-                }
-            }
-
-            if (risk.getRiskCaldo() != null) {
-                dto.setRiskCaldo(risk.getRiskCaldo().name());
-            }
-
-            if (risk.getRiskFreddo() != null) {
-                dto.setRiskFreddo(risk.getRiskFreddo().name());
-            }
-
-            if (risk.getRiskVento() != null) {
-                dto.setRiskVento(risk.getRiskVento().name());
-            }
-
-            if (risk.getRiskMalattia() != null) {
-                dto.setRiskMalattia(risk.getRiskMalattia().name());
-            }
-
-            dto.setConsigli(risk.getConsigli());
-        }
-
-        /*
-         * Calcolo irrigazione.
-         * Lo facciamo dopo aver verificato che weather, risk e plantInstance esistano.
-         */
-        if (weather != null && risk != null && risk.getPlantInstance() != null) {
-            IrrigationCalculator irrigationCalculator = new IrrigationCalculator();
-
-            IrrigationResult irrigationResult =
-                    irrigationCalculator.valutaIrrigazione(
-                            risk.getPlantInstance(),
-                            weather
-                    );
-
-            if (irrigationResult != null) {
-                if (irrigationResult.getLevel() != null) {
-                    dto.setIrrigationLevel(irrigationResult.getLevel().name());
-                }
-
-                dto.setIrrigationAdvice(irrigationResult.getAdvice());
-            }
-        }
-
-        return dto;
-    }
-
 
 
 
@@ -182,71 +46,13 @@ public class SimulationController {
     public List<PlantSimulationResultDTO> runGardenSimulation(
             @RequestBody GardenSimulationRequest request
     ) {
+
         validateGardenSimulationRequest(request);
 
-        EntityManager em = entityManagerFactory.createEntityManager();
-
-        try {
-            Location location = em.find(Location.class, request.getLocationId());
-
-            if (location == null) {
-                throw new IllegalArgumentException(
-                        "Location non trovata con id: " + request.getLocationId()
-                );
-            }
-
-            PlantInstanceRepository plantRepository =
-                    new PlantInstanceRepository(em);
-
-            List<PlantInstance> plants =
-                    plantRepository.findByLocation(location);
-
-            if (plants.isEmpty()) {
-                throw new IllegalArgumentException(
-                        "Nessuna pianta trovata per locationId: " + request.getLocationId()
-                );
-            }
-
-            SimulationService simulationService = new SimulationService(em);
-
-            /*
-             * Ottimizzazione:
-             * recuperiamo il forecast una sola volta per tutto l'orto.
-             */
-            List<WeatherDay> forecast =
-                    simulationService.recuperaForecast(location, request.getGiorni());
-
-            List<PlantSimulationResultDTO> response = new ArrayList<>();
-
-            for (PlantInstance plant : plants) {
-                /*
-                 * Ogni pianta viene simulata usando lo stesso forecast.
-                 * Non viene fatta una nuova chiamata a Open-Meteo.
-                 */
-                List<SimulationStepResult> results =
-                        simulationService.simulaConForecast(plant, forecast);
-
-                List<SimulationStepDTO> dtoResults = toDTOList(results);
-
-                response.add(new PlantSimulationResultDTO(
-                        plant.getPlantId(),
-                        plant.getNome(),
-                        location.getLocationId(),
-                        location.getNome(),
-                        dtoResults
-                ));
-            }
-
-            /*
-             * RDF salvato una sola volta alla fine della simulazione dell'orto.
-             */
-            simulationService.finalizzaRDF();
-
-            return response;
-
-        } finally {
-            em.close();
-        }
+        return simulationService.runGardenSimulation(
+                request.getLocationId(),
+                request.getGiorni()
+        );
     }
 
 

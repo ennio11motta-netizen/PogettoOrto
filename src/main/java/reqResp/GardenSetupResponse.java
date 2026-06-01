@@ -1,5 +1,6 @@
 package reqResp;
 
+
 public class GardenSetupResponse {
 
     private Integer locationId;
@@ -16,6 +17,7 @@ public class GardenSetupResponse {
 
     public GardenSetupResponse() {
     }
+
 
     public GardenSetupResponse(
             Integer locationId,

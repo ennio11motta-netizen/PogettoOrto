@@ -7,6 +7,7 @@ import dto.WeatherApiDTO;
 import mapper.WeatherMapper;
 import model.Location;
 import model.WeatherDay;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.net.URI;
@@ -31,6 +32,7 @@ import java.util.Locale;
  * WeatherApiDTO = dato esterno/API
  * WeatherDay = entity interna/JPA
  */
+@Service
 public class ExternalWeatherService {
 
     private static final String OPEN_METEO_BASE_URL =

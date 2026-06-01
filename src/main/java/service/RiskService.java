@@ -1,11 +1,14 @@
+
 package service;
 
-import jakarta.persistence.EntityManager;
 import model.PlantInstance;
 import model.RiskAssessment;
 import model.WeatherDay;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import repository.RiskAssessmentRepository;
 import util.RiskCalculator;
+
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -18,16 +21,21 @@ import java.util.Optional;
  * - usare RiskCalculator per generare la valutazione
  * - delegare persistenza e deduplicazione al repository
  */
+@Service
 public class RiskService {
 
     private final RiskAssessmentRepository riskAssessmentRepository;
     private final RiskCalculator riskCalculator;
 
-    public RiskService(EntityManager em) {
-        this.riskAssessmentRepository = new RiskAssessmentRepository(em);
+    public RiskService(RiskAssessmentRepository riskAssessmentRepository) {
+        if (riskAssessmentRepository == null) {
+            throw new IllegalArgumentException("RiskAssessmentRepository non può essere null");
+        }
+
+        this.riskAssessmentRepository = riskAssessmentRepository;
         this.riskCalculator = new RiskCalculator();
     }
-
+    @Transactional
     public RiskAssessment generaESalvaValutazione(
             PlantInstance pianta,
             WeatherDay weatherDay

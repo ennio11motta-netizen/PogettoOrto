@@ -5,7 +5,12 @@ import java.util.List;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import model.PlantSpecie;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.Optional;
+
+@Repository
 public class PlantInstanceRepository {
 
     private final EntityManager em;
@@ -17,18 +22,11 @@ public class PlantInstanceRepository {
     // ===============================
     // SAVE
     // ===============================
+    @Transactional
     public PlantInstance save(PlantInstance pianta) {
-        EntityTransaction tx = em.getTransaction();
+        em.persist(pianta);
+        return  pianta;
 
-        try {
-            tx.begin();
-            em.persist(pianta);
-            tx.commit();
-            return pianta;
-        } catch (Exception e) {
-            if (tx.isActive()) tx.rollback();
-            throw e;
-        }
     }
 
     // ===============================
@@ -73,34 +71,22 @@ public class PlantInstanceRepository {
     // UPDATE
     // ===============================
     public PlantInstance update(PlantInstance pianta) {
-        EntityTransaction tx = em.getTransaction();
+        return em.merge(pianta);
 
-        try {
-            tx.begin();
-            PlantInstance updated = em.merge(pianta);
-            tx.commit();
-            return updated;
-        } catch (Exception e) {
-            if (tx.isActive()) tx.rollback();
-            throw e;
-        }
     }
 
     // ===============================
     // DELETE
     // ===============================
     public void deleteById(Integer id) {
-        EntityTransaction tx = em.getTransaction();
 
-        try {
-            tx.begin();
-            PlantInstance pianta = em.find(PlantInstance.class, id);
-            if (pianta != null) em.remove(pianta);
-            tx.commit();
-        } catch (Exception e) {
-            if (tx.isActive()) tx.rollback();
-            throw e;
+        PlantInstance pianta = em.find(PlantInstance.class, id);
+
+        if (pianta != null) {
+            em.remove(pianta);
         }
+
+
     }
 
     //====================================

@@ -1,13 +1,19 @@
 package service;
 
-import jakarta.persistence.EntityManager;
+import dto.PlantDTO;
+import exception.GrowthStage;
 import model.*;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import repository.GrowthForecastRepository;
+import repository.LocationRepository;
 import repository.PlantInstanceRepository;
 import repository.PlantSpecieRepository;
+import reqResp.CreatePlantRequest;
 import util.GrowthCalculator;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * Service responsabile della gestione della crescita delle piante.
@@ -16,25 +22,35 @@ import java.time.LocalDateTime;
  * - aggiornamento crescita
  * - generazione forecast
  */
+@Service
 public class PlantService {
 
     private final PlantSpecieRepository plantSpecieRepository;
     private final PlantInstanceRepository plantInstanceRepository;
     private final GrowthForecastRepository growthForecastRepository;
     private final GrowthCalculator growthCalculator;
+    private final LocationRepository locationRepository;
 
 
+    public PlantService(
+            LocationRepository locationRepository,
+            PlantSpecieRepository plantSpecieRepository,
+            PlantInstanceRepository plantInstanceRepository,
+            GrowthForecastRepository growthForecastRepository
+    ) {
 
-    public PlantService(EntityManager em) {
-        this.plantSpecieRepository = new PlantSpecieRepository(em);
-        this.plantInstanceRepository = new PlantInstanceRepository(em);
-        this.growthForecastRepository = new GrowthForecastRepository(em);
+        this.locationRepository = locationRepository;
+        this.plantSpecieRepository = plantSpecieRepository;
+        this.plantInstanceRepository = plantInstanceRepository;
+        this.growthForecastRepository = growthForecastRepository;
         this.growthCalculator = new GrowthCalculator();
+
     }
 
     /**
      * Salva una nuova specie vegetale.
      */
+    @Transactional
     public PlantSpecie salvaSpecie(PlantSpecie specie) {
 
         if (specie == null) {
@@ -70,6 +86,7 @@ public class PlantService {
      * - calcola i nuovi indicatori
      * - genera un GrowthForecast
      */
+    @Transactional
     public GrowthForecast aggiornaCrescitaEGeneraForecast(
             PlantInstance pianta,
             WeatherDay weatherDay,
@@ -130,7 +147,6 @@ public class PlantService {
                 );
 
 
-
         // ===============================
         // 3. CREAZIONE FORECAST
         // ===============================
@@ -147,5 +163,89 @@ public class PlantService {
         // 4. SALVATAGGIO
         // ===============================
         return growthForecastRepository.save(forecast);
+    }
+
+    @Transactional
+    public PlantDTO createPlant(CreatePlantRequest request) {
+
+
+        validateCreatePlantRequest(request);
+
+        Location location = locationRepository.findById(request.getLocationId())
+                .orElseThrow(() -> new IllegalArgumentException(
+                        "Location non trovata con : " + request.getLocationId()
+                ));
+
+        PlantSpecie specie = plantSpecieRepository.findById(request.getSpecieId())
+                .orElseThrow(() -> new IllegalArgumentException(
+                        "Specie non trovata con : " + request.getSpecieId()
+                ));
+
+        PlantInstance plant = new PlantInstance();
+        plant.setNome(request.getNomePianta());
+        plant.setLocation(location);
+        plant.setPlantSpecie(specie);
+        plant.setDataInsert(LocalDateTime.now());
+        plant.setStoreGDD(0.0);
+        plant.setGrowthStage(GrowthStage.SEMINA);
+        plant.setNote(request.getNote());
+
+        PlantInstance savedPlant = plantInstanceRepository.save(plant);
+
+        return PlantDTO.fromEntity(savedPlant);
+    }
+
+    /**
+     * Recupera tutte le piante associate a una location.
+     */
+    public List<PlantDTO> getPlantsByLocation(Integer locationId) {
+        if (locationId == null) {
+            throw new IllegalArgumentException("locationId è obbligatorio");
+        }
+
+        Location location = locationRepository.findById(locationId)
+                .orElseThrow(() -> new IllegalArgumentException(
+                        "Location non trovata con id: " + locationId
+                ));
+
+        return plantInstanceRepository.findByLocation(location)
+                .stream()
+                .map(PlantDTO::fromEntity)
+                .toList();
+    }
+
+    /**
+     * Recupera una singola pianta per id.
+     */
+    public PlantDTO getPlantById(Integer id) {
+        if (id == null) {
+            throw new IllegalArgumentException("id pianta obbligatorio");
+        }
+
+        PlantInstance plant = plantInstanceRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException(
+                        "Pianta non trovata con id: " + id
+                ));
+
+        return PlantDTO.fromEntity(plant);
+    }
+
+
+    private void validateCreatePlantRequest(CreatePlantRequest request) {
+        if (request == null) {
+            throw new IllegalArgumentException("La richiesta non può essere null");
+        }
+
+        if (request.getLocationId() == null) {
+            throw new IllegalArgumentException("La location è obbligatoria");
+        }
+
+        if (request.getSpecieId() == null) {
+            throw new IllegalArgumentException("La specie è obbligatoria");
+        }
+
+        if (request.getNomePianta() == null || request.getNomePianta().isBlank()) {
+            throw new IllegalArgumentException("Il nome della pianta è obbligatorio");
+        }
     }
 }

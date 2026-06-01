@@ -5,11 +5,14 @@ import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.NoResultException;
 import model.Location;
 import model.WeatherDay;
+import org.springframework.stereotype.Repository;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public class WeatherDayRepository {
 
     private final EntityManager em;
@@ -22,19 +25,9 @@ public class WeatherDayRepository {
     // SAVE
     // ===============================
     public WeatherDay save(WeatherDay wd) {
-        EntityTransaction tx = em.getTransaction();
+        em.persist(wd);
+        return wd;
 
-        try {
-            tx.begin();
-            em.persist(wd);
-            tx.commit();
-            return wd;
-        } catch (Exception e) {
-            if (tx.isActive()) {
-                tx.rollback();
-            }
-            throw e;
-        }
     }
 
     // ===============================
@@ -68,7 +61,7 @@ public class WeatherDayRepository {
     // ===============================
     // FIND PER LOCATION + DATA SINGOLA
     // ===============================
-    public Optional<WeatherDay> findByLocationAndDate(Location location, LocalDate data) {
+    public Optional<WeatherDay> findByLocationAndDate(Location location, LocalDateTime data) {
         try {
             return Optional.of(
                     em.createQuery(
@@ -99,8 +92,8 @@ public class WeatherDayRepository {
     // ===============================
     public List<WeatherDay> findByLocationAndDateBetween(
             Location location,
-            LocalDate startDate,
-            LocalDate endDate) {
+            LocalDateTime startDate,
+            LocalDateTime endDate) {
 
         return em.createQuery(
                         "SELECT wd FROM WeatherDay wd WHERE wd.location = :location AND wd.data BETWEEN :start AND :end ORDER BY wd.data ASC",
@@ -115,34 +108,19 @@ public class WeatherDayRepository {
     // UPDATE
     // ===============================
     public WeatherDay update(WeatherDay wd) {
-        EntityTransaction tx = em.getTransaction();
+        return em.merge(wd);
 
-        try {
-            tx.begin();
-            WeatherDay updated = em.merge(wd);
-            tx.commit();
-            return updated;
-        } catch (Exception e) {
-            if (tx.isActive()) tx.rollback();
-            throw e;
-        }
     }
 
     // ===============================
     // DELETE
     // ===============================
     public void deleteById(Integer id) {
-        EntityTransaction tx = em.getTransaction();
-
-        try {
-            tx.begin();
-            WeatherDay wd = em.find(WeatherDay.class, id);
-            if (wd != null) em.remove(wd);
-            tx.commit();
-        } catch (Exception e) {
-            if (tx.isActive()) tx.rollback();
-            throw e;
+        WeatherDay wd = em.find(WeatherDay.class, id);
+        if (wd != null) {
+            em.remove(wd);
         }
+
     }
 
     public Optional<WeatherDay> findByLocationAndDay(

@@ -4,9 +4,11 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import model.GrowthForecast;
 import model.PlantInstance;
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 import java.util.Optional;
-
+@Repository
 public class GrowthForecastRepository {
 
     private final EntityManager em;
@@ -19,34 +21,17 @@ public class GrowthForecastRepository {
     // SAVE
     // ===============================
     public GrowthForecast save(GrowthForecast gf) {
-        EntityTransaction tx = em.getTransaction();
+        em.persist(gf);
+        return gf;
 
-        try {
-            tx.begin();
-            em.persist(gf);
-            tx.commit();
-            return gf;
-        } catch (Exception e) {
-            if (tx.isActive()) tx.rollback();
-            throw e;
-        }
     }
 
     // ===============================
     // UPDATE
     // ===============================
     public GrowthForecast update(GrowthForecast gf) {
-        EntityTransaction tx = em.getTransaction();
+        return  em.merge(gf);
 
-        try {
-            tx.begin();
-            GrowthForecast updated = em.merge(gf);
-            tx.commit();
-            return updated;
-        } catch (Exception e) {
-            if (tx.isActive()) tx.rollback();
-            throw e;
-        }
     }
 
     // ===============================
@@ -93,18 +78,14 @@ public class GrowthForecastRepository {
     // DELETE
     // ===============================
     public void deleteById(Integer id) {
-        EntityTransaction tx = em.getTransaction();
 
-        try {
-            tx.begin();
-            GrowthForecast gf = em.find(GrowthForecast.class, id);
-            if (gf != null) {
-                em.remove(gf);
-            }
-            tx.commit();
-        } catch (Exception e) {
-            if (tx.isActive()) tx.rollback();
-            throw e;
+
+        GrowthForecast gf = em.find(GrowthForecast.class, id);
+
+        if (gf != null) {
+            em.remove(gf);
         }
+
+
     }
 }

@@ -7,6 +7,7 @@ import org.apache.jena.rdf.model.*;
 import org.apache.jena.reasoner.Reasoner;
 import org.apache.jena.vocabulary.RDF;
 import org.apache.jena.vocabulary.RDFS;
+import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -19,6 +20,7 @@ import java.io.IOException;
  * - ontologia (RDFS)
  * - inferenze
  */
+@Service
 public class RdfService {
 
     private static final String NS = "http://orto.example/";
