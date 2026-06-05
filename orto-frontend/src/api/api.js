@@ -47,6 +47,31 @@ export function setupGarden(payload) {
     });
 }
 
+
+export function createGarden(payload) {
+    return request("/garden", {
+        method: "POST",
+        body: JSON.stringify(payload)
+    });
+}
+
+
+
+export function deleteGardenSimulation(locationId) {
+    return request(`/simulation/garden/${locationId}`, {
+        method: "DELETE"
+    });
+}
+
+
+
+
+export function getGardens() {
+    return request("/garden");
+}
+
+
+
 export function addPlant(payload) {
     return request("/plants", {
         method: "POST",
@@ -62,5 +87,16 @@ export function runGardenSimulation(payload) {
     return request("/simulation/run-garden", {
         method: "POST",
         body: JSON.stringify(payload)
+    });
+}
+
+export function deleteSpecies(specieId) {
+    return request(`/species/${specieId}`, {
+        method: "DELETE"
+    });
+}
+export function deletePlant(plantId) {
+    return request(`/plants/${plantId}`, {
+        method: "DELETE"
     });
 }

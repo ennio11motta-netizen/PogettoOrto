@@ -6,7 +6,9 @@ import exception.GrowthStage;
 import exception.IrrigationLevel;
 import model.PlantInstance;
 import model.WeatherDay;
+import org.springframework.stereotype.Component;
 
+@Component
 public class IrrigationCalculator {
 
     public IrrigationResult valutaIrrigazione(

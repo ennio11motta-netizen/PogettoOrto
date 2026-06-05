@@ -2,6 +2,7 @@
 package controller;
 
 import dto.PlantSpecieDTO;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reqResp.CreatePlantSpecieRequest;
 import service.PlantSpecieService;
@@ -32,5 +33,11 @@ public class PlantSpecieController {
     @PostMapping
     public PlantSpecieDTO createSpecie(@RequestBody CreatePlantSpecieRequest request) {
         return plantSpecieService.createSpecie(request);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteSpecie(@PathVariable Integer id) {
+        plantSpecieService.deleteSpecie(id);
+        return ResponseEntity.noContent().build();
     }
 }

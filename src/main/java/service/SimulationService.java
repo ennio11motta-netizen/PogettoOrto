@@ -4,11 +4,12 @@ package service;
 
 import dto.PlantSimulationResultDTO;
 import dto.SimulationStepDTO;
+import exception.GrowthStage;
 import model.*;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import rdf.RdfService;
-import repository.LocationRepository;
-import repository.PlantInstanceRepository;
+import repository.*;
 import simulation.SimulationProcessor;
 import simulation.SimulationStepResult;
 import util.IrrigationCalculator;
@@ -34,12 +35,21 @@ public class SimulationService {
     private final LocationRepository locationRepository;
     private final PlantInstanceRepository plantInstanceRepository;
 
+
+    private final GrowthForecastRepository growthForecastRepository;
+    private final RiskAssessmentRepository riskAssessmentRepository;
+    private final WeatherDayRepository weatherDayRepository;
+
+
     public SimulationService(
             ExternalWeatherService externalWeatherService,
             RdfService rdfService,
             SimulationProcessor simulationProcessor,
             LocationRepository locationRepository,
-            PlantInstanceRepository plantInstanceRepository
+            PlantInstanceRepository plantInstanceRepository,
+            GrowthForecastRepository growthForecastRepository,
+            RiskAssessmentRepository riskAssessmentRepository,
+            WeatherDayRepository weatherDayRepository
     ) {
         if (externalWeatherService == null) {
             throw new IllegalArgumentException("ExternalWeatherService non può essere null");
@@ -66,6 +76,9 @@ public class SimulationService {
         this.simulationProcessor = simulationProcessor;
         this.locationRepository = locationRepository;
         this.plantInstanceRepository = plantInstanceRepository;
+        this.growthForecastRepository = growthForecastRepository;
+        this.riskAssessmentRepository = riskAssessmentRepository;
+        this.weatherDayRepository = weatherDayRepository;
     }
 
     // =========================================================
@@ -143,6 +156,34 @@ public class SimulationService {
         finalizzaRDF();
 
         return response;
+    }
+    //==================================================
+    //   DELETE
+    //======================================================
+    @Transactional
+    public void deleteGardenSimulation(Integer locationId) {
+        if (locationId == null) {
+            throw new IllegalArgumentException("Location obbligatoria");
+        }
+
+        Location location = locationRepository.findById(locationId)
+                .orElseThrow(() -> new IllegalArgumentException(
+                        "Location non trovata con id: " + locationId
+                ));
+
+        List<PlantInstance> plants = plantInstanceRepository.findByLocation(location);
+
+        for (PlantInstance plant : plants) {
+            growthForecastRepository.deleteByPlantInstance(plant);
+            riskAssessmentRepository.deleteByPlantInstance(plant);
+
+            plant.setStoreGDD(0.0);
+            plant.setGrowthStage(GrowthStage.SEMINA);
+
+            plantInstanceRepository.update(plant);
+        }
+
+        weatherDayRepository.deleteByLocation(location);
     }
 
     // =========================================================

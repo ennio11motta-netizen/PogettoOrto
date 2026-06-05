@@ -5,10 +5,7 @@ import exception.GrowthStage;
 import model.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import repository.GrowthForecastRepository;
-import repository.LocationRepository;
-import repository.PlantInstanceRepository;
-import repository.PlantSpecieRepository;
+import repository.*;
 import reqResp.CreatePlantRequest;
 import util.GrowthCalculator;
 
@@ -30,20 +27,25 @@ public class PlantService {
     private final GrowthForecastRepository growthForecastRepository;
     private final GrowthCalculator growthCalculator;
     private final LocationRepository locationRepository;
+    private final RiskAssessmentRepository riskAssessmentRepository;
+
 
 
     public PlantService(
             LocationRepository locationRepository,
             PlantSpecieRepository plantSpecieRepository,
             PlantInstanceRepository plantInstanceRepository,
-            GrowthForecastRepository growthForecastRepository
+            GrowthForecastRepository growthForecastRepository,
+            RiskAssessmentRepository riskAssessmentRepository
     ) {
 
         this.locationRepository = locationRepository;
         this.plantSpecieRepository = plantSpecieRepository;
         this.plantInstanceRepository = plantInstanceRepository;
         this.growthForecastRepository = growthForecastRepository;
+        this.riskAssessmentRepository = riskAssessmentRepository;
         this.growthCalculator = new GrowthCalculator();
+
 
     }
 
@@ -228,6 +230,22 @@ public class PlantService {
                 ));
 
         return PlantDTO.fromEntity(plant);
+    }
+    @Transactional
+    public void deletePlant(Integer id) {
+        if (id == null) {
+            throw new IllegalArgumentException("Id pianta obbligatorio");
+        }
+
+        PlantInstance plant = plantInstanceRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException(
+                        "Pianta non trovata con id: " + id
+                ));
+
+        growthForecastRepository.deleteByPlantInstance(plant);
+        riskAssessmentRepository.deleteByPlantInstance(plant);
+
+        plantInstanceRepository.deleteById(id);
     }
 
 

@@ -1,9 +1,11 @@
 package service;
 
 import dto.PlantSpecieDTO;
+import model.PlantInstance;
 import model.PlantSpecie;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import repository.PlantInstanceRepository;
 import repository.PlantSpecieRepository;
 import reqResp.CreatePlantSpecieRequest;
 
@@ -14,8 +16,14 @@ public class PlantSpecieService {
 
     private final PlantSpecieRepository plantSpecieRepository;
 
-    public PlantSpecieService(PlantSpecieRepository plantSpecieRepository) {
+
+    private final PlantInstanceRepository plantInstanceRepository;
+
+
+    public PlantSpecieService(PlantSpecieRepository plantSpecieRepository,
+                              PlantInstanceRepository plantInstanceRepository) {
         this.plantSpecieRepository = plantSpecieRepository;
+        this.plantInstanceRepository = plantInstanceRepository;
     }
 
     @Transactional(readOnly = true)
@@ -115,4 +123,32 @@ public class PlantSpecieService {
             );
         }
     }
+
+    @Transactional
+    public void deleteSpecie(Integer id) {
+        if (id == null) {
+            throw new IllegalArgumentException("Id specie obbligatorio");
+        }
+
+        PlantSpecie specie = plantSpecieRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException(
+                        "Specie non trovata con id: " + id
+                ));
+
+        List<PlantInstance> plantsUsingSpecies =
+                plantInstanceRepository.findBySpecie(specie);
+
+        if (!plantsUsingSpecies.isEmpty()) {
+            throw new IllegalStateException(
+                    "Impossibile eliminare la specie: esistono "
+                            + plantsUsingSpecies.size()
+                            + " piante associate"
+            );
+        }
+
+        plantSpecieRepository.deleteById(id);
+    }
+
+
 }
+

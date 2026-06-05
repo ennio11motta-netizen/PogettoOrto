@@ -6,7 +6,9 @@ import model.PlantInstance;
 import model.PlantSpecie;
 import model.RiskAssessment;
 import model.WeatherDay;
+import org.springframework.stereotype.Component;
 
+@Component
 public class RiskCalculator {
 
     private final RiskThresholdConfig config;

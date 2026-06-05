@@ -86,6 +86,24 @@ public class GrowthForecastRepository {
             em.remove(gf);
         }
 
-
     }
+
+//    public void deleteByPlantInstance(PlantInstance pianta) {
+//        List<GrowthForecast> forecasts = findByPlantInstance(pianta);
+//
+//        for (GrowthForecast forecast : forecasts) {
+//            em.remove(forecast);
+//        }
+//    }
+
+
+
+    public int deleteByPlantInstance(PlantInstance pianta) {
+        return em.createQuery(
+                        "DELETE FROM GrowthForecast gf WHERE gf.plantInstance = :pianta"
+                )
+                .setParameter("pianta", pianta)
+                .executeUpdate();
+    }
+
 }

@@ -1,5 +1,6 @@
 package controller;
 
+import org.springframework.http.ResponseEntity;
 import reqResp.GardenSimulationRequest;
 import dto.PlantSimulationResultDTO;
 import dto.SimulationStepDTO;
@@ -55,7 +56,11 @@ public class SimulationController {
         );
     }
 
-
+    @DeleteMapping("/garden/{locationId}")
+    public ResponseEntity<Void> deleteGardenSimulation(@PathVariable Integer locationId) {
+        simulationService.deleteGardenSimulation(locationId);
+        return ResponseEntity.noContent().build();
+    }
 
 
     private void validateGardenSimulationRequest(GardenSimulationRequest request) {

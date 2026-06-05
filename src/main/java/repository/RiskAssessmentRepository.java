@@ -133,4 +133,21 @@ public class RiskAssessmentRepository {
             throw new IllegalArgumentException("RiskAssessment deve avere una data");
         }
     }
+
+//    public void deleteByPlantInstance(PlantInstance pianta) {
+//        List<RiskAssessment> risks = findByPlantInstance(pianta);
+//
+//        for (RiskAssessment risk : risks) {
+//            em.remove(risk);
+//        }
+//    }
+
+
+    public int deleteByPlantInstance(PlantInstance pianta) {
+        return em.createQuery(
+                        "DELETE FROM RiskAssessment ra WHERE ra.plantInstance = :pianta"
+                )
+                .setParameter("pianta", pianta)
+                .executeUpdate();
+    }
 }

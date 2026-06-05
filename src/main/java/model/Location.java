@@ -29,15 +29,13 @@ public class Location {
 
 
 
-//    public Location(Double latitudine, Double longitudine, String nome) {
+//   public Location(Double latitudine, Double longitudine, String nome) {
 //        this.latitudine = latitudine;
-//        this.longitudine = longitudine;
-//        this.nome = nome;
-//    }
+//       this.longitudine = longitudine;
+//       this.nome = nome;
+//   }
 
-    public Location() {
-
-    }
+    public Location() {}
 
    public Integer getLocationId() {
        return locationid;

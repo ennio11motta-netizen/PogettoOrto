@@ -2,6 +2,7 @@ package controller;
 
 
 
+import org.springframework.http.ResponseEntity;
 import reqResp.CreatePlantRequest;
 import dto.PlantDTO;
 import org.springframework.web.bind.annotation.*;
@@ -35,5 +36,13 @@ public class PlantController {
     public PlantDTO getPlantById(@PathVariable Integer id) {
         return plantService.getPlantById(id);
     }
+
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletePlant(@PathVariable Integer id) {
+        plantService.deletePlant(id);
+        return ResponseEntity.noContent().build();
+    }
+
 }
 

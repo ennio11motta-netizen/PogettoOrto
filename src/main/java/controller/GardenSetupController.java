@@ -1,10 +1,15 @@
 package controller;
 
+import org.springframework.http.ResponseEntity;
+import reqResp.CreateGardenRequest;
+import reqResp.GardenResponse;
 import reqResp.GardenSetupRequest;
 import reqResp.GardenSetupResponse;
 
 import org.springframework.web.bind.annotation.*;
 import service.GardenSetupService;
+
+import java.util.List;
 
 
 @RestController
@@ -26,4 +31,24 @@ public class GardenSetupController {
     public GardenSetupResponse setupGarden(@RequestBody GardenSetupRequest request) {
         return gardenSetupService.setupGarden(request);
     }
+
+
+    @PostMapping
+    public GardenResponse createGarden(@RequestBody CreateGardenRequest request) {
+        return gardenSetupService.createGarden(request);
+    }
+
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteGarden(@PathVariable Integer id) {
+        gardenSetupService.deleteGarden(id);
+        return ResponseEntity.noContent().build();
+    }
+
+
+    @GetMapping
+    public List<GardenResponse> getAllGardens() {
+        return gardenSetupService.getAllGardens();
+    }
+
 }

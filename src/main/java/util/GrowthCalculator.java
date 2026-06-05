@@ -4,6 +4,7 @@ import exception.GrowthStage;
 import model.PlantInstance;
 import model.PlantSpecie;
 import model.WeatherDay;
+import org.springframework.stereotype.Component;
 
 /**
  * Classe utility responsabile dei calcoli legati alla crescita delle piante.
@@ -14,6 +15,7 @@ import model.WeatherDay;
  * - percentuale ciclo
  * - stime crescita
  */
+@Component
 public class GrowthCalculator {
 
     /**
