@@ -26,8 +26,6 @@ public class GrowthForecast {
 
     private Integer giorniNuovoStadio;
 
-
-
     public LocalDateTime getDateTime() {
        return dateTime;
     }
@@ -85,8 +83,6 @@ public class GrowthForecast {
 
     public GrowthForecast() {
     }
-
-
 
     @Override
     public String toString() {

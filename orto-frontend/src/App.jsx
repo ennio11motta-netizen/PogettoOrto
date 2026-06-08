@@ -8,11 +8,14 @@ import AddPlantForm from "./components/garden/AddPlantForm";
 import SimulationStart from "./components/simulation/SimulationStart";
 import SimulationResults from "./components/simulation/SimulationResults";
 
+
+//API
 import {
   getSpecies,
   createSpecies,
   deleteSpecies,
   createGarden,
+  deleteGarden,
   getGardens,
   addPlant,
   deletePlant,
@@ -21,6 +24,7 @@ import {
   deleteGardenSimulation
 } from "./api/api";
 
+//stato iniziale form
 const emptySpeciesForm = {
   nome: "",
   tempBase: "",
@@ -36,23 +40,27 @@ const emptySpeciesForm = {
 };
 
 function App() {
-  const [species, setSpecies] = useState([]);
-  const [plants, setPlants] = useState([]);
-  const [gardens, setGardens] = useState([]);
-  const [simulationResults, setSimulationResults] = useState([]);
 
-  const [currentLocationId, setCurrentLocationId] = useState("");
-  const [days, setDays] = useState(2);
+  //==========
+  //  STATI
+  //=========
+  const [species, setSpecies] = useState([]); //Specie disponibili
+  const [plants, setPlants] = useState([]);   //Piante orto select
+  const [gardens, setGardens] = useState([]); //orti disponibili
+  const [simulationResults, setSimulationResults] = useState([]); //Risultati simulazione
 
-  const [newSpecies, setNewSpecies] = useState(emptySpeciesForm);
+  const [currentLocationId, setCurrentLocationId] = useState(""); //Stato: caricP+Sim+DeleteSim
+  const [days, setDays] = useState(2); //Giorni da simulare card6
 
-  const [gardenSetup, setGardenSetup] = useState({
+  const [newSpecies, setNewSpecies] = useState(emptySpeciesForm); //stato iniziale del form card2
+
+  const [gardenSetup, setGardenSetup] = useState({ //Stato form card3
     nomeOrto: "",
     latitudine: "",
     longitudine: "",
   });
 
-  const [newPlant, setNewPlant] = useState({
+  const [newPlant, setNewPlant] = useState({ //Stato form card5
     locationId: "",
     specieId: "",
     nomePianta: "",
@@ -282,6 +290,48 @@ function App() {
   }
 
 
+  async function handleDeleteGarden(locationId) {
+    if (!locationId) {
+      setError("Seleziona prima un orto.");
+      return;
+    }
+
+    const confirmed = window.confirm(
+        "Vuoi eliminare questo orto? Verranno eliminate anche tutte le piante, simulazioni e dati meteo associati."
+    );
+
+    if (!confirmed) {
+      return;
+    }
+
+    resetFeedback();
+    setLoading(true);
+
+    try {
+      await deleteGarden(locationId);
+
+      setMessage("Orto eliminato correttamente.");
+
+      setCurrentLocationId("");
+      setPlants([]);
+      setSimulationResults([]);
+      setNewPlant((prev) => ({
+        ...prev,
+        locationId: "",
+        specieId: "",
+        nomePianta: "",
+        note: ""
+      }));
+
+      await loadGardens();
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+
   async function handleSelectGarden(locationId) {
     setCurrentLocationId(locationId);
 
@@ -437,7 +487,7 @@ function App() {
               onSelectGarden={handleSelectGarden}
               onReloadPlants={loadPlants}
               onDeletePlant={handleDeletePlant}
-              //onDeleteGarden={handleDeleteGarden}
+              onDeleteGarden={handleDeleteGarden}
               loading={loading}
           />
 
@@ -471,6 +521,9 @@ function App() {
   );
 }
 
+
+
+//
 function toNumberOrNull(value) {
   if (value === "" || value === null || value === undefined) {
     return null;

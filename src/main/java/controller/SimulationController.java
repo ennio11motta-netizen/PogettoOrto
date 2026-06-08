@@ -4,14 +4,9 @@ import org.springframework.http.ResponseEntity;
 import reqResp.GardenSimulationRequest;
 import dto.PlantSimulationResultDTO;
 import dto.SimulationStepDTO;
-
 import org.springframework.web.bind.annotation.*;
-
 import reqResp.SimulationRunRequest;
-
 import service.SimulationService;
-
-
 import java.util.List;
 
 @RestController

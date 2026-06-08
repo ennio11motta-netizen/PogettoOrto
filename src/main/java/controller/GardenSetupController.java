@@ -26,11 +26,11 @@ public class GardenSetupController {
         this.gardenSetupService = gardenSetupService;
     }
 
-
-    @PostMapping("/setup")
-    public GardenSetupResponse setupGarden(@RequestBody GardenSetupRequest request) {
-        return gardenSetupService.setupGarden(request);
-    }
+//    @Deprecated
+//    @PostMapping("/setup")
+//    public GardenSetupResponse setupGarden(@RequestBody GardenSetupRequest request) {
+//        return gardenSetupService.setupGarden(request);
+//    }
 
 
     @PostMapping
