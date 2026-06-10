@@ -27,13 +27,18 @@ public class RiskService {
     private final RiskAssessmentRepository riskAssessmentRepository;
     private final RiskCalculator riskCalculator;
 
-    public RiskService(RiskAssessmentRepository riskAssessmentRepository) {
+    public RiskService(
+            RiskAssessmentRepository riskAssessmentRepository,
+            RiskCalculator riskCalculator
+    ) {
         if (riskAssessmentRepository == null) {
             throw new IllegalArgumentException("RiskAssessmentRepository non può essere null");
         }
-
+        if (riskCalculator == null) {
+            throw new IllegalArgumentException("RiskCalculator non può essere null");
+        }
         this.riskAssessmentRepository = riskAssessmentRepository;
-        this.riskCalculator = new RiskCalculator();
+        this.riskCalculator = riskCalculator;
     }
     @Transactional
     public RiskAssessment generaESalvaValutazione(

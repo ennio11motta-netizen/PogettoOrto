@@ -3,8 +3,6 @@ package controller;
 import org.springframework.http.ResponseEntity;
 import reqResp.CreateGardenRequest;
 import reqResp.GardenResponse;
-import reqResp.GardenSetupRequest;
-import reqResp.GardenSetupResponse;
 
 import org.springframework.web.bind.annotation.*;
 import service.GardenSetupService;
@@ -26,11 +24,6 @@ public class GardenSetupController {
         this.gardenSetupService = gardenSetupService;
     }
 
-//    @Deprecated
-//    @PostMapping("/setup")
-//    public GardenSetupResponse setupGarden(@RequestBody GardenSetupRequest request) {
-//        return gardenSetupService.setupGarden(request);
-//    }
 
 
     @PostMapping

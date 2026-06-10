@@ -1,7 +1,6 @@
 package repository;
 import model.Location;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.NoResultException;
 import org.springframework.stereotype.Repository;
 

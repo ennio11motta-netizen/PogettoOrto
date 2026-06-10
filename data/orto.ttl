@@ -82,11 +82,11 @@ orto:Plant  a   <http://www.w3.org/2000/01/rdf-schema#Resource> , <http://www.w3
 
 <http://orto.example/plant/17>
         a                  orto:PlantInstance , orto:Plant , orto:EarlyGrowthStage;
-        orto:growthStage   "EMERGENZA" , "VEGETATIVO" , "SEMINA";
+        orto:growthStage   "SEMINA" , "VEGETATIVO" , "EMERGENZA";
         orto:hasForecast   <http://orto.example/forecast/278> , <http://orto.example/forecast/190> , <http://orto.example/forecast/240> , <http://orto.example/forecast/215> , <http://orto.example/forecast/277> , <http://orto.example/forecast/281> , <http://orto.example/forecast/279> , <http://orto.example/forecast/225> , <http://orto.example/forecast/227> , <http://orto.example/forecast/280> , <http://orto.example/forecast/274> , <http://orto.example/forecast/249> , <http://orto.example/forecast/282> , <http://orto.example/forecast/203> , <http://orto.example/forecast/226> , <http://orto.example/forecast/213> , <http://orto.example/forecast/250> , <http://orto.example/forecast/228> , <http://orto.example/forecast/273> , <http://orto.example/forecast/252> , <http://orto.example/forecast/275> , <http://orto.example/forecast/191> , <http://orto.example/forecast/287> , <http://orto.example/forecast/204> , <http://orto.example/forecast/251> , <http://orto.example/forecast/192> , <http://orto.example/forecast/288> , <http://orto.example/forecast/201> , <http://orto.example/forecast/238> , <http://orto.example/forecast/202> , <http://orto.example/forecast/214> , <http://orto.example/forecast/237> , <http://orto.example/forecast/189> , <http://orto.example/forecast/216> , <http://orto.example/forecast/239> , <http://orto.example/forecast/276>;
         orto:hasRisk       <http://orto.example/risk/65> , <http://orto.example/risk/74> , <http://orto.example/risk/70> , <http://orto.example/risk/66> , <http://orto.example/risk/75> , <http://orto.example/risk/71> , <http://orto.example/risk/67> , <http://orto.example/risk/72> , <http://orto.example/risk/73> , <http://orto.example/risk/64>;
         orto:influencedBy  <http://orto.example/weather/39> , <http://orto.example/weather/34> , <http://orto.example/weather/33> , <http://orto.example/weather/30> , <http://orto.example/weather/36> , <http://orto.example/weather/38> , <http://orto.example/weather/35> , <http://orto.example/weather/37> , <http://orto.example/weather/32> , <http://orto.example/weather/31>;
-        orto:storeGDD      "403.84999999999997"^^<http://www.w3.org/2001/XMLSchema#double> , "96.70000000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "132.70000000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "265.3"^^<http://www.w3.org/2001/XMLSchema#double> , "156.70000000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "11.649999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "48.35"^^<http://www.w3.org/2001/XMLSchema#double> , "351.7"^^<http://www.w3.org/2001/XMLSchema#double> , "326.09999999999997"^^<http://www.w3.org/2001/XMLSchema#double> , "290.1"^^<http://www.w3.org/2001/XMLSchema#double> , "205.05"^^<http://www.w3.org/2001/XMLSchema#double> , "313.65"^^<http://www.w3.org/2001/XMLSchema#double> , "71.9"^^<http://www.w3.org/2001/XMLSchema#double> , "120.25000000000003"^^<http://www.w3.org/2001/XMLSchema#double> , "277.75"^^<http://www.w3.org/2001/XMLSchema#double> , "229.4"^^<http://www.w3.org/2001/XMLSchema#double> , "378.04999999999995"^^<http://www.w3.org/2001/XMLSchema#double> , "23.549999999999997"^^<http://www.w3.org/2001/XMLSchema#double> , "108.35000000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "84.35000000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "390.99999999999994"^^<http://www.w3.org/2001/XMLSchema#double> , "417.04999999999995"^^<http://www.w3.org/2001/XMLSchema#double> , "364.9"^^<http://www.w3.org/2001/XMLSchema#double> , "60.0"^^<http://www.w3.org/2001/XMLSchema#double> , "253.4"^^<http://www.w3.org/2001/XMLSchema#double> , "440.5999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "145.05"^^<http://www.w3.org/2001/XMLSchema#double> , "36.0"^^<http://www.w3.org/2001/XMLSchema#double> , "216.95000000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "193.4"^^<http://www.w3.org/2001/XMLSchema#double> , "168.60000000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "241.75"^^<http://www.w3.org/2001/XMLSchema#double> , "338.45"^^<http://www.w3.org/2001/XMLSchema#double> , "181.05"^^<http://www.w3.org/2001/XMLSchema#double> , "428.69999999999993"^^<http://www.w3.org/2001/XMLSchema#double> , "301.75"^^<http://www.w3.org/2001/XMLSchema#double> .
+        orto:storeGDD      "290.1"^^<http://www.w3.org/2001/XMLSchema#double> , "156.70000000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "241.75"^^<http://www.w3.org/2001/XMLSchema#double> , "313.65"^^<http://www.w3.org/2001/XMLSchema#double> , "390.99999999999994"^^<http://www.w3.org/2001/XMLSchema#double> , "326.09999999999997"^^<http://www.w3.org/2001/XMLSchema#double> , "71.9"^^<http://www.w3.org/2001/XMLSchema#double> , "36.0"^^<http://www.w3.org/2001/XMLSchema#double> , "23.549999999999997"^^<http://www.w3.org/2001/XMLSchema#double> , "378.04999999999995"^^<http://www.w3.org/2001/XMLSchema#double> , "364.9"^^<http://www.w3.org/2001/XMLSchema#double> , "428.69999999999993"^^<http://www.w3.org/2001/XMLSchema#double> , "145.05"^^<http://www.w3.org/2001/XMLSchema#double> , "440.5999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "96.70000000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "120.25000000000003"^^<http://www.w3.org/2001/XMLSchema#double> , "277.75"^^<http://www.w3.org/2001/XMLSchema#double> , "205.05"^^<http://www.w3.org/2001/XMLSchema#double> , "301.75"^^<http://www.w3.org/2001/XMLSchema#double> , "11.649999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "60.0"^^<http://www.w3.org/2001/XMLSchema#double> , "108.35000000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "351.7"^^<http://www.w3.org/2001/XMLSchema#double> , "132.70000000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "265.3"^^<http://www.w3.org/2001/XMLSchema#double> , "253.4"^^<http://www.w3.org/2001/XMLSchema#double> , "229.4"^^<http://www.w3.org/2001/XMLSchema#double> , "48.35"^^<http://www.w3.org/2001/XMLSchema#double> , "338.45"^^<http://www.w3.org/2001/XMLSchema#double> , "216.95000000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "403.84999999999997"^^<http://www.w3.org/2001/XMLSchema#double> , "417.04999999999995"^^<http://www.w3.org/2001/XMLSchema#double> , "84.35000000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "181.05"^^<http://www.w3.org/2001/XMLSchema#double> , "168.60000000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "193.4"^^<http://www.w3.org/2001/XMLSchema#double> .
 
 <http://orto.example/forecast/204>
         a                  orto:GrowthForecast;
@@ -99,7 +99,7 @@ orto:Plant  a   <http://www.w3.org/2000/01/rdf-schema#Resource> , <http://www.w3
 <http://orto.example/risk/2>
         a                  orto:RiskAssessment , orto:Risk , <http://www.w3.org/2000/01/rdf-schema#Resource> , orto:LowRisk , orto:CriticalRisk;
         orto:consigli      "Rischio caldo alto: aumentare irrigazione e ombreggiare la pianta." , "Nessun rischio rilevante.";
-        orto:riskCaldo     "HIGH" , "LOW";
+        orto:riskCaldo     "LOW" , "HIGH";
         orto:riskFreddo    "LOW";
         orto:riskMalattia  "LOW";
         orto:riskVento     "LOW" .
@@ -127,10 +127,10 @@ orto:Plant  a   <http://www.w3.org/2000/01/rdf-schema#Resource> , <http://www.w3
 <http://orto.example/weather/7>
         a                    <http://www.w3.org/2000/01/rdf-schema#Resource> , orto:WeatherDay;
         orto:generatesRisk   <http://orto.example/risk/7>;
-        orto:precipitazione  "3.0"^^<http://www.w3.org/2001/XMLSchema#double> , "0.0"^^<http://www.w3.org/2001/XMLSchema#double> , "0.6"^^<http://www.w3.org/2001/XMLSchema#double>;
-        orto:tempMax         "31.7"^^<http://www.w3.org/2001/XMLSchema#double> , "33.1"^^<http://www.w3.org/2001/XMLSchema#double> , "29.5"^^<http://www.w3.org/2001/XMLSchema#double>;
-        orto:tempMin         "17.0"^^<http://www.w3.org/2001/XMLSchema#double> , "14.3"^^<http://www.w3.org/2001/XMLSchema#double> , "21.3"^^<http://www.w3.org/2001/XMLSchema#double>;
-        orto:umidita         "58.083333333333336"^^<http://www.w3.org/2001/XMLSchema#double> , "31.25"^^<http://www.w3.org/2001/XMLSchema#double> , "75.33333333333333"^^<http://www.w3.org/2001/XMLSchema#double> .
+        orto:precipitazione  "0.6"^^<http://www.w3.org/2001/XMLSchema#double> , "0.0"^^<http://www.w3.org/2001/XMLSchema#double> , "3.0"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:tempMax         "33.1"^^<http://www.w3.org/2001/XMLSchema#double> , "29.5"^^<http://www.w3.org/2001/XMLSchema#double> , "31.7"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:tempMin         "14.3"^^<http://www.w3.org/2001/XMLSchema#double> , "17.0"^^<http://www.w3.org/2001/XMLSchema#double> , "21.3"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:umidita         "58.083333333333336"^^<http://www.w3.org/2001/XMLSchema#double> , "75.33333333333333"^^<http://www.w3.org/2001/XMLSchema#double> , "31.25"^^<http://www.w3.org/2001/XMLSchema#double> .
 
 <http://orto.example/forecast/194>
         a                  orto:GrowthForecast;
@@ -194,7 +194,7 @@ orto:Plant  a   <http://www.w3.org/2000/01/rdf-schema#Resource> , <http://www.w3
         orto:hasForecast   <http://orto.example/forecast/48> , <http://orto.example/forecast/40> , <http://orto.example/forecast/39> , <http://orto.example/forecast/47>;
         orto:hasRisk       <http://orto.example/risk/23> , <http://orto.example/risk/26> , <http://orto.example/risk/22>;
         orto:influencedBy  <http://orto.example/weather/20> , <http://orto.example/weather/18> , <http://orto.example/weather/19>;
-        orto:storeGDD      "14.100000000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "54.25000000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "40.300000000000004"^^<http://www.w3.org/2001/XMLSchema#double> , "27.200000000000003"^^<http://www.w3.org/2001/XMLSchema#double> .
+        orto:storeGDD      "54.25000000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "27.200000000000003"^^<http://www.w3.org/2001/XMLSchema#double> , "40.300000000000004"^^<http://www.w3.org/2001/XMLSchema#double> , "14.100000000000001"^^<http://www.w3.org/2001/XMLSchema#double> .
 
 <http://orto.example/forecast/220>
         a                  orto:GrowthForecast;
@@ -202,15 +202,15 @@ orto:Plant  a   <http://www.w3.org/2000/01/rdf-schema#Resource> , <http://www.w3
 
 <http://orto.example/forecast/30>
         a                  orto:GrowthForecast;
-        orto:percentCiclo  "6.438461538461539"^^<http://www.w3.org/2001/XMLSchema#double> .
+        orto:percentCiclo  "0.4111111111111112"^^<http://www.w3.org/2001/XMLSchema#double> , "6.438461538461539"^^<http://www.w3.org/2001/XMLSchema#double> .
 
 <http://orto.example/weather/18>
         a                    orto:WeatherDay;
-        orto:generatesRisk   <http://orto.example/risk/24> , <http://orto.example/risk/22>;
-        orto:precipitazione  "0.0"^^<http://www.w3.org/2001/XMLSchema#double>;
-        orto:tempMax         "30.4"^^<http://www.w3.org/2001/XMLSchema#double>;
-        orto:tempMin         "17.8"^^<http://www.w3.org/2001/XMLSchema#double>;
-        orto:umidita         "59.666666666666664"^^<http://www.w3.org/2001/XMLSchema#double> .
+        orto:generatesRisk   <http://orto.example/risk/22> , <http://orto.example/risk/24> , <http://orto.example/risk/18>;
+        orto:precipitazione  "0.0"^^<http://www.w3.org/2001/XMLSchema#double> , "0.1"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:tempMax         "27.4"^^<http://www.w3.org/2001/XMLSchema#double> , "30.4"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:tempMin         "17.8"^^<http://www.w3.org/2001/XMLSchema#double> , "15.1"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:umidita         "67.70833333333333"^^<http://www.w3.org/2001/XMLSchema#double> , "59.666666666666664"^^<http://www.w3.org/2001/XMLSchema#double> .
 
 <http://www.w3.org/1999/02/22-rdf-syntax-ns#object>
         a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/2000/01/rdf-schema#Resource>;
@@ -342,7 +342,7 @@ orto:GrowthForecast  a  <http://www.w3.org/2000/01/rdf-schema#Resource> , <http:
         orto:hasForecast   <http://orto.example/forecast/266> , <http://orto.example/forecast/175> , <http://orto.example/forecast/104> , <http://orto.example/forecast/139> , <http://orto.example/forecast/271> , <http://orto.example/forecast/235> , <http://orto.example/forecast/174> , <http://orto.example/forecast/121> , <http://orto.example/forecast/138> , <http://orto.example/forecast/198> , <http://orto.example/forecast/247> , <http://orto.example/forecast/82> , <http://orto.example/forecast/107> , <http://orto.example/forecast/142> , <http://orto.example/forecast/269> , <http://orto.example/forecast/155> , <http://orto.example/forecast/264> , <http://orto.example/forecast/102> , <http://orto.example/forecast/119> , <http://orto.example/forecast/141> , <http://orto.example/forecast/286> , <http://orto.example/forecast/224> , <http://orto.example/forecast/89> , <http://orto.example/forecast/172> , <http://orto.example/forecast/136> , <http://orto.example/forecast/100> , <http://orto.example/forecast/272> , <http://orto.example/forecast/236> , <http://orto.example/forecast/245> , <http://orto.example/forecast/71> , <http://orto.example/forecast/158> , <http://orto.example/forecast/88> , <http://orto.example/forecast/209> , <http://orto.example/forecast/222> , <http://orto.example/forecast/122> , <http://orto.example/forecast/199> , <http://orto.example/forecast/267> , <http://orto.example/forecast/83> , <http://orto.example/forecast/179> , <http://orto.example/forecast/108> , <http://orto.example/forecast/265> , <http://orto.example/forecast/161> , <http://orto.example/forecast/178> , <http://orto.example/forecast/187> , <http://orto.example/forecast/212> , <http://orto.example/forecast/125> , <http://orto.example/forecast/270> , <http://orto.example/forecast/234> , <http://orto.example/forecast/86> , <http://orto.example/forecast/173> , <http://orto.example/forecast/211> , <http://orto.example/forecast/120> , <http://orto.example/forecast/137> , <http://orto.example/forecast/197> , <http://orto.example/forecast/233> , <http://orto.example/forecast/159> , <http://orto.example/forecast/72> , <http://orto.example/forecast/106> , <http://orto.example/forecast/263> , <http://orto.example/forecast/176> , <http://orto.example/forecast/105> , <http://orto.example/forecast/140> , <http://orto.example/forecast/285> , <http://orto.example/forecast/223> , <http://orto.example/forecast/162> , <http://orto.example/forecast/200> , <http://orto.example/forecast/188> , <http://orto.example/forecast/126> , <http://orto.example/forecast/248> , <http://orto.example/forecast/87> , <http://orto.example/forecast/157> , <http://orto.example/forecast/221> , <http://orto.example/forecast/143> , <http://orto.example/forecast/156> , <http://orto.example/forecast/103> , <http://orto.example/forecast/160> , <http://orto.example/forecast/90> , <http://orto.example/forecast/177> , <http://orto.example/forecast/186> , <http://orto.example/forecast/124> , <http://orto.example/forecast/101> , <http://orto.example/forecast/246> , <http://orto.example/forecast/85> , <http://orto.example/forecast/185> , <http://orto.example/forecast/210> , <http://orto.example/forecast/123> , <http://orto.example/forecast/268> , <http://orto.example/forecast/154> , <http://orto.example/forecast/84> , <http://orto.example/forecast/180> , <http://orto.example/forecast/118> , <http://orto.example/forecast/144>;
         orto:hasRisk       <http://orto.example/risk/60> , <http://orto.example/risk/58> , <http://orto.example/risk/48> , <http://orto.example/risk/62> , <http://orto.example/risk/63> , <http://orto.example/risk/57> , <http://orto.example/risk/61> , <http://orto.example/risk/59> , <http://orto.example/risk/49> , <http://orto.example/risk/69>;
         orto:influencedBy  <http://orto.example/weather/31> , <http://orto.example/weather/38> , <http://orto.example/weather/33> , <http://orto.example/weather/30> , <http://orto.example/weather/35> , <http://orto.example/weather/32> , <http://orto.example/weather/34> , <http://orto.example/weather/37> , <http://orto.example/weather/36> , <http://orto.example/weather/39>;
-        orto:storeGDD      "465.34999999999985"^^<http://www.w3.org/2001/XMLSchema#double> , "251.39999999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "653.9499999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "921.0500000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "734.65"^^<http://www.w3.org/2001/XMLSchema#double> , "316.44999999999993"^^<http://www.w3.org/2001/XMLSchema#double> , "82.35000000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "241.04999999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "402.5499999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "380.7499999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "49.55"^^<http://www.w3.org/2001/XMLSchema#double> , "115.30000000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "572.2499999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "178.1"^^<http://www.w3.org/2001/XMLSchema#double> , "336.7999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "755.45"^^<http://www.w3.org/2001/XMLSchema#double> , "910.1000000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "59.9"^^<http://www.w3.org/2001/XMLSchema#double> , "155.65"^^<http://www.w3.org/2001/XMLSchema#double> , "603.6999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "644.05"^^<http://www.w3.org/2001/XMLSchema#double> , "166.9"^^<http://www.w3.org/2001/XMLSchema#double> , "306.79999999999995"^^<http://www.w3.org/2001/XMLSchema#double> , "507.9499999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "704.75"^^<http://www.w3.org/2001/XMLSchema#double> , "391.6999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "262.65"^^<http://www.w3.org/2001/XMLSchema#double> , "498.29999999999984"^^<http://www.w3.org/2001/XMLSchema#double> , "369.5999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "220.7"^^<http://www.w3.org/2001/XMLSchema#double> , "454.14999999999986"^^<http://www.w3.org/2001/XMLSchema#double> , "674.75"^^<http://www.w3.org/2001/XMLSchema#double> , "442.89999999999986"^^<http://www.w3.org/2001/XMLSchema#double> , "71.15"^^<http://www.w3.org/2001/XMLSchema#double> , "528.2999999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "898.9500000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "561.0999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "295.94999999999993"^^<http://www.w3.org/2001/XMLSchema#double> , "230.6"^^<http://www.w3.org/2001/XMLSchema#double> , "765.1"^^<http://www.w3.org/2001/XMLSchema#double> , "845.8000000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "594.05"^^<http://www.w3.org/2001/XMLSchema#double> , "189.25"^^<http://www.w3.org/2001/XMLSchema#double> , "124.95000000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "549.8999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "211.04999999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "775.0"^^<http://www.w3.org/2001/XMLSchema#double> , "931.9000000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "538.6499999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "962.6500000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "487.4499999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "517.8499999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "724.75"^^<http://www.w3.org/2001/XMLSchema#double> , "684.4"^^<http://www.w3.org/2001/XMLSchema#double> , "855.7"^^<http://www.w3.org/2001/XMLSchema#double> , "432.54999999999984"^^<http://www.w3.org/2001/XMLSchema#double> , "887.7500000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "952.7500000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "583.1999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "634.4"^^<http://www.w3.org/2001/XMLSchema#double> , "624.05"^^<http://www.w3.org/2001/XMLSchema#double> , "715.1"^^<http://www.w3.org/2001/XMLSchema#double> , "358.3999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "326.3499999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "93.5"^^<http://www.w3.org/2001/XMLSchema#double> , "805.45"^^<http://www.w3.org/2001/XMLSchema#double> , "815.35"^^<http://www.w3.org/2001/XMLSchema#double> , "745.1"^^<http://www.w3.org/2001/XMLSchema#double> , "200.2"^^<http://www.w3.org/2001/XMLSchema#double> , "943.1000000000003"^^<http://www.w3.org/2001/XMLSchema#double> , "39.099999999999994"^^<http://www.w3.org/2001/XMLSchema#double> , "876.5000000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "694.3"^^<http://www.w3.org/2001/XMLSchema#double> , "825.8000000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "422.09999999999985"^^<http://www.w3.org/2001/XMLSchema#double> , "273.84999999999997"^^<http://www.w3.org/2001/XMLSchema#double> , "795.8000000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "284.99999999999994"^^<http://www.w3.org/2001/XMLSchema#double> , "134.85000000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "476.49999999999983"^^<http://www.w3.org/2001/XMLSchema#double> , "664.4"^^<http://www.w3.org/2001/XMLSchema#double> , "9.649999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "866.1500000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "145.3"^^<http://www.w3.org/2001/XMLSchema#double> , "613.5999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "836.1500000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "19.549999999999997"^^<http://www.w3.org/2001/XMLSchema#double> , "347.1499999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "785.45"^^<http://www.w3.org/2001/XMLSchema#double> , "412.1999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "29.199999999999996"^^<http://www.w3.org/2001/XMLSchema#double> , "104.45"^^<http://www.w3.org/2001/XMLSchema#double> .
+        orto:storeGDD      "785.45"^^<http://www.w3.org/2001/XMLSchema#double> , "765.1"^^<http://www.w3.org/2001/XMLSchema#double> , "82.35000000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "241.04999999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "189.25"^^<http://www.w3.org/2001/XMLSchema#double> , "561.0999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "432.54999999999984"^^<http://www.w3.org/2001/XMLSchema#double> , "684.4"^^<http://www.w3.org/2001/XMLSchema#double> , "887.7500000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "476.49999999999983"^^<http://www.w3.org/2001/XMLSchema#double> , "836.1500000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "59.9"^^<http://www.w3.org/2001/XMLSchema#double> , "538.6499999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "866.1500000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "603.6999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "704.75"^^<http://www.w3.org/2001/XMLSchema#double> , "528.2999999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "369.5999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "745.1"^^<http://www.w3.org/2001/XMLSchema#double> , "594.05"^^<http://www.w3.org/2001/XMLSchema#double> , "211.04999999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "613.5999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "845.8000000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "336.7999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "104.45"^^<http://www.w3.org/2001/XMLSchema#double> , "19.549999999999997"^^<http://www.w3.org/2001/XMLSchema#double> , "724.75"^^<http://www.w3.org/2001/XMLSchema#double> , "391.6999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "124.95000000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "931.9000000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "775.0"^^<http://www.w3.org/2001/XMLSchema#double> , "910.1000000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "316.44999999999993"^^<http://www.w3.org/2001/XMLSchema#double> , "454.14999999999986"^^<http://www.w3.org/2001/XMLSchema#double> , "306.79999999999995"^^<http://www.w3.org/2001/XMLSchema#double> , "115.30000000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "795.8000000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "284.99999999999994"^^<http://www.w3.org/2001/XMLSchema#double> , "412.1999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "134.85000000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "39.099999999999994"^^<http://www.w3.org/2001/XMLSchema#double> , "326.3499999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "347.1499999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "634.4"^^<http://www.w3.org/2001/XMLSchema#double> , "380.7499999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "358.3999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "93.5"^^<http://www.w3.org/2001/XMLSchema#double> , "422.09999999999985"^^<http://www.w3.org/2001/XMLSchema#double> , "653.9499999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "295.94999999999993"^^<http://www.w3.org/2001/XMLSchema#double> , "29.199999999999996"^^<http://www.w3.org/2001/XMLSchema#double> , "487.4499999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "262.65"^^<http://www.w3.org/2001/XMLSchema#double> , "572.2499999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "674.75"^^<http://www.w3.org/2001/XMLSchema#double> , "583.1999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "855.7"^^<http://www.w3.org/2001/XMLSchema#double> , "9.649999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "220.7"^^<http://www.w3.org/2001/XMLSchema#double> , "178.1"^^<http://www.w3.org/2001/XMLSchema#double> , "200.2"^^<http://www.w3.org/2001/XMLSchema#double> , "943.1000000000003"^^<http://www.w3.org/2001/XMLSchema#double> , "71.15"^^<http://www.w3.org/2001/XMLSchema#double> , "155.65"^^<http://www.w3.org/2001/XMLSchema#double> , "549.8999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "805.45"^^<http://www.w3.org/2001/XMLSchema#double> , "734.65"^^<http://www.w3.org/2001/XMLSchema#double> , "624.05"^^<http://www.w3.org/2001/XMLSchema#double> , "145.3"^^<http://www.w3.org/2001/XMLSchema#double> , "166.9"^^<http://www.w3.org/2001/XMLSchema#double> , "755.45"^^<http://www.w3.org/2001/XMLSchema#double> , "402.5499999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "230.6"^^<http://www.w3.org/2001/XMLSchema#double> , "507.9499999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "694.3"^^<http://www.w3.org/2001/XMLSchema#double> , "898.9500000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "952.7500000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "921.0500000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "465.34999999999985"^^<http://www.w3.org/2001/XMLSchema#double> , "715.1"^^<http://www.w3.org/2001/XMLSchema#double> , "273.84999999999997"^^<http://www.w3.org/2001/XMLSchema#double> , "517.8499999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "815.35"^^<http://www.w3.org/2001/XMLSchema#double> , "644.05"^^<http://www.w3.org/2001/XMLSchema#double> , "442.89999999999986"^^<http://www.w3.org/2001/XMLSchema#double> , "825.8000000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "498.29999999999984"^^<http://www.w3.org/2001/XMLSchema#double> , "49.55"^^<http://www.w3.org/2001/XMLSchema#double> , "251.39999999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "962.6500000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "664.4"^^<http://www.w3.org/2001/XMLSchema#double> , "876.5000000000001"^^<http://www.w3.org/2001/XMLSchema#double> .
 
 <http://orto.example/forecast/203>
         a                  orto:GrowthForecast;
@@ -355,7 +355,7 @@ orto:GrowthForecast  a  <http://www.w3.org/2000/01/rdf-schema#Resource> , <http:
 <http://orto.example/risk/1>
         a                  orto:RiskAssessment , orto:Risk , <http://www.w3.org/2000/01/rdf-schema#Resource> , orto:LowRisk , orto:CriticalRisk;
         orto:consigli      "Rischio caldo alto: aumentare irrigazione e ombreggiare la pianta." , "Nessun rischio rilevante.";
-        orto:riskCaldo     "HIGH" , "LOW";
+        orto:riskCaldo     "LOW" , "HIGH";
         orto:riskFreddo    "LOW";
         orto:riskMalattia  "LOW";
         orto:riskVento     "LOW" .
@@ -384,9 +384,9 @@ orto:GrowthForecast  a  <http://www.w3.org/2000/01/rdf-schema#Resource> , <http:
         a                    <http://www.w3.org/2000/01/rdf-schema#Resource> , orto:WeatherDay;
         orto:generatesRisk   <http://orto.example/risk/6>;
         orto:precipitazione  "0.0"^^<http://www.w3.org/2001/XMLSchema#double>;
-        orto:tempMax         "35.0"^^<http://www.w3.org/2001/XMLSchema#double> , "30.3"^^<http://www.w3.org/2001/XMLSchema#double> , "32.9"^^<http://www.w3.org/2001/XMLSchema#double>;
-        orto:tempMin         "22.0"^^<http://www.w3.org/2001/XMLSchema#double> , "18.9"^^<http://www.w3.org/2001/XMLSchema#double> , "21.4"^^<http://www.w3.org/2001/XMLSchema#double> , "19.7"^^<http://www.w3.org/2001/XMLSchema#double>;
-        orto:umidita         "48.791666666666664"^^<http://www.w3.org/2001/XMLSchema#double> , "59.625"^^<http://www.w3.org/2001/XMLSchema#double> , "45.541666666666664"^^<http://www.w3.org/2001/XMLSchema#double> , "23.5"^^<http://www.w3.org/2001/XMLSchema#double> .
+        orto:tempMax         "30.3"^^<http://www.w3.org/2001/XMLSchema#double> , "32.9"^^<http://www.w3.org/2001/XMLSchema#double> , "35.0"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:tempMin         "22.0"^^<http://www.w3.org/2001/XMLSchema#double> , "21.4"^^<http://www.w3.org/2001/XMLSchema#double> , "19.7"^^<http://www.w3.org/2001/XMLSchema#double> , "18.9"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:umidita         "45.541666666666664"^^<http://www.w3.org/2001/XMLSchema#double> , "48.791666666666664"^^<http://www.w3.org/2001/XMLSchema#double> , "59.625"^^<http://www.w3.org/2001/XMLSchema#double> , "23.5"^^<http://www.w3.org/2001/XMLSchema#double> .
 
 <http://orto.example/forecast/229>
         a                  orto:GrowthForecast;
@@ -451,11 +451,11 @@ orto:GrowthForecast  a  <http://www.w3.org/2000/01/rdf-schema#Resource> , <http:
 
 <http://orto.example/weather/17>
         a                    orto:WeatherDay;
-        orto:generatesRisk   <http://orto.example/risk/19> , <http://orto.example/risk/21>;
-        orto:precipitazione  "0.8"^^<http://www.w3.org/2001/XMLSchema#double>;
-        orto:tempMax         "26.2"^^<http://www.w3.org/2001/XMLSchema#double>;
-        orto:tempMin         "17.8"^^<http://www.w3.org/2001/XMLSchema#double>;
-        orto:umidita         "77.0"^^<http://www.w3.org/2001/XMLSchema#double> .
+        orto:generatesRisk   <http://orto.example/risk/17> , <http://orto.example/risk/19> , <http://orto.example/risk/21>;
+        orto:precipitazione  "2.9"^^<http://www.w3.org/2001/XMLSchema#double> , "0.8"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:tempMax         "26.2"^^<http://www.w3.org/2001/XMLSchema#double> , "25.7"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:tempMin         "17.8"^^<http://www.w3.org/2001/XMLSchema#double> , "17.0"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:umidita         "73.29166666666667"^^<http://www.w3.org/2001/XMLSchema#double> , "77.0"^^<http://www.w3.org/2001/XMLSchema#double> .
 
 <http://orto.example/forecast/109>
         a                  orto:GrowthForecast;
@@ -500,11 +500,11 @@ orto:GrowthForecast  a  <http://www.w3.org/2000/01/rdf-schema#Resource> , <http:
         orto:percentCiclo  "0.049999999999999926"^^<http://www.w3.org/2001/XMLSchema#double> .
 
 <http://orto.example/risk/19>
-        a                  orto:RiskAssessment , orto:Risk , orto:LowRisk;
-        orto:consigli      "Nessun rischio rilevante.";
+        a                  orto:ModerateRisk , orto:Risk , orto:LowRisk , orto:RiskAssessment;
+        orto:consigli      "Rischio malattia medio: monitorare foglie e umidità." , "Nessun rischio rilevante.";
         orto:riskCaldo     "LOW";
         orto:riskFreddo    "LOW";
-        orto:riskMalattia  "LOW";
+        orto:riskMalattia  "LOW" , "MEDIUM";
         orto:riskVento     "LOW" .
 
 <http://orto.example/weather/25>
@@ -569,11 +569,11 @@ orto:GrowthForecast  a  <http://www.w3.org/2000/01/rdf-schema#Resource> , <http:
 
 <http://orto.example/plant/15>
         a                  orto:Plant , orto:EarlyGrowthStage , orto:PlantInstance , orto:AdvancedGrowthStage;
-        orto:growthStage   "SEMINA" , "FIORITURA" , "EMERGENZA" , "VEGETATIVO" , "MATURAZIONE" , "FRUTTIFICAZIONE";
-        orto:hasForecast   <http://orto.example/forecast/165> , <http://orto.example/forecast/95> , <http://orto.example/forecast/207> , <http://orto.example/forecast/129> , <http://orto.example/forecast/229> , <http://orto.example/forecast/151> , <http://orto.example/forecast/260> , <http://orto.example/forecast/115> , <http://orto.example/forecast/146> , <http://orto.example/forecast/76> , <http://orto.example/forecast/132> , <http://orto.example/forecast/232> , <http://orto.example/forecast/241> , <http://orto.example/forecast/258> , <http://orto.example/forecast/93> , <http://orto.example/forecast/205> , <http://orto.example/forecast/109> , <http://orto.example/forecast/195> , <http://orto.example/forecast/79> , <http://orto.example/forecast/166> , <http://orto.example/forecast/113> , <http://orto.example/forecast/74> , <http://orto.example/forecast/261> , <http://orto.example/forecast/183> , <http://orto.example/forecast/112> , <http://orto.example/forecast/283> , <http://orto.example/forecast/230> , <http://orto.example/forecast/256> , <http://orto.example/forecast/73> , <http://orto.example/forecast/169> , <http://orto.example/forecast/99> , <http://orto.example/forecast/133> , <http://orto.example/forecast/193> , <http://orto.example/forecast/255> , <http://orto.example/forecast/164> , <http://orto.example/forecast/94> , <http://orto.example/forecast/219> , <http://orto.example/forecast/128> , <http://orto.example/forecast/163> , <http://orto.example/forecast/110> , <http://orto.example/forecast/127> , <http://orto.example/forecast/149> , <http://orto.example/forecast/97> , <http://orto.example/forecast/184> , <http://orto.example/forecast/131> , <http://orto.example/forecast/244> , <http://orto.example/forecast/253> , <http://orto.example/forecast/153> , <http://orto.example/forecast/92> , <http://orto.example/forecast/208> , <http://orto.example/forecast/217> , <http://orto.example/forecast/117> , <http://orto.example/forecast/130> , <http://orto.example/forecast/69> , <http://orto.example/forecast/152> , <http://orto.example/forecast/78> , <http://orto.example/forecast/91> , <http://orto.example/forecast/116> , <http://orto.example/forecast/147> , <http://orto.example/forecast/77> , <http://orto.example/forecast/182> , <http://orto.example/forecast/111> , <http://orto.example/forecast/220> , <http://orto.example/forecast/242> , <http://orto.example/forecast/259> , <http://orto.example/forecast/81> , <http://orto.example/forecast/168> , <http://orto.example/forecast/98> , <http://orto.example/forecast/181> , <http://orto.example/forecast/206> , <http://orto.example/forecast/145> , <http://orto.example/forecast/196> , <http://orto.example/forecast/254> , <http://orto.example/forecast/150> , <http://orto.example/forecast/80> , <http://orto.example/forecast/167> , <http://orto.example/forecast/218> , <http://orto.example/forecast/114> , <http://orto.example/forecast/75> , <http://orto.example/forecast/262> , <http://orto.example/forecast/171> , <http://orto.example/forecast/135> , <http://orto.example/forecast/284> , <http://orto.example/forecast/231> , <http://orto.example/forecast/148> , <http://orto.example/forecast/257> , <http://orto.example/forecast/70> , <http://orto.example/forecast/170> , <http://orto.example/forecast/96> , <http://orto.example/forecast/134> , <http://orto.example/forecast/194> , <http://orto.example/forecast/243>;
+        orto:growthStage   "MATURAZIONE" , "FRUTTIFICAZIONE" , "SEMINA" , "FIORITURA" , "VEGETATIVO" , "EMERGENZA";
+        orto:hasForecast   <http://orto.example/forecast/165> , <http://orto.example/forecast/95> , <http://orto.example/forecast/207> , <http://orto.example/forecast/129> , <http://orto.example/forecast/229> , <http://orto.example/forecast/151> , <http://orto.example/forecast/260> , <http://orto.example/forecast/115> , <http://orto.example/forecast/146> , <http://orto.example/forecast/76> , <http://orto.example/forecast/132> , <http://orto.example/forecast/232> , <http://orto.example/forecast/241> , <http://orto.example/forecast/258> , <http://orto.example/forecast/93> , <http://orto.example/forecast/205> , <http://orto.example/forecast/109> , <http://orto.example/forecast/195> , <http://orto.example/forecast/79> , <http://orto.example/forecast/166> , <http://orto.example/forecast/113> , <http://orto.example/forecast/74> , <http://orto.example/forecast/261> , <http://orto.example/forecast/183> , <http://orto.example/forecast/112> , <http://orto.example/forecast/283> , <http://orto.example/forecast/230> , <http://orto.example/forecast/73> , <http://orto.example/forecast/256> , <http://orto.example/forecast/99> , <http://orto.example/forecast/169> , <http://orto.example/forecast/133> , <http://orto.example/forecast/193> , <http://orto.example/forecast/255> , <http://orto.example/forecast/164> , <http://orto.example/forecast/94> , <http://orto.example/forecast/219> , <http://orto.example/forecast/128> , <http://orto.example/forecast/163> , <http://orto.example/forecast/110> , <http://orto.example/forecast/127> , <http://orto.example/forecast/149> , <http://orto.example/forecast/97> , <http://orto.example/forecast/184> , <http://orto.example/forecast/131> , <http://orto.example/forecast/244> , <http://orto.example/forecast/253> , <http://orto.example/forecast/153> , <http://orto.example/forecast/92> , <http://orto.example/forecast/208> , <http://orto.example/forecast/217> , <http://orto.example/forecast/117> , <http://orto.example/forecast/130> , <http://orto.example/forecast/69> , <http://orto.example/forecast/152> , <http://orto.example/forecast/78> , <http://orto.example/forecast/91> , <http://orto.example/forecast/116> , <http://orto.example/forecast/147> , <http://orto.example/forecast/77> , <http://orto.example/forecast/182> , <http://orto.example/forecast/111> , <http://orto.example/forecast/220> , <http://orto.example/forecast/242> , <http://orto.example/forecast/259> , <http://orto.example/forecast/81> , <http://orto.example/forecast/168> , <http://orto.example/forecast/98> , <http://orto.example/forecast/181> , <http://orto.example/forecast/206> , <http://orto.example/forecast/145> , <http://orto.example/forecast/196> , <http://orto.example/forecast/254> , <http://orto.example/forecast/150> , <http://orto.example/forecast/80> , <http://orto.example/forecast/167> , <http://orto.example/forecast/218> , <http://orto.example/forecast/114> , <http://orto.example/forecast/75> , <http://orto.example/forecast/262> , <http://orto.example/forecast/171> , <http://orto.example/forecast/135> , <http://orto.example/forecast/284> , <http://orto.example/forecast/231> , <http://orto.example/forecast/148> , <http://orto.example/forecast/257> , <http://orto.example/forecast/70> , <http://orto.example/forecast/170> , <http://orto.example/forecast/96> , <http://orto.example/forecast/134> , <http://orto.example/forecast/194> , <http://orto.example/forecast/243>;
         orto:hasRisk       <http://orto.example/risk/54> , <http://orto.example/risk/50> , <http://orto.example/risk/56> , <http://orto.example/risk/46> , <http://orto.example/risk/53> , <http://orto.example/risk/55> , <http://orto.example/risk/68> , <http://orto.example/risk/51> , <http://orto.example/risk/52> , <http://orto.example/risk/47>;
         orto:influencedBy  <http://orto.example/weather/33> , <http://orto.example/weather/30> , <http://orto.example/weather/35> , <http://orto.example/weather/32> , <http://orto.example/weather/34> , <http://orto.example/weather/37> , <http://orto.example/weather/36> , <http://orto.example/weather/39> , <http://orto.example/weather/31> , <http://orto.example/weather/38>;
-        orto:storeGDD      "306.79999999999995"^^<http://www.w3.org/2001/XMLSchema#double> , "507.9499999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "704.75"^^<http://www.w3.org/2001/XMLSchema#double> , "391.6999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "262.65"^^<http://www.w3.org/2001/XMLSchema#double> , "498.29999999999984"^^<http://www.w3.org/2001/XMLSchema#double> , "220.7"^^<http://www.w3.org/2001/XMLSchema#double> , "369.5999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "454.14999999999986"^^<http://www.w3.org/2001/XMLSchema#double> , "674.75"^^<http://www.w3.org/2001/XMLSchema#double> , "442.89999999999986"^^<http://www.w3.org/2001/XMLSchema#double> , "71.15"^^<http://www.w3.org/2001/XMLSchema#double> , "528.2999999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "898.9500000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "561.0999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "295.94999999999993"^^<http://www.w3.org/2001/XMLSchema#double> , "230.6"^^<http://www.w3.org/2001/XMLSchema#double> , "765.1"^^<http://www.w3.org/2001/XMLSchema#double> , "845.8000000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "594.05"^^<http://www.w3.org/2001/XMLSchema#double> , "189.25"^^<http://www.w3.org/2001/XMLSchema#double> , "124.95000000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "549.8999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "211.04999999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "775.0"^^<http://www.w3.org/2001/XMLSchema#double> , "931.9000000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "538.6499999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "962.6500000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "487.4499999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "517.8499999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "724.75"^^<http://www.w3.org/2001/XMLSchema#double> , "684.4"^^<http://www.w3.org/2001/XMLSchema#double> , "855.7"^^<http://www.w3.org/2001/XMLSchema#double> , "432.54999999999984"^^<http://www.w3.org/2001/XMLSchema#double> , "887.7500000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "952.7500000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "583.1999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "634.4"^^<http://www.w3.org/2001/XMLSchema#double> , "624.05"^^<http://www.w3.org/2001/XMLSchema#double> , "715.1"^^<http://www.w3.org/2001/XMLSchema#double> , "358.3999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "326.3499999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "93.5"^^<http://www.w3.org/2001/XMLSchema#double> , "805.45"^^<http://www.w3.org/2001/XMLSchema#double> , "815.35"^^<http://www.w3.org/2001/XMLSchema#double> , "745.1"^^<http://www.w3.org/2001/XMLSchema#double> , "200.2"^^<http://www.w3.org/2001/XMLSchema#double> , "943.1000000000003"^^<http://www.w3.org/2001/XMLSchema#double> , "39.099999999999994"^^<http://www.w3.org/2001/XMLSchema#double> , "876.5000000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "694.3"^^<http://www.w3.org/2001/XMLSchema#double> , "422.09999999999985"^^<http://www.w3.org/2001/XMLSchema#double> , "273.84999999999997"^^<http://www.w3.org/2001/XMLSchema#double> , "825.8000000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "795.8000000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "284.99999999999994"^^<http://www.w3.org/2001/XMLSchema#double> , "134.85000000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "476.49999999999983"^^<http://www.w3.org/2001/XMLSchema#double> , "664.4"^^<http://www.w3.org/2001/XMLSchema#double> , "9.649999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "866.1500000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "145.3"^^<http://www.w3.org/2001/XMLSchema#double> , "613.5999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "836.1500000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "19.549999999999997"^^<http://www.w3.org/2001/XMLSchema#double> , "347.1499999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "785.45"^^<http://www.w3.org/2001/XMLSchema#double> , "412.1999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "29.199999999999996"^^<http://www.w3.org/2001/XMLSchema#double> , "104.45"^^<http://www.w3.org/2001/XMLSchema#double> , "465.34999999999985"^^<http://www.w3.org/2001/XMLSchema#double> , "251.39999999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "653.9499999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "921.0500000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "734.65"^^<http://www.w3.org/2001/XMLSchema#double> , "316.44999999999993"^^<http://www.w3.org/2001/XMLSchema#double> , "82.35000000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "241.04999999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "380.7499999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "402.5499999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "49.55"^^<http://www.w3.org/2001/XMLSchema#double> , "115.30000000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "572.2499999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "178.1"^^<http://www.w3.org/2001/XMLSchema#double> , "336.7999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "755.45"^^<http://www.w3.org/2001/XMLSchema#double> , "910.1000000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "59.9"^^<http://www.w3.org/2001/XMLSchema#double> , "155.65"^^<http://www.w3.org/2001/XMLSchema#double> , "603.6999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "644.05"^^<http://www.w3.org/2001/XMLSchema#double> , "166.9"^^<http://www.w3.org/2001/XMLSchema#double> .
+        orto:storeGDD      "528.2999999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "369.5999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "745.1"^^<http://www.w3.org/2001/XMLSchema#double> , "594.05"^^<http://www.w3.org/2001/XMLSchema#double> , "211.04999999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "613.5999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "845.8000000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "336.7999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "104.45"^^<http://www.w3.org/2001/XMLSchema#double> , "19.549999999999997"^^<http://www.w3.org/2001/XMLSchema#double> , "724.75"^^<http://www.w3.org/2001/XMLSchema#double> , "391.6999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "124.95000000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "931.9000000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "775.0"^^<http://www.w3.org/2001/XMLSchema#double> , "910.1000000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "316.44999999999993"^^<http://www.w3.org/2001/XMLSchema#double> , "454.14999999999986"^^<http://www.w3.org/2001/XMLSchema#double> , "306.79999999999995"^^<http://www.w3.org/2001/XMLSchema#double> , "115.30000000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "795.8000000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "284.99999999999994"^^<http://www.w3.org/2001/XMLSchema#double> , "412.1999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "134.85000000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "39.099999999999994"^^<http://www.w3.org/2001/XMLSchema#double> , "347.1499999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "326.3499999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "634.4"^^<http://www.w3.org/2001/XMLSchema#double> , "380.7499999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "358.3999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "93.5"^^<http://www.w3.org/2001/XMLSchema#double> , "422.09999999999985"^^<http://www.w3.org/2001/XMLSchema#double> , "653.9499999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "295.94999999999993"^^<http://www.w3.org/2001/XMLSchema#double> , "29.199999999999996"^^<http://www.w3.org/2001/XMLSchema#double> , "487.4499999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "262.65"^^<http://www.w3.org/2001/XMLSchema#double> , "572.2499999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "674.75"^^<http://www.w3.org/2001/XMLSchema#double> , "583.1999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "855.7"^^<http://www.w3.org/2001/XMLSchema#double> , "9.649999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "220.7"^^<http://www.w3.org/2001/XMLSchema#double> , "178.1"^^<http://www.w3.org/2001/XMLSchema#double> , "200.2"^^<http://www.w3.org/2001/XMLSchema#double> , "943.1000000000003"^^<http://www.w3.org/2001/XMLSchema#double> , "71.15"^^<http://www.w3.org/2001/XMLSchema#double> , "155.65"^^<http://www.w3.org/2001/XMLSchema#double> , "549.8999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "805.45"^^<http://www.w3.org/2001/XMLSchema#double> , "734.65"^^<http://www.w3.org/2001/XMLSchema#double> , "624.05"^^<http://www.w3.org/2001/XMLSchema#double> , "145.3"^^<http://www.w3.org/2001/XMLSchema#double> , "166.9"^^<http://www.w3.org/2001/XMLSchema#double> , "755.45"^^<http://www.w3.org/2001/XMLSchema#double> , "402.5499999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "230.6"^^<http://www.w3.org/2001/XMLSchema#double> , "507.9499999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "694.3"^^<http://www.w3.org/2001/XMLSchema#double> , "898.9500000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "952.7500000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "921.0500000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "465.34999999999985"^^<http://www.w3.org/2001/XMLSchema#double> , "715.1"^^<http://www.w3.org/2001/XMLSchema#double> , "273.84999999999997"^^<http://www.w3.org/2001/XMLSchema#double> , "517.8499999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "815.35"^^<http://www.w3.org/2001/XMLSchema#double> , "644.05"^^<http://www.w3.org/2001/XMLSchema#double> , "442.89999999999986"^^<http://www.w3.org/2001/XMLSchema#double> , "825.8000000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "498.29999999999984"^^<http://www.w3.org/2001/XMLSchema#double> , "49.55"^^<http://www.w3.org/2001/XMLSchema#double> , "251.39999999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "962.6500000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "664.4"^^<http://www.w3.org/2001/XMLSchema#double> , "876.5000000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "785.45"^^<http://www.w3.org/2001/XMLSchema#double> , "765.1"^^<http://www.w3.org/2001/XMLSchema#double> , "82.35000000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "241.04999999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "189.25"^^<http://www.w3.org/2001/XMLSchema#double> , "561.0999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "432.54999999999984"^^<http://www.w3.org/2001/XMLSchema#double> , "684.4"^^<http://www.w3.org/2001/XMLSchema#double> , "836.1500000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "476.49999999999983"^^<http://www.w3.org/2001/XMLSchema#double> , "59.9"^^<http://www.w3.org/2001/XMLSchema#double> , "887.7500000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "538.6499999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "866.1500000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "603.6999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "704.75"^^<http://www.w3.org/2001/XMLSchema#double> .
 
 <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag>
         a       <http://www.w3.org/2000/01/rdf-schema#Resource> , <http://www.w3.org/2000/01/rdf-schema#Class>;
@@ -620,9 +620,9 @@ orto:GrowthForecast  a  <http://www.w3.org/2000/01/rdf-schema#Resource> , <http:
         a                    orto:WeatherDay , <http://www.w3.org/2000/01/rdf-schema#Resource>;
         orto:generatesRisk   <http://orto.example/risk/5>;
         orto:precipitazione  "0.0"^^<http://www.w3.org/2001/XMLSchema#double>;
-        orto:tempMax         "31.6"^^<http://www.w3.org/2001/XMLSchema#double> , "36.3"^^<http://www.w3.org/2001/XMLSchema#double> , "32.0"^^<http://www.w3.org/2001/XMLSchema#double> , "30.2"^^<http://www.w3.org/2001/XMLSchema#double>;
-        orto:tempMin         "19.9"^^<http://www.w3.org/2001/XMLSchema#double> , "21.3"^^<http://www.w3.org/2001/XMLSchema#double> , "20.9"^^<http://www.w3.org/2001/XMLSchema#double> , "17.1"^^<http://www.w3.org/2001/XMLSchema#double>;
-        orto:umidita         "47.916666666666664"^^<http://www.w3.org/2001/XMLSchema#double> , "51.333333333333336"^^<http://www.w3.org/2001/XMLSchema#double> , "20.375"^^<http://www.w3.org/2001/XMLSchema#double> , "52.041666666666664"^^<http://www.w3.org/2001/XMLSchema#double> .
+        orto:tempMax         "32.0"^^<http://www.w3.org/2001/XMLSchema#double> , "30.2"^^<http://www.w3.org/2001/XMLSchema#double> , "31.6"^^<http://www.w3.org/2001/XMLSchema#double> , "36.3"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:tempMin         "20.9"^^<http://www.w3.org/2001/XMLSchema#double> , "19.9"^^<http://www.w3.org/2001/XMLSchema#double> , "21.3"^^<http://www.w3.org/2001/XMLSchema#double> , "17.1"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:umidita         "47.916666666666664"^^<http://www.w3.org/2001/XMLSchema#double> , "52.041666666666664"^^<http://www.w3.org/2001/XMLSchema#double> , "51.333333333333336"^^<http://www.w3.org/2001/XMLSchema#double> , "20.375"^^<http://www.w3.org/2001/XMLSchema#double> .
 
 <http://orto.example/forecast/228>
         a                  orto:GrowthForecast;
@@ -681,8 +681,8 @@ orto:GrowthForecast  a  <http://www.w3.org/2000/01/rdf-schema#Resource> , <http:
         orto:generatesRisk   <http://orto.example/risk/18> , <http://orto.example/risk/20> , <http://orto.example/risk/16>;
         orto:precipitazione  "7.0"^^<http://www.w3.org/2001/XMLSchema#double> , "0.0"^^<http://www.w3.org/2001/XMLSchema#double>;
         orto:tempMax         "25.4"^^<http://www.w3.org/2001/XMLSchema#double> , "32.9"^^<http://www.w3.org/2001/XMLSchema#double>;
-        orto:tempMin         "19.7"^^<http://www.w3.org/2001/XMLSchema#double> , "16.1"^^<http://www.w3.org/2001/XMLSchema#double>;
-        orto:umidita         "23.5"^^<http://www.w3.org/2001/XMLSchema#double> , "76.5"^^<http://www.w3.org/2001/XMLSchema#double> .
+        orto:tempMin         "16.1"^^<http://www.w3.org/2001/XMLSchema#double> , "19.7"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:umidita         "76.5"^^<http://www.w3.org/2001/XMLSchema#double> , "23.5"^^<http://www.w3.org/2001/XMLSchema#double> .
 
 <http://orto.example/plant/7>
         a                  orto:PlantInstance , orto:Plant , orto:EarlyGrowthStage;
@@ -690,7 +690,7 @@ orto:GrowthForecast  a  <http://www.w3.org/2000/01/rdf-schema#Resource> , <http:
         orto:hasForecast   <http://orto.example/forecast/33> , <http://orto.example/forecast/34>;
         orto:hasRisk       <http://orto.example/risk/16> , <http://orto.example/risk/17>;
         orto:influencedBy  <http://orto.example/weather/13> , <http://orto.example/weather/12>;
-        orto:storeGDD      "14.149999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "28.299999999999997"^^<http://www.w3.org/2001/XMLSchema#double> .
+        orto:storeGDD      "28.299999999999997"^^<http://www.w3.org/2001/XMLSchema#double> , "14.149999999999999"^^<http://www.w3.org/2001/XMLSchema#double> .
 
 <http://orto.example/forecast/108>
         a                  orto:GrowthForecast;
@@ -758,8 +758,8 @@ orto:RiskAssessment  a  <http://www.w3.org/2000/01/rdf-schema#Resource> , <http:
 
 <http://orto.example/risk/9>
         a                  orto:CriticalRisk , orto:RiskAssessment , orto:Risk , orto:LowRisk;
-        orto:consigli      "Nessun rischio rilevante." , "Rischio caldo alto: aumentare irrigazione e ombreggiare la pianta.";
-        orto:riskCaldo     "HIGH" , "LOW";
+        orto:consigli      "Rischio caldo alto: aumentare irrigazione e ombreggiare la pianta." , "Nessun rischio rilevante.";
+        orto:riskCaldo     "LOW" , "HIGH";
         orto:riskFreddo    "LOW";
         orto:riskMalattia  "LOW";
         orto:riskVento     "LOW" .
@@ -798,7 +798,7 @@ orto:RiskAssessment  a  <http://www.w3.org/2000/01/rdf-schema#Resource> , <http:
 
 <http://orto.example/forecast/29>
         a                  orto:GrowthForecast;
-        orto:percentCiclo  "5.357692307692308"^^<http://www.w3.org/2001/XMLSchema#double> .
+        orto:percentCiclo  "5.357692307692308"^^<http://www.w3.org/2001/XMLSchema#double> , "2.0666666666666664"^^<http://www.w3.org/2001/XMLSchema#double> .
 
 <http://orto.example/forecast/183>
         a                  orto:GrowthForecast;
@@ -810,7 +810,7 @@ orto:RiskAssessment  a  <http://www.w3.org/2000/01/rdf-schema#Resource> , <http:
         orto:hasForecast   <http://orto.example/forecast/66> , <http://orto.example/forecast/65> , <http://orto.example/forecast/64> , <http://orto.example/forecast/68> , <http://orto.example/forecast/63> , <http://orto.example/forecast/62> , <http://orto.example/forecast/67>;
         orto:hasRisk       <http://orto.example/risk/43> , <http://orto.example/risk/39> , <http://orto.example/risk/40> , <http://orto.example/risk/42> , <http://orto.example/risk/41> , <http://orto.example/risk/45> , <http://orto.example/risk/44>;
         orto:influencedBy  <http://orto.example/weather/27> , <http://orto.example/weather/23> , <http://orto.example/weather/28> , <http://orto.example/weather/29> , <http://orto.example/weather/24> , <http://orto.example/weather/26> , <http://orto.example/weather/25>;
-        orto:storeGDD      "59.349999999999994"^^<http://www.w3.org/2001/XMLSchema#double> , "49.199999999999996"^^<http://www.w3.org/2001/XMLSchema#double> , "4.449999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "39.3"^^<http://www.w3.org/2001/XMLSchema#double> , "29.35"^^<http://www.w3.org/2001/XMLSchema#double> , "12.8"^^<http://www.w3.org/2001/XMLSchema#double> , "20.0"^^<http://www.w3.org/2001/XMLSchema#double> .
+        orto:storeGDD      "4.449999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "29.35"^^<http://www.w3.org/2001/XMLSchema#double> , "20.0"^^<http://www.w3.org/2001/XMLSchema#double> , "49.199999999999996"^^<http://www.w3.org/2001/XMLSchema#double> , "59.349999999999994"^^<http://www.w3.org/2001/XMLSchema#double> , "12.8"^^<http://www.w3.org/2001/XMLSchema#double> , "39.3"^^<http://www.w3.org/2001/XMLSchema#double> .
 
 <http://orto.example/forecast/201>
         a                  orto:GrowthForecast;
@@ -860,10 +860,10 @@ orto:CriticalRisk  a  <http://www.w3.org/2000/01/rdf-schema#Resource> , <http://
 <http://orto.example/weather/4>
         a                    orto:WeatherDay , <http://www.w3.org/2000/01/rdf-schema#Resource>;
         orto:generatesRisk   <http://orto.example/risk/4>;
-        orto:precipitazione  "0.0"^^<http://www.w3.org/2001/XMLSchema#double> , "0.3"^^<http://www.w3.org/2001/XMLSchema#double> , "1.9"^^<http://www.w3.org/2001/XMLSchema#double>;
-        orto:tempMax         "27.9"^^<http://www.w3.org/2001/XMLSchema#double> , "30.5"^^<http://www.w3.org/2001/XMLSchema#double> , "30.4"^^<http://www.w3.org/2001/XMLSchema#double> , "35.0"^^<http://www.w3.org/2001/XMLSchema#double>;
-        orto:tempMin         "20.3"^^<http://www.w3.org/2001/XMLSchema#double> , "19.5"^^<http://www.w3.org/2001/XMLSchema#double> , "18.1"^^<http://www.w3.org/2001/XMLSchema#double>;
-        orto:umidita         "60.5"^^<http://www.w3.org/2001/XMLSchema#double> , "19.5"^^<http://www.w3.org/2001/XMLSchema#double> , "71.125"^^<http://www.w3.org/2001/XMLSchema#double> , "59.875"^^<http://www.w3.org/2001/XMLSchema#double> .
+        orto:precipitazione  "0.3"^^<http://www.w3.org/2001/XMLSchema#double> , "0.0"^^<http://www.w3.org/2001/XMLSchema#double> , "1.9"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:tempMax         "27.9"^^<http://www.w3.org/2001/XMLSchema#double> , "30.5"^^<http://www.w3.org/2001/XMLSchema#double> , "35.0"^^<http://www.w3.org/2001/XMLSchema#double> , "30.4"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:tempMin         "20.3"^^<http://www.w3.org/2001/XMLSchema#double> , "18.1"^^<http://www.w3.org/2001/XMLSchema#double> , "19.5"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:umidita         "60.5"^^<http://www.w3.org/2001/XMLSchema#double> , "59.875"^^<http://www.w3.org/2001/XMLSchema#double> , "19.5"^^<http://www.w3.org/2001/XMLSchema#double> , "71.125"^^<http://www.w3.org/2001/XMLSchema#double> .
 
 <http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral>
         a       <http://www.w3.org/2000/01/rdf-schema#Datatype> , <http://www.w3.org/2000/01/rdf-schema#Resource> , <http://www.w3.org/2000/01/rdf-schema#Class>;
@@ -914,15 +914,6 @@ orto:CriticalRisk  a  <http://www.w3.org/2000/01/rdf-schema#Resource> , <http://
         a                  orto:GrowthForecast;
         orto:percentCiclo  "9.015384615384615"^^<http://www.w3.org/2001/XMLSchema#double> .
 
-<http://orto.example/plant/6>
-        a                  orto:AdvancedGrowthStage , orto:PlantInstance , orto:Plant;
-        orto:growthStage   "MATURAZIONE";
-        orto:hasForecast   <http://orto.example/forecast/32> , <http://orto.example/forecast/31>;
-        orto:hasRisk       <http://orto.example/risk/15> , <http://orto.example/risk/14>;
-        orto:influencedBy  <http://orto.example/weather/12> , <http://orto.example/weather/13>;
-        orto:isInDanger    true;
-        orto:storeGDD      "24.299999999999997"^^<http://www.w3.org/2001/XMLSchema#double> , "12.149999999999999"^^<http://www.w3.org/2001/XMLSchema#double> .
-
 <http://orto.example/weather/15>
         a                    orto:WeatherDay;
         orto:generatesRisk   <http://orto.example/risk/15>;
@@ -930,6 +921,15 @@ orto:CriticalRisk  a  <http://www.w3.org/2000/01/rdf-schema#Resource> , <http://
         orto:tempMax         "36.3"^^<http://www.w3.org/2001/XMLSchema#double>;
         orto:tempMin         "19.9"^^<http://www.w3.org/2001/XMLSchema#double>;
         orto:umidita         "20.375"^^<http://www.w3.org/2001/XMLSchema#double> .
+
+<http://orto.example/plant/6>
+        a                  orto:AdvancedGrowthStage , orto:PlantInstance , orto:Plant;
+        orto:growthStage   "MATURAZIONE";
+        orto:hasForecast   <http://orto.example/forecast/32> , <http://orto.example/forecast/31>;
+        orto:hasRisk       <http://orto.example/risk/15> , <http://orto.example/risk/14>;
+        orto:influencedBy  <http://orto.example/weather/12> , <http://orto.example/weather/13>;
+        orto:isInDanger    true;
+        orto:storeGDD      "12.149999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "24.299999999999997"^^<http://www.w3.org/2001/XMLSchema#double> .
 
 <http://orto.example/forecast/107>
         a                  orto:GrowthForecast;
@@ -998,8 +998,8 @@ orto:CriticalRisk  a  <http://www.w3.org/2000/01/rdf-schema#Resource> , <http://
 
 <http://orto.example/risk/8>
         a                  orto:RiskAssessment , orto:Risk , orto:LowRisk , orto:CriticalRisk;
-        orto:consigli      "Rischio caldo alto: aumentare irrigazione e ombreggiare la pianta." , "Nessun rischio rilevante.";
-        orto:riskCaldo     "HIGH" , "LOW";
+        orto:consigli      "Nessun rischio rilevante." , "Rischio caldo alto: aumentare irrigazione e ombreggiare la pianta.";
+        orto:riskCaldo     "LOW" , "HIGH";
         orto:riskFreddo    "LOW";
         orto:riskMalattia  "LOW";
         orto:riskVento     "LOW" .
@@ -1051,7 +1051,7 @@ orto:CriticalRisk  a  <http://www.w3.org/2000/01/rdf-schema#Resource> , <http://
 
 <http://orto.example/forecast/28>
         a                  orto:GrowthForecast;
-        orto:percentCiclo  "6.438461538461539"^^<http://www.w3.org/2001/XMLSchema#double> .
+        orto:percentCiclo  "6.438461538461539"^^<http://www.w3.org/2001/XMLSchema#double> , "1.038888888888889"^^<http://www.w3.org/2001/XMLSchema#double> .
 
 <http://orto.example/forecast/182>
         a                  orto:GrowthForecast;
@@ -1069,7 +1069,7 @@ orto:influencedBy  a  <http://www.w3.org/2000/01/rdf-schema#Resource> , <http://
         orto:hasForecast   <http://orto.example/forecast/58> , <http://orto.example/forecast/55> , <http://orto.example/forecast/59> , <http://orto.example/forecast/60> , <http://orto.example/forecast/56> , <http://orto.example/forecast/61> , <http://orto.example/forecast/57>;
         orto:hasRisk       <http://orto.example/risk/38> , <http://orto.example/risk/34> , <http://orto.example/risk/35> , <http://orto.example/risk/32> , <http://orto.example/risk/36> , <http://orto.example/risk/33> , <http://orto.example/risk/37>;
         orto:influencedBy  <http://orto.example/weather/24> , <http://orto.example/weather/27> , <http://orto.example/weather/26> , <http://orto.example/weather/23> , <http://orto.example/weather/29> , <http://orto.example/weather/28> , <http://orto.example/weather/25>;
-        orto:storeGDD      "19.300000000000004"^^<http://www.w3.org/2001/XMLSchema#double> , "13.350000000000003"^^<http://www.w3.org/2001/XMLSchema#double> , "31.35"^^<http://www.w3.org/2001/XMLSchema#double> , "0.4499999999999993"^^<http://www.w3.org/2001/XMLSchema#double> , "8.000000000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "4.800000000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "25.200000000000003"^^<http://www.w3.org/2001/XMLSchema#double> .
+        orto:storeGDD      "31.35"^^<http://www.w3.org/2001/XMLSchema#double> , "13.350000000000003"^^<http://www.w3.org/2001/XMLSchema#double> , "0.4499999999999993"^^<http://www.w3.org/2001/XMLSchema#double> , "8.000000000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "25.200000000000003"^^<http://www.w3.org/2001/XMLSchema#double> , "19.300000000000004"^^<http://www.w3.org/2001/XMLSchema#double> , "4.800000000000001"^^<http://www.w3.org/2001/XMLSchema#double> .
 
 <http://orto.example/forecast/200>
         a                  orto:GrowthForecast;
@@ -1106,10 +1106,10 @@ orto:influencedBy  a  <http://www.w3.org/2000/01/rdf-schema#Resource> , <http://
 <http://orto.example/weather/3>
         a                    <http://www.w3.org/2000/01/rdf-schema#Resource> , orto:WeatherDay;
         orto:generatesRisk   <http://orto.example/risk/3>;
-        orto:precipitazione  "1.7"^^<http://www.w3.org/2001/XMLSchema#double> , "0.1"^^<http://www.w3.org/2001/XMLSchema#double> , "0.0"^^<http://www.w3.org/2001/XMLSchema#double> , "0.4"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:precipitazione  "0.1"^^<http://www.w3.org/2001/XMLSchema#double> , "0.4"^^<http://www.w3.org/2001/XMLSchema#double> , "1.7"^^<http://www.w3.org/2001/XMLSchema#double> , "0.0"^^<http://www.w3.org/2001/XMLSchema#double>;
         orto:tempMax         "32.6"^^<http://www.w3.org/2001/XMLSchema#double> , "28.4"^^<http://www.w3.org/2001/XMLSchema#double> , "33.2"^^<http://www.w3.org/2001/XMLSchema#double>;
-        orto:tempMin         "23.2"^^<http://www.w3.org/2001/XMLSchema#double> , "18.8"^^<http://www.w3.org/2001/XMLSchema#double> , "20.6"^^<http://www.w3.org/2001/XMLSchema#double> , "23.0"^^<http://www.w3.org/2001/XMLSchema#double>;
-        orto:umidita         "23.0"^^<http://www.w3.org/2001/XMLSchema#double> , "53.833333333333336"^^<http://www.w3.org/2001/XMLSchema#double> , "51.791666666666664"^^<http://www.w3.org/2001/XMLSchema#double> , "59.75"^^<http://www.w3.org/2001/XMLSchema#double> .
+        orto:tempMin         "18.8"^^<http://www.w3.org/2001/XMLSchema#double> , "23.2"^^<http://www.w3.org/2001/XMLSchema#double> , "20.6"^^<http://www.w3.org/2001/XMLSchema#double> , "23.0"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:umidita         "51.791666666666664"^^<http://www.w3.org/2001/XMLSchema#double> , "59.75"^^<http://www.w3.org/2001/XMLSchema#double> , "23.0"^^<http://www.w3.org/2001/XMLSchema#double> , "53.833333333333336"^^<http://www.w3.org/2001/XMLSchema#double> .
 
 <http://orto.example/forecast/226>
         a                  orto:GrowthForecast;
@@ -1175,12 +1175,12 @@ orto:influencedBy  a  <http://www.w3.org/2000/01/rdf-schema#Resource> , <http://
 
 <http://orto.example/plant/5>
         a                  orto:EarlyGrowthStage , orto:PlantInstance , orto:Plant;
-        orto:growthStage   "SEMINA" , "EMERGENZA";
+        orto:growthStage   "EMERGENZA" , "SEMINA";
         orto:hasForecast   <http://orto.example/forecast/22> , <http://orto.example/forecast/45> , <http://orto.example/forecast/38> , <http://orto.example/forecast/30> , <http://orto.example/forecast/25> , <http://orto.example/forecast/46> , <http://orto.example/forecast/29> , <http://orto.example/forecast/26> , <http://orto.example/forecast/21> , <http://orto.example/forecast/37>;
         orto:hasRisk       <http://orto.example/risk/12> , <http://orto.example/risk/20> , <http://orto.example/risk/13> , <http://orto.example/risk/21>;
         orto:influencedBy  <http://orto.example/weather/16> , <http://orto.example/weather/11> , <http://orto.example/weather/10> , <http://orto.example/weather/17>;
         orto:isInDanger    true;
-        orto:storeGDD      "106.45"^^<http://www.w3.org/2001/XMLSchema#double> , "41.75"^^<http://www.w3.org/2001/XMLSchema#double> , "94.45"^^<http://www.w3.org/2001/XMLSchema#double> , "13.850000000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "55.8"^^<http://www.w3.org/2001/XMLSchema#double> , "69.65"^^<http://www.w3.org/2001/XMLSchema#double> , "129.2"^^<http://www.w3.org/2001/XMLSchema#double> , "117.2"^^<http://www.w3.org/2001/XMLSchema#double> , "83.7"^^<http://www.w3.org/2001/XMLSchema#double> , "27.9"^^<http://www.w3.org/2001/XMLSchema#double> .
+        orto:storeGDD      "27.9"^^<http://www.w3.org/2001/XMLSchema#double> , "41.75"^^<http://www.w3.org/2001/XMLSchema#double> , "55.8"^^<http://www.w3.org/2001/XMLSchema#double> , "69.65"^^<http://www.w3.org/2001/XMLSchema#double> , "94.45"^^<http://www.w3.org/2001/XMLSchema#double> , "83.7"^^<http://www.w3.org/2001/XMLSchema#double> , "106.45"^^<http://www.w3.org/2001/XMLSchema#double> , "13.850000000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "117.2"^^<http://www.w3.org/2001/XMLSchema#double> , "129.2"^^<http://www.w3.org/2001/XMLSchema#double> .
 
 <http://orto.example/weather/14>
         a                    orto:WeatherDay;
@@ -1260,8 +1260,8 @@ orto:PlantInstance  a  <http://www.w3.org/2000/01/rdf-schema#Resource> , <http:/
 
 <http://orto.example/risk/7>
         a                  orto:RiskAssessment , orto:Risk , orto:LowRisk , <http://www.w3.org/2000/01/rdf-schema#Resource> , orto:CriticalRisk;
-        orto:consigli      "Rischio caldo alto: aumentare irrigazione e ombreggiare la pianta." , "Nessun rischio rilevante.";
-        orto:riskCaldo     "HIGH" , "LOW";
+        orto:consigli      "Nessun rischio rilevante." , "Rischio caldo alto: aumentare irrigazione e ombreggiare la pianta.";
+        orto:riskCaldo     "LOW" , "HIGH";
         orto:riskFreddo    "LOW";
         orto:riskMalattia  "LOW";
         orto:riskVento     "LOW" .
@@ -1370,9 +1370,9 @@ orto:PlantInstance  a  <http://www.w3.org/2000/01/rdf-schema#Resource> , <http:/
         a                    <http://www.w3.org/2000/01/rdf-schema#Resource> , orto:WeatherDay;
         orto:generatesRisk   <http://orto.example/risk/2>;
         orto:precipitazione  "0.0"^^<http://www.w3.org/2001/XMLSchema#double>;
-        orto:tempMax         "31.4"^^<http://www.w3.org/2001/XMLSchema#double> , "35.1"^^<http://www.w3.org/2001/XMLSchema#double> , "35.2"^^<http://www.w3.org/2001/XMLSchema#double> , "34.1"^^<http://www.w3.org/2001/XMLSchema#double>;
-        orto:tempMin         "17.3"^^<http://www.w3.org/2001/XMLSchema#double> , "21.5"^^<http://www.w3.org/2001/XMLSchema#double> , "18.8"^^<http://www.w3.org/2001/XMLSchema#double>;
-        orto:umidita         "40.833333333333336"^^<http://www.w3.org/2001/XMLSchema#double> , "25.625"^^<http://www.w3.org/2001/XMLSchema#double> , "61.375"^^<http://www.w3.org/2001/XMLSchema#double> , "39.958333333333336"^^<http://www.w3.org/2001/XMLSchema#double> .
+        orto:tempMax         "31.4"^^<http://www.w3.org/2001/XMLSchema#double> , "35.2"^^<http://www.w3.org/2001/XMLSchema#double> , "34.1"^^<http://www.w3.org/2001/XMLSchema#double> , "35.1"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:tempMin         "17.3"^^<http://www.w3.org/2001/XMLSchema#double> , "18.8"^^<http://www.w3.org/2001/XMLSchema#double> , "21.5"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:umidita         "61.375"^^<http://www.w3.org/2001/XMLSchema#double> , "40.833333333333336"^^<http://www.w3.org/2001/XMLSchema#double> , "25.625"^^<http://www.w3.org/2001/XMLSchema#double> , "39.958333333333336"^^<http://www.w3.org/2001/XMLSchema#double> .
 
 <http://www.w3.org/2000/01/rdf-schema#ContainerMembershipProperty>
         a       <http://www.w3.org/2000/01/rdf-schema#Resource> , <http://www.w3.org/2000/01/rdf-schema#Class>;
@@ -1458,7 +1458,7 @@ orto:PlantInstance  a  <http://www.w3.org/2000/01/rdf-schema#Resource> , <http:/
         orto:hasRisk       <http://orto.example/risk/11> , <http://orto.example/risk/10> , <http://orto.example/risk/19> , <http://orto.example/risk/18>;
         orto:influencedBy  <http://orto.example/weather/17> , <http://orto.example/weather/10> , <http://orto.example/weather/11> , <http://orto.example/weather/16>;
         orto:isInDanger    true;
-        orto:storeGDD      "83.7"^^<http://www.w3.org/2001/XMLSchema#double> , "41.75"^^<http://www.w3.org/2001/XMLSchema#double> , "129.2"^^<http://www.w3.org/2001/XMLSchema#double> , "27.9"^^<http://www.w3.org/2001/XMLSchema#double> , "106.45"^^<http://www.w3.org/2001/XMLSchema#double> , "117.2"^^<http://www.w3.org/2001/XMLSchema#double> , "94.45"^^<http://www.w3.org/2001/XMLSchema#double> , "13.850000000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "55.8"^^<http://www.w3.org/2001/XMLSchema#double> , "69.65"^^<http://www.w3.org/2001/XMLSchema#double> .
+        orto:storeGDD      "129.2"^^<http://www.w3.org/2001/XMLSchema#double> , "27.9"^^<http://www.w3.org/2001/XMLSchema#double> , "55.8"^^<http://www.w3.org/2001/XMLSchema#double> , "117.2"^^<http://www.w3.org/2001/XMLSchema#double> , "83.7"^^<http://www.w3.org/2001/XMLSchema#double> , "94.45"^^<http://www.w3.org/2001/XMLSchema#double> , "69.65"^^<http://www.w3.org/2001/XMLSchema#double> , "41.75"^^<http://www.w3.org/2001/XMLSchema#double> , "106.45"^^<http://www.w3.org/2001/XMLSchema#double> , "13.850000000000001"^^<http://www.w3.org/2001/XMLSchema#double> .
 
 <http://orto.example/weather/13>
         a                    orto:WeatherDay;
@@ -1466,7 +1466,7 @@ orto:PlantInstance  a  <http://www.w3.org/2000/01/rdf-schema#Resource> , <http:/
         orto:precipitazione  "0.2"^^<http://www.w3.org/2001/XMLSchema#double> , "0.0"^^<http://www.w3.org/2001/XMLSchema#double>;
         orto:tempMax         "29.4"^^<http://www.w3.org/2001/XMLSchema#double> , "33.2"^^<http://www.w3.org/2001/XMLSchema#double>;
         orto:tempMin         "18.8"^^<http://www.w3.org/2001/XMLSchema#double> , "18.9"^^<http://www.w3.org/2001/XMLSchema#double>;
-        orto:umidita         "23.0"^^<http://www.w3.org/2001/XMLSchema#double> , "59.625"^^<http://www.w3.org/2001/XMLSchema#double> .
+        orto:umidita         "59.625"^^<http://www.w3.org/2001/XMLSchema#double> , "23.0"^^<http://www.w3.org/2001/XMLSchema#double> .
 
 <http://orto.example/forecast/105>
         a                  orto:GrowthForecast;
@@ -1510,7 +1510,7 @@ orto:PlantInstance  a  <http://www.w3.org/2000/01/rdf-schema#Resource> , <http:/
 
 <http://orto.example/risk/15>
         a                  orto:CriticalRisk , orto:RiskAssessment , orto:LowRisk , orto:Risk;
-        orto:consigli      "Nessun rischio rilevante." , "Rischio caldo alto: aumentare irrigazione e ombreggiare la pianta.";
+        orto:consigli      "Rischio caldo alto: aumentare irrigazione e ombreggiare la pianta." , "Nessun rischio rilevante.";
         orto:riskCaldo     "HIGH" , "LOW";
         orto:riskFreddo    "LOW";
         orto:riskMalattia  "LOW";
@@ -1551,7 +1551,7 @@ orto:PlantInstance  a  <http://www.w3.org/2000/01/rdf-schema#Resource> , <http:/
 <http://orto.example/risk/6>
         a                  orto:Risk , orto:CriticalRisk , <http://www.w3.org/2000/01/rdf-schema#Resource> , orto:LowRisk , orto:RiskAssessment , orto:ModerateRisk;
         orto:consigli      "Rischio caldo medio: monitorare idratazione e temperatura." , "Nessun rischio rilevante." , "Rischio caldo alto: aumentare irrigazione e ombreggiare la pianta.";
-        orto:riskCaldo     "HIGH" , "LOW" , "MEDIUM";
+        orto:riskCaldo     "LOW" , "MEDIUM" , "HIGH";
         orto:riskFreddo    "LOW";
         orto:riskMalattia  "LOW";
         orto:riskVento     "LOW" .
@@ -1640,9 +1640,9 @@ orto:PlantInstance  a  <http://www.w3.org/2000/01/rdf-schema#Resource> , <http:/
         a                    <http://www.w3.org/2000/01/rdf-schema#Resource> , orto:WeatherDay;
         orto:generatesRisk   <http://orto.example/risk/1>;
         orto:precipitazione  "0.0"^^<http://www.w3.org/2001/XMLSchema#double>;
-        orto:tempMax         "30.6"^^<http://www.w3.org/2001/XMLSchema#double> , "33.6"^^<http://www.w3.org/2001/XMLSchema#double> , "34.0"^^<http://www.w3.org/2001/XMLSchema#double> , "35.8"^^<http://www.w3.org/2001/XMLSchema#double>;
-        orto:tempMin         "19.7"^^<http://www.w3.org/2001/XMLSchema#double> , "16.4"^^<http://www.w3.org/2001/XMLSchema#double> , "20.7"^^<http://www.w3.org/2001/XMLSchema#double>;
-        orto:umidita         "50.208333333333336"^^<http://www.w3.org/2001/XMLSchema#double> , "24.5"^^<http://www.w3.org/2001/XMLSchema#double> , "59.5"^^<http://www.w3.org/2001/XMLSchema#double> , "48.833333333333336"^^<http://www.w3.org/2001/XMLSchema#double> .
+        orto:tempMax         "34.0"^^<http://www.w3.org/2001/XMLSchema#double> , "30.6"^^<http://www.w3.org/2001/XMLSchema#double> , "35.8"^^<http://www.w3.org/2001/XMLSchema#double> , "33.6"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:tempMin         "16.4"^^<http://www.w3.org/2001/XMLSchema#double> , "20.7"^^<http://www.w3.org/2001/XMLSchema#double> , "19.7"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:umidita         "50.208333333333336"^^<http://www.w3.org/2001/XMLSchema#double> , "48.833333333333336"^^<http://www.w3.org/2001/XMLSchema#double> , "24.5"^^<http://www.w3.org/2001/XMLSchema#double> , "59.5"^^<http://www.w3.org/2001/XMLSchema#double> .
 
 <http://orto.example/forecast/224>
         a                  orto:GrowthForecast;
@@ -1688,10 +1688,18 @@ orto:PlantInstance  a  <http://www.w3.org/2000/01/rdf-schema#Resource> , <http:/
 <http://orto.example/weather/12>
         a                    orto:WeatherDay;
         orto:generatesRisk   <http://orto.example/risk/12> , <http://orto.example/risk/14> , <http://orto.example/risk/16>;
-        orto:precipitazione  "0.0"^^<http://www.w3.org/2001/XMLSchema#double> , "0.7"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:precipitazione  "0.7"^^<http://www.w3.org/2001/XMLSchema#double> , "0.0"^^<http://www.w3.org/2001/XMLSchema#double>;
         orto:tempMax         "34.2"^^<http://www.w3.org/2001/XMLSchema#double> , "28.9"^^<http://www.w3.org/2001/XMLSchema#double>;
         orto:tempMin         "19.0"^^<http://www.w3.org/2001/XMLSchema#double> , "19.4"^^<http://www.w3.org/2001/XMLSchema#double>;
-        orto:umidita         "27.0"^^<http://www.w3.org/2001/XMLSchema#double> , "59.125"^^<http://www.w3.org/2001/XMLSchema#double> .
+        orto:umidita         "59.125"^^<http://www.w3.org/2001/XMLSchema#double> , "27.0"^^<http://www.w3.org/2001/XMLSchema#double> .
+
+<http://orto.example/plant/3>
+        a                  orto:EarlyGrowthStage , orto:Plant , orto:PlantInstance;
+        orto:growthStage   "SEMINA";
+        orto:hasForecast   <http://orto.example/forecast/31> , <http://orto.example/forecast/30>;
+        orto:hasRisk       <http://orto.example/risk/19> , <http://orto.example/risk/20>;
+        orto:influencedBy  <http://orto.example/weather/20> , <http://orto.example/weather/19>;
+        orto:storeGDD      "4.750000000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "3.700000000000001"^^<http://www.w3.org/2001/XMLSchema#double> .
 
 <http://www.w3.org/1999/02/22-rdf-syntax-ns#predicate>
         a       <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> , <http://www.w3.org/2000/01/rdf-schema#Resource>;
@@ -1742,7 +1750,7 @@ orto:PlantInstance  a  <http://www.w3.org/2000/01/rdf-schema#Resource> , <http:/
 
 <http://orto.example/risk/14>
         a                  orto:CriticalRisk , orto:RiskAssessment , orto:LowRisk , orto:Risk;
-        orto:consigli      "Nessun rischio rilevante." , "Rischio caldo alto: aumentare irrigazione e ombreggiare la pianta.";
+        orto:consigli      "Rischio caldo alto: aumentare irrigazione e ombreggiare la pianta." , "Nessun rischio rilevante.";
         orto:riskCaldo     "HIGH" , "LOW";
         orto:riskFreddo    "LOW";
         orto:riskMalattia  "LOW";
@@ -1750,11 +1758,11 @@ orto:PlantInstance  a  <http://www.w3.org/2000/01/rdf-schema#Resource> , <http:/
 
 <http://orto.example/weather/20>
         a                    orto:WeatherDay;
-        orto:generatesRisk   <http://orto.example/risk/27> , <http://orto.example/risk/26>;
-        orto:precipitazione  "0.0"^^<http://www.w3.org/2001/XMLSchema#double>;
-        orto:tempMax         "28.8"^^<http://www.w3.org/2001/XMLSchema#double>;
-        orto:tempMin         "19.1"^^<http://www.w3.org/2001/XMLSchema#double>;
-        orto:umidita         "57.625"^^<http://www.w3.org/2001/XMLSchema#double> .
+        orto:generatesRisk   <http://orto.example/risk/20> , <http://orto.example/risk/27> , <http://orto.example/risk/26>;
+        orto:precipitazione  "13.1"^^<http://www.w3.org/2001/XMLSchema#double> , "0.0"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:tempMax         "15.4"^^<http://www.w3.org/2001/XMLSchema#double> , "28.8"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:tempMin         "19.1"^^<http://www.w3.org/2001/XMLSchema#double> , "10.7"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:umidita         "57.625"^^<http://www.w3.org/2001/XMLSchema#double> , "84.54166666666667"^^<http://www.w3.org/2001/XMLSchema#double> .
 
 <http://orto.example/forecast/112>
         a                  orto:GrowthForecast;
@@ -1787,7 +1795,7 @@ orto:PlantInstance  a  <http://www.w3.org/2000/01/rdf-schema#Resource> , <http:/
 <http://orto.example/risk/5>
         a                  orto:Risk , orto:CriticalRisk , <http://www.w3.org/2000/01/rdf-schema#Resource> , orto:LowRisk , orto:RiskAssessment;
         orto:consigli      "Nessun rischio rilevante." , "Rischio caldo alto: aumentare irrigazione e ombreggiare la pianta.";
-        orto:riskCaldo     "HIGH" , "LOW";
+        orto:riskCaldo     "LOW" , "HIGH";
         orto:riskFreddo    "LOW";
         orto:riskMalattia  "LOW";
         orto:riskVento     "LOW" .
@@ -1839,7 +1847,7 @@ orto:PlantInstance  a  <http://www.w3.org/2000/01/rdf-schema#Resource> , <http:/
         orto:hasForecast   <http://orto.example/forecast/41> , <http://orto.example/forecast/42> , <http://orto.example/forecast/49> , <http://orto.example/forecast/50>;
         orto:hasRisk       <http://orto.example/risk/24> , <http://orto.example/risk/27> , <http://orto.example/risk/25>;
         orto:influencedBy  <http://orto.example/weather/20> , <http://orto.example/weather/19> , <http://orto.example/weather/18>;
-        orto:storeGDD      "14.100000000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "54.25000000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "40.300000000000004"^^<http://www.w3.org/2001/XMLSchema#double> , "27.200000000000003"^^<http://www.w3.org/2001/XMLSchema#double> .
+        orto:storeGDD      "54.25000000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "40.300000000000004"^^<http://www.w3.org/2001/XMLSchema#double> , "14.100000000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "27.200000000000003"^^<http://www.w3.org/2001/XMLSchema#double> .
 
 <http://orto.example/forecast/274>
         a                  orto:GrowthForecast;
@@ -1939,19 +1947,19 @@ orto:AdvancedGrowthStage
 <http://orto.example/weather/11>
         a                    orto:WeatherDay;
         orto:generatesRisk   <http://orto.example/risk/13> , <http://orto.example/risk/11>;
-        orto:precipitazione  "0.0"^^<http://www.w3.org/2001/XMLSchema#double> , "0.4"^^<http://www.w3.org/2001/XMLSchema#double>;
-        orto:tempMax         "28.9"^^<http://www.w3.org/2001/XMLSchema#double> , "35.8"^^<http://www.w3.org/2001/XMLSchema#double>;
-        orto:tempMin         "19.7"^^<http://www.w3.org/2001/XMLSchema#double> , "19.2"^^<http://www.w3.org/2001/XMLSchema#double>;
-        orto:umidita         "56.791666666666664"^^<http://www.w3.org/2001/XMLSchema#double> , "24.625"^^<http://www.w3.org/2001/XMLSchema#double> .
+        orto:precipitazione  "0.4"^^<http://www.w3.org/2001/XMLSchema#double> , "0.0"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:tempMax         "35.8"^^<http://www.w3.org/2001/XMLSchema#double> , "28.9"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:tempMin         "19.2"^^<http://www.w3.org/2001/XMLSchema#double> , "19.7"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:umidita         "24.625"^^<http://www.w3.org/2001/XMLSchema#double> , "56.791666666666664"^^<http://www.w3.org/2001/XMLSchema#double> .
 
 <http://orto.example/plant/2>
         a                  orto:Plant , orto:EarlyGrowthStage , orto:PlantInstance;
         orto:growthStage   "SEMINA" , "EMERGENZA";
-        orto:hasForecast   <http://orto.example/forecast/9> , <http://orto.example/forecast/15> , <http://orto.example/forecast/17> , <http://orto.example/forecast/12> , <http://orto.example/forecast/5> , <http://orto.example/forecast/7> , <http://orto.example/forecast/13> , <http://orto.example/forecast/10> , <http://orto.example/forecast/6> , <http://orto.example/forecast/8> , <http://orto.example/forecast/18> , <http://orto.example/forecast/11> , <http://orto.example/forecast/3> , <http://orto.example/forecast/1> , <http://orto.example/forecast/4> , <http://orto.example/forecast/2> , <http://orto.example/forecast/14> , <http://orto.example/forecast/16>;
-        orto:hasRisk       <http://orto.example/risk/4> , <http://orto.example/risk/5> , <http://orto.example/risk/6> , <http://orto.example/risk/1> , <http://orto.example/risk/7> , <http://orto.example/risk/2> , <http://orto.example/risk/8> , <http://orto.example/risk/3> , <http://orto.example/risk/9>;
-        orto:influencedBy  <http://orto.example/weather/1> , <http://orto.example/weather/7> , <http://orto.example/weather/6> , <http://orto.example/weather/3> , <http://orto.example/weather/9> , <http://orto.example/weather/2> , <http://orto.example/weather/8> , <http://orto.example/weather/5> , <http://orto.example/weather/4>;
+        orto:hasForecast   <http://orto.example/forecast/9> , <http://orto.example/forecast/15> , <http://orto.example/forecast/17> , <http://orto.example/forecast/12> , <http://orto.example/forecast/5> , <http://orto.example/forecast/7> , <http://orto.example/forecast/13> , <http://orto.example/forecast/28> , <http://orto.example/forecast/10> , <http://orto.example/forecast/6> , <http://orto.example/forecast/8> , <http://orto.example/forecast/18> , <http://orto.example/forecast/11> , <http://orto.example/forecast/3> , <http://orto.example/forecast/1> , <http://orto.example/forecast/4> , <http://orto.example/forecast/2> , <http://orto.example/forecast/14> , <http://orto.example/forecast/29> , <http://orto.example/forecast/16>;
+        orto:hasRisk       <http://orto.example/risk/18> , <http://orto.example/risk/4> , <http://orto.example/risk/5> , <http://orto.example/risk/6> , <http://orto.example/risk/1> , <http://orto.example/risk/7> , <http://orto.example/risk/2> , <http://orto.example/risk/8> , <http://orto.example/risk/17> , <http://orto.example/risk/3> , <http://orto.example/risk/9>;
+        orto:influencedBy  <http://orto.example/weather/1> , <http://orto.example/weather/7> , <http://orto.example/weather/18> , <http://orto.example/weather/6> , <http://orto.example/weather/17> , <http://orto.example/weather/3> , <http://orto.example/weather/9> , <http://orto.example/weather/2> , <http://orto.example/weather/8> , <http://orto.example/weather/5> , <http://orto.example/weather/4>;
         orto:isInDanger    true;
-        orto:storeGDD      "13.5"^^<http://www.w3.org/2001/XMLSchema#double> , "229.85"^^<http://www.w3.org/2001/XMLSchema#double> , "109.69999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "96.19999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "42.35"^^<http://www.w3.org/2001/XMLSchema#double> , "84.29999999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "180.49999999999997"^^<http://www.w3.org/2001/XMLSchema#double> , "203.95"^^<http://www.w3.org/2001/XMLSchema#double> , "152.24999999999997"^^<http://www.w3.org/2001/XMLSchema#double> , "192.39999999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "69.69999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "215.35"^^<http://www.w3.org/2001/XMLSchema#double> , "138.54999999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "56.05"^^<http://www.w3.org/2001/XMLSchema#double> , "165.89999999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "243.54999999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "27.85"^^<http://www.w3.org/2001/XMLSchema#double> , "124.04999999999998"^^<http://www.w3.org/2001/XMLSchema#double> .
+        orto:storeGDD      "165.89999999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "18.6"^^<http://www.w3.org/2001/XMLSchema#double> , "42.35"^^<http://www.w3.org/2001/XMLSchema#double> , "27.85"^^<http://www.w3.org/2001/XMLSchema#double> , "124.04999999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "152.24999999999997"^^<http://www.w3.org/2001/XMLSchema#double> , "180.49999999999997"^^<http://www.w3.org/2001/XMLSchema#double> , "13.5"^^<http://www.w3.org/2001/XMLSchema#double> , "243.54999999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "56.05"^^<http://www.w3.org/2001/XMLSchema#double> , "9.350000000000001"^^<http://www.w3.org/2001/XMLSchema#double> , "109.69999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "84.29999999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "138.54999999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "215.35"^^<http://www.w3.org/2001/XMLSchema#double> , "192.39999999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "203.95"^^<http://www.w3.org/2001/XMLSchema#double> , "96.19999999999999"^^<http://www.w3.org/2001/XMLSchema#double> , "229.85"^^<http://www.w3.org/2001/XMLSchema#double> , "69.69999999999999"^^<http://www.w3.org/2001/XMLSchema#double> .
 
 <http://orto.example/forecast/103>
         a                  orto:GrowthForecast;
@@ -2004,8 +2012,8 @@ orto:GrowthStage  a  <http://www.w3.org/2000/01/rdf-schema#Resource> , <http://w
 
 <http://orto.example/risk/13>
         a                  orto:LowRisk , orto:Risk , orto:CriticalRisk , orto:RiskAssessment;
-        orto:consigli      "Nessun rischio rilevante." , "Rischio caldo alto: aumentare irrigazione e ombreggiare la pianta.";
-        orto:riskCaldo     "LOW" , "HIGH";
+        orto:consigli      "Rischio caldo alto: aumentare irrigazione e ombreggiare la pianta." , "Nessun rischio rilevante.";
+        orto:riskCaldo     "HIGH" , "LOW";
         orto:riskFreddo    "LOW";
         orto:riskMalattia  "LOW";
         orto:riskVento     "LOW" .
@@ -2044,8 +2052,8 @@ orto:GrowthStage  a  <http://www.w3.org/2000/01/rdf-schema#Resource> , <http://w
 
 <http://orto.example/risk/4>
         a                  orto:RiskAssessment , orto:ModerateRisk , orto:Risk , orto:CriticalRisk , <http://www.w3.org/2000/01/rdf-schema#Resource> , orto:LowRisk;
-        orto:consigli      "Nessun rischio rilevante." , "Rischio caldo alto: aumentare irrigazione e ombreggiare la pianta." , "Rischio caldo medio: monitorare idratazione e temperatura.";
-        orto:riskCaldo     "MEDIUM" , "HIGH" , "LOW";
+        orto:consigli      "Rischio caldo medio: monitorare idratazione e temperatura." , "Nessun rischio rilevante." , "Rischio caldo alto: aumentare irrigazione e ombreggiare la pianta.";
+        orto:riskCaldo     "LOW" , "MEDIUM" , "HIGH";
         orto:riskFreddo    "LOW";
         orto:riskMalattia  "LOW";
         orto:riskVento     "LOW" .
@@ -2081,7 +2089,7 @@ orto:GrowthStage  a  <http://www.w3.org/2000/01/rdf-schema#Resource> , <http://w
 <http://orto.example/weather/9>
         a                    orto:WeatherDay;
         orto:generatesRisk   <http://orto.example/risk/9>;
-        orto:precipitazione  "0.0"^^<http://www.w3.org/2001/XMLSchema#double> , "1.2"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:precipitazione  "1.2"^^<http://www.w3.org/2001/XMLSchema#double> , "0.0"^^<http://www.w3.org/2001/XMLSchema#double>;
         orto:tempMax         "35.8"^^<http://www.w3.org/2001/XMLSchema#double> , "25.4"^^<http://www.w3.org/2001/XMLSchema#double>;
         orto:tempMin         "19.7"^^<http://www.w3.org/2001/XMLSchema#double> , "17.4"^^<http://www.w3.org/2001/XMLSchema#double>;
         orto:umidita         "24.625"^^<http://www.w3.org/2001/XMLSchema#double> , "69.5"^^<http://www.w3.org/2001/XMLSchema#double> .
@@ -2190,19 +2198,19 @@ orto:hasRisk  a  <http://www.w3.org/2000/01/rdf-schema#Resource> , <http://www.w
 <http://orto.example/weather/10>
         a                    orto:WeatherDay;
         orto:generatesRisk   <http://orto.example/risk/12> , <http://orto.example/risk/10>;
-        orto:precipitazione  "0.0"^^<http://www.w3.org/2001/XMLSchema#double> , "0.7"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:precipitazione  "0.7"^^<http://www.w3.org/2001/XMLSchema#double> , "0.0"^^<http://www.w3.org/2001/XMLSchema#double>;
         orto:tempMax         "28.4"^^<http://www.w3.org/2001/XMLSchema#double> , "34.2"^^<http://www.w3.org/2001/XMLSchema#double>;
         orto:tempMin         "19.0"^^<http://www.w3.org/2001/XMLSchema#double> , "19.3"^^<http://www.w3.org/2001/XMLSchema#double>;
-        orto:umidita         "27.0"^^<http://www.w3.org/2001/XMLSchema#double> , "59.583333333333336"^^<http://www.w3.org/2001/XMLSchema#double> .
+        orto:umidita         "59.583333333333336"^^<http://www.w3.org/2001/XMLSchema#double> , "27.0"^^<http://www.w3.org/2001/XMLSchema#double> .
 
 <http://orto.example/plant/1>
         a                  orto:GrowthStage , orto:Plant , <http://www.w3.org/2000/01/rdf-schema#Resource> , orto:AdvancedGrowthStage , orto:EarlyGrowthStage , orto:PlantInstance;
-        orto:growthStage   "SEMINA" , "VEGETATIVO" , "EMERGENZA" , "FIORITURA";
+        orto:growthStage   "FIORITURA" , "VEGETATIVO" , "SEMINA" , "EMERGENZA";
         orto:hasForecast   <http://orto.example/forecast/9> , <http://orto.example/forecast/15> , <http://orto.example/forecast/17> , <http://orto.example/forecast/25> , <http://orto.example/forecast/12> , <http://orto.example/forecast/27> , <http://orto.example/forecast/5> , <http://orto.example/forecast/20> , <http://orto.example/forecast/7> , <http://orto.example/forecast/26> , <http://orto.example/forecast/13> , <http://orto.example/forecast/10> , <http://orto.example/forecast/6> , <http://orto.example/forecast/8> , <http://orto.example/forecast/23> , <http://orto.example/forecast/18> , <http://orto.example/forecast/11> , <http://orto.example/forecast/3> , <http://orto.example/forecast/1> , <http://orto.example/forecast/24> , <http://orto.example/forecast/19> , <http://orto.example/forecast/21> , <http://orto.example/forecast/4> , <http://orto.example/forecast/2> , <http://orto.example/forecast/14> , <http://orto.example/forecast/16> , <http://orto.example/forecast/22>;
         orto:hasRisk       <http://orto.example/risk/15> , <http://orto.example/risk/4> , <http://orto.example/risk/10> , <http://orto.example/risk/5> , <http://orto.example/risk/11> , <http://orto.example/risk/6> , <http://orto.example/risk/12> , <http://orto.example/risk/1> , <http://orto.example/risk/7> , <http://orto.example/risk/13> , <http://orto.example/risk/16> , <http://orto.example/risk/2> , <http://orto.example/risk/8> , <http://orto.example/risk/14> , <http://orto.example/risk/3> , <http://orto.example/risk/9>;
         orto:influencedBy  <http://orto.example/weather/15> , <http://orto.example/weather/1> , <http://orto.example/weather/7> , <http://orto.example/weather/13> , <http://orto.example/weather/6> , <http://orto.example/weather/10> , <http://orto.example/weather/3> , <http://orto.example/weather/9> , <http://orto.example/weather/2> , <http://orto.example/weather/8> , <http://orto.example/weather/12> , <http://orto.example/weather/5> , <http://orto.example/weather/11> , <http://orto.example/weather/16> , <http://orto.example/weather/4> , <http://orto.example/weather/14>;
         orto:isInDanger    true;
-        orto:storeGDD      "248.25000000000003"^^<http://www.w3.org/2001/XMLSchema#double> , "106.0"^^<http://www.w3.org/2001/XMLSchema#double> , "58.900000000000006"^^<http://www.w3.org/2001/XMLSchema#double> , "122.1"^^<http://www.w3.org/2001/XMLSchema#double> , "248.6"^^<http://www.w3.org/2001/XMLSchema#double> , "268.6"^^<http://www.w3.org/2001/XMLSchema#double> , "149.45"^^<http://www.w3.org/2001/XMLSchema#double> , "254.64999999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "136.39999999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "30.35"^^<http://www.w3.org/2001/XMLSchema#double> , "44.35"^^<http://www.w3.org/2001/XMLSchema#double> , "75.0"^^<http://www.w3.org/2001/XMLSchema#double> , "335.65"^^<http://www.w3.org/2001/XMLSchema#double> , "224.45"^^<http://www.w3.org/2001/XMLSchema#double> , "117.9"^^<http://www.w3.org/2001/XMLSchema#double> , "31.5"^^<http://www.w3.org/2001/XMLSchema#double> , "225.7"^^<http://www.w3.org/2001/XMLSchema#double> , "202.35"^^<http://www.w3.org/2001/XMLSchema#double> , "240.2"^^<http://www.w3.org/2001/XMLSchema#double> , "334.55"^^<http://www.w3.org/2001/XMLSchema#double> , "77.45"^^<http://www.w3.org/2001/XMLSchema#double> , "103.9"^^<http://www.w3.org/2001/XMLSchema#double> , "91.45"^^<http://www.w3.org/2001/XMLSchema#double> , "63.0"^^<http://www.w3.org/2001/XMLSchema#double> , "164.04999999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "89.3"^^<http://www.w3.org/2001/XMLSchema#double> , "15.75"^^<http://www.w3.org/2001/XMLSchema#double> , "289.85"^^<http://www.w3.org/2001/XMLSchema#double> , "210.0"^^<http://www.w3.org/2001/XMLSchema#double> , "225.45000000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "314.15"^^<http://www.w3.org/2001/XMLSchema#double> , "313.05"^^<http://www.w3.org/2001/XMLSchema#double> , "269.0"^^<http://www.w3.org/2001/XMLSchema#double> , "47.25"^^<http://www.w3.org/2001/XMLSchema#double> , "290.65"^^<http://www.w3.org/2001/XMLSchema#double> , "202.15"^^<http://www.w3.org/2001/XMLSchema#double> , "179.79999999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "194.25"^^<http://www.w3.org/2001/XMLSchema#double> .
+        orto:storeGDD      "335.65"^^<http://www.w3.org/2001/XMLSchema#double> , "44.35"^^<http://www.w3.org/2001/XMLSchema#double> , "225.7"^^<http://www.w3.org/2001/XMLSchema#double> , "254.64999999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "194.25"^^<http://www.w3.org/2001/XMLSchema#double> , "248.25000000000003"^^<http://www.w3.org/2001/XMLSchema#double> , "30.35"^^<http://www.w3.org/2001/XMLSchema#double> , "313.05"^^<http://www.w3.org/2001/XMLSchema#double> , "179.79999999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "269.0"^^<http://www.w3.org/2001/XMLSchema#double> , "15.75"^^<http://www.w3.org/2001/XMLSchema#double> , "103.9"^^<http://www.w3.org/2001/XMLSchema#double> , "31.5"^^<http://www.w3.org/2001/XMLSchema#double> , "210.0"^^<http://www.w3.org/2001/XMLSchema#double> , "63.0"^^<http://www.w3.org/2001/XMLSchema#double> , "136.39999999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "89.3"^^<http://www.w3.org/2001/XMLSchema#double> , "224.45"^^<http://www.w3.org/2001/XMLSchema#double> , "58.900000000000006"^^<http://www.w3.org/2001/XMLSchema#double> , "202.15"^^<http://www.w3.org/2001/XMLSchema#double> , "334.55"^^<http://www.w3.org/2001/XMLSchema#double> , "106.0"^^<http://www.w3.org/2001/XMLSchema#double> , "290.65"^^<http://www.w3.org/2001/XMLSchema#double> , "314.15"^^<http://www.w3.org/2001/XMLSchema#double> , "75.0"^^<http://www.w3.org/2001/XMLSchema#double> , "202.35"^^<http://www.w3.org/2001/XMLSchema#double> , "91.45"^^<http://www.w3.org/2001/XMLSchema#double> , "240.2"^^<http://www.w3.org/2001/XMLSchema#double> , "268.6"^^<http://www.w3.org/2001/XMLSchema#double> , "248.6"^^<http://www.w3.org/2001/XMLSchema#double> , "225.45000000000002"^^<http://www.w3.org/2001/XMLSchema#double> , "164.04999999999998"^^<http://www.w3.org/2001/XMLSchema#double> , "77.45"^^<http://www.w3.org/2001/XMLSchema#double> , "117.9"^^<http://www.w3.org/2001/XMLSchema#double> , "122.1"^^<http://www.w3.org/2001/XMLSchema#double> , "289.85"^^<http://www.w3.org/2001/XMLSchema#double> , "47.25"^^<http://www.w3.org/2001/XMLSchema#double> , "149.45"^^<http://www.w3.org/2001/XMLSchema#double> .
 
 <http://orto.example/forecast/102>
         a                  orto:GrowthForecast;
@@ -2250,8 +2258,8 @@ orto:LowRisk  a  <http://www.w3.org/2000/01/rdf-schema#Resource> , <http://www.w
 
 <http://orto.example/risk/12>
         a                  orto:LowRisk , orto:Risk , orto:CriticalRisk , orto:RiskAssessment;
-        orto:consigli      "Nessun rischio rilevante." , "Rischio caldo alto: aumentare irrigazione e ombreggiare la pianta.";
-        orto:riskCaldo     "LOW" , "HIGH";
+        orto:consigli      "Rischio caldo alto: aumentare irrigazione e ombreggiare la pianta." , "Nessun rischio rilevante.";
+        orto:riskCaldo     "HIGH" , "LOW";
         orto:riskFreddo    "LOW";
         orto:riskMalattia  "LOW";
         orto:riskVento     "LOW" .
@@ -2293,7 +2301,7 @@ orto:generatesRisk  a  <http://www.w3.org/2000/01/rdf-schema#Resource> , <http:/
 <http://orto.example/risk/3>
         a                  orto:RiskAssessment , orto:Risk , orto:CriticalRisk , <http://www.w3.org/2000/01/rdf-schema#Resource> , orto:LowRisk;
         orto:consigli      "Nessun rischio rilevante." , "Rischio caldo alto: aumentare irrigazione e ombreggiare la pianta.";
-        orto:riskCaldo     "HIGH" , "LOW";
+        orto:riskCaldo     "LOW" , "HIGH";
         orto:riskFreddo    "LOW";
         orto:riskMalattia  "LOW";
         orto:riskVento     "LOW" .
@@ -2376,11 +2384,11 @@ orto:generatesRisk  a  <http://www.w3.org/2000/01/rdf-schema#Resource> , <http:/
 
 <http://orto.example/weather/19>
         a                    orto:WeatherDay;
-        orto:generatesRisk   <http://orto.example/risk/25> , <http://orto.example/risk/23>;
-        orto:precipitazione  "0.0"^^<http://www.w3.org/2001/XMLSchema#double>;
-        orto:tempMax         "28.5"^^<http://www.w3.org/2001/XMLSchema#double>;
-        orto:tempMin         "17.7"^^<http://www.w3.org/2001/XMLSchema#double>;
-        orto:umidita         "71.70833333333333"^^<http://www.w3.org/2001/XMLSchema#double> .
+        orto:generatesRisk   <http://orto.example/risk/25> , <http://orto.example/risk/23> , <http://orto.example/risk/19>;
+        orto:precipitazione  "0.4"^^<http://www.w3.org/2001/XMLSchema#double> , "0.0"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:tempMax         "28.5"^^<http://www.w3.org/2001/XMLSchema#double> , "19.6"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:tempMin         "17.7"^^<http://www.w3.org/2001/XMLSchema#double> , "11.8"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:umidita         "71.70833333333333"^^<http://www.w3.org/2001/XMLSchema#double> , "82.875"^^<http://www.w3.org/2001/XMLSchema#double> .
 
 <http://orto.example/forecast/221>
         a                  orto:GrowthForecast;
@@ -2388,7 +2396,7 @@ orto:generatesRisk  a  <http://www.w3.org/2000/01/rdf-schema#Resource> , <http:/
 
 <http://orto.example/forecast/31>
         a                  orto:GrowthForecast;
-        orto:percentCiclo  "0.0"^^<http://www.w3.org/2001/XMLSchema#double> .
+        orto:percentCiclo  "0.527777777777778"^^<http://www.w3.org/2001/XMLSchema#double> , "0.0"^^<http://www.w3.org/2001/XMLSchema#double> .
 
 <http://orto.example/forecast/280>
         a                  orto:GrowthForecast;

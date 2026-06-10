@@ -1,7 +1,6 @@
 package repository;
 
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityTransaction;
 import model.GrowthForecast;
 import model.PlantInstance;
 import org.springframework.stereotype.Repository;

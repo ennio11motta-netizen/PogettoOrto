@@ -36,7 +36,8 @@ public class PlantService {
             PlantSpecieRepository plantSpecieRepository,
             PlantInstanceRepository plantInstanceRepository,
             GrowthForecastRepository growthForecastRepository,
-            RiskAssessmentRepository riskAssessmentRepository
+            RiskAssessmentRepository riskAssessmentRepository,
+            GrowthCalculator growthCalculator
     ) {
 
         this.locationRepository = locationRepository;
@@ -44,8 +45,7 @@ public class PlantService {
         this.plantInstanceRepository = plantInstanceRepository;
         this.growthForecastRepository = growthForecastRepository;
         this.riskAssessmentRepository = riskAssessmentRepository;
-        this.growthCalculator = new GrowthCalculator();
-
+        this.growthCalculator = growthCalculator;
 
     }
 

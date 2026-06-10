@@ -3,7 +3,6 @@ import model.Location;
 import model.PlantInstance;
 import java.util.List;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityTransaction;
 import model.PlantSpecie;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
