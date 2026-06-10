@@ -1,18 +1,11 @@
 package repository;
-
+import model.Location;
 import model.PlantInstance;
-
 import java.util.List;
-
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
-
 import model.PlantSpecie;
-
-
 import java.util.Optional;
-
-
 public class PlantInstanceRepository {
 
     private final EntityManager em;
@@ -108,5 +101,18 @@ public class PlantInstanceRepository {
             if (tx.isActive()) tx.rollback();
             throw e;
         }
+    }
+
+    //====================================
+    //FIND BY LOCATION
+    //===================================
+
+    public List<PlantInstance> findByLocation(Location location) {
+        return em.createQuery(
+                        "SELECT pi FROM PlantInstance pi WHERE pi.location = :location ORDER BY pi.dataInsert ASC",
+                        PlantInstance.class
+                )
+                .setParameter("location", location)
+                .getResultList();
     }
 }

@@ -23,6 +23,8 @@ public class PlantService {
     private final GrowthForecastRepository growthForecastRepository;
     private final GrowthCalculator growthCalculator;
 
+
+
     public PlantService(EntityManager em) {
         this.plantSpecieRepository = new PlantSpecieRepository(em);
         this.plantInstanceRepository = new PlantInstanceRepository(em);

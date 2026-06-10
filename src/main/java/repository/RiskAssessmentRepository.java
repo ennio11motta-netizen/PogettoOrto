@@ -1,11 +1,9 @@
 package repository;
-
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.NoResultException;
 import model.PlantInstance;
 import model.RiskAssessment;
-
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;

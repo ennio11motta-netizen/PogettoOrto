@@ -1,18 +1,10 @@
 package repository;
 
-
-
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
-
 import model.GrowthForecast;
 import model.PlantInstance;
-
-
 import java.util.List;
-
-
-
 import java.util.Optional;
 
 public class GrowthForecastRepository {
@@ -75,27 +67,27 @@ public class GrowthForecastRepository {
         ).getResultList();
     }
 
-    // ===============================
-    // FIND BY PLANT
-    // ===============================
-    public List<GrowthForecast> findByPlantInstance(PlantInstance pianta) {
-        return em.createQuery(
-                        "SELECT gf FROM GrowthForecast gf WHERE gf.plantInstance = :pianta",
-                        GrowthForecast.class
-                ).setParameter("pianta", pianta)
-                .getResultList();
-    }
+//    // ===============================
+//    // FIND BY PLANT
+//    // ===============================
+//    public List<GrowthForecast> findByPlantInstance(PlantInstance pianta) {
+//        return em.createQuery(
+//                        "SELECT gf FROM GrowthForecast gf WHERE gf.plantInstance = :pianta",
+//                        GrowthForecast.class
+//                ).setParameter("pianta", pianta)
+//                .getResultList();
+//    }
 
-    // ===============================
-    // FIND ORDINATI PER DATA
-    // ===============================
-    public List<GrowthForecast> findByPlantOrderByDate(PlantInstance pianta) {
-        return em.createQuery(
-                        "SELECT gf FROM GrowthForecast gf WHERE gf.plantInstance = :pianta ORDER BY gf.dateTime ASC",
-                        GrowthForecast.class
-                ).setParameter("pianta", pianta)
-                .getResultList();
-    }
+//    // ===============================
+//    // FIND ORDINATI PER DATA
+//    // ===============================
+//    public List<GrowthForecast> findByPlantOrderByDate(PlantInstance pianta) {
+//        return em.createQuery(
+//                        "SELECT gf FROM GrowthForecast gf WHERE gf.plantInstance = :pianta ORDER BY gf.dateTime ASC",
+//                        GrowthForecast.class
+//                ).setParameter("pianta", pianta)
+//                .getResultList();
+//    }
 
     // ===============================
     // DELETE

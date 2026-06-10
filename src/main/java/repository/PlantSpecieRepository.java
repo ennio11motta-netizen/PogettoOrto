@@ -1,16 +1,10 @@
 package repository;
-
-
-
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.NoResultException;
 import model.PlantSpecie;
-
-
 import java.util.List;
 import java.util.Optional;
-
 
 public class PlantSpecieRepository {
 

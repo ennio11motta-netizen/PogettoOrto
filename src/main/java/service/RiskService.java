@@ -6,7 +6,6 @@ import model.RiskAssessment;
 import model.WeatherDay;
 import repository.RiskAssessmentRepository;
 import util.RiskCalculator;
-
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;

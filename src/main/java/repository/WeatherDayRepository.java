@@ -5,7 +5,6 @@ import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.NoResultException;
 import model.Location;
 import model.WeatherDay;
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;

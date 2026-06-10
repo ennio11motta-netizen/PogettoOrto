@@ -4,17 +4,26 @@ import exception.GrowthStage;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
+@Table(name = "plant_instance")
 public class PlantInstance {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "plant_id")
     private Integer plantId;
 
     @ManyToOne
     @JoinColumn(name = "specie_id")
     private PlantSpecie plantSpecie;
+
+
+    @Column(name = "nome")
+    private String nome;
+
 
     private LocalDateTime dataInsert;
 
@@ -26,10 +35,23 @@ public class PlantInstance {
     private String note;
 
 //    //1 PlantInstance → N GrowthForecast
-//    private Set<GrowthForecast> growthForecasts;
+    @OneToMany(mappedBy = "plantInstance")
+   private Set<GrowthForecast> growthForecasts = new HashSet<>();
 //
 //    //1 PlantInstance → N RiskAssessment
-//    private Set<RiskAssessment> riskAssessments;
+    @OneToMany(mappedBy = "plantInstance")
+    private Set<RiskAssessment> riskAssessments =new  HashSet<>();
+
+
+    @ManyToOne
+    @JoinColumn(name = "location_id")
+    private Location location;
+
+
+
+
+    public PlantInstance() {
+    }
 
 
     public LocalDateTime getDataInsert() {
@@ -72,16 +94,6 @@ public class PlantInstance {
         this.storeGDD = storeGDD;
     }
 
-    public PlantInstance(LocalDateTime dataInsert, GrowthStage growthStage, String note, Long plantId, PlantSpecie plantSpecie, Double storeGDD) {
-        this.dataInsert = dataInsert;
-        this.growthStage = growthStage;
-        this.note = note;
-        this.plantSpecie = plantSpecie;
-        this.storeGDD = storeGDD;
-    }
-
-    public PlantInstance() {
-    }
 
     public PlantSpecie getPlantSpecie() {
         return plantSpecie;
@@ -91,16 +103,52 @@ public class PlantInstance {
         this.plantSpecie = plantSpecie;
     }
 
+    public Set<GrowthForecast> getGrowthForecasts() {
+        return growthForecasts;
+    }
+
+    public void setGrowthForecasts(Set<GrowthForecast> growthForecasts) {
+        this.growthForecasts = growthForecasts;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public Set<RiskAssessment> getRiskAssessments() {
+        return riskAssessments;
+    }
+
+    public void setRiskAssessments(Set<RiskAssessment> riskAssessments) {
+        this.riskAssessments = riskAssessments;
+    }
+
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
     @Override
     public String toString() {
         return "PlantInstance{" +
-                "dataInsert=" + dataInsert +
-                ", plantId=" + plantId +
-                ", plantSpecie=" + plantSpecie +
+                "plantSpecie=" + plantSpecie +
+                ", riskAssessments=" + riskAssessments +
                 ", storeGDD=" + storeGDD +
-                ", growthStage=" + growthStage +
                 ", note='" + note + '\'' +
+                ", nome='" + nome + '\'' +
+                ", location=" + location +
+                ", growthStage=" + growthStage +
+                ", growthForecasts=" + growthForecasts +
+                ", dataInsert=" + dataInsert +
+                ", plantId=" + plantId +
                 '}';
     }
 }

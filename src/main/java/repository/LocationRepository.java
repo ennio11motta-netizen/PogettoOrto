@@ -1,17 +1,10 @@
 package repository;
-
 import model.Location;
-
-
-
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.NoResultException;
-
-
 import java.util.List;
 import java.util.Optional;
-
 
 public class LocationRepository {
 

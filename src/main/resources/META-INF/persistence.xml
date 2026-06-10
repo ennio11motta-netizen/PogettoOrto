@@ -15,6 +15,7 @@
        <class>model.RiskAssessment</class>
 
 
+
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
             <property name="jakarta.persistence.jdbc.url"

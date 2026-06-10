@@ -56,11 +56,7 @@ public class SimulationService {
         );
     }
 
-    public List<SimulationStepResult> simula(
-            Location location,
-            PlantInstance pianta,
-            Integer giorni
-    ) {
+    public List<SimulationStepResult> simula(Location location, PlantInstance pianta, Integer giorni) {
         validateInput(location, pianta, giorni);
 
         /*
@@ -80,6 +76,11 @@ public class SimulationService {
 
             results.add(result);
         }
+        //  Applica inferenza RDF
+        rdfService.applicaInferenzaPiantePericolose();
+
+        //  Salva su file RDF
+        rdfService.salvaRDFSuFile("data/orto.ttl");
 
         return results;
     }
