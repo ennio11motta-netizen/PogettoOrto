@@ -1,6 +1,6 @@
 
 
-package service;
+package simulation;
 
 import dto.PlantSimulationResultDTO;
 import dto.SimulationStepDTO;
@@ -10,8 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import rdf.RdfService;
 import repository.*;
-import simulation.SimulationProcessor;
-import simulation.SimulationStepResult;
+import service.ExternalWeatherService;
 import util.IrrigationCalculator;
 import util.IrrigationResult;
 
@@ -123,6 +122,10 @@ public class SimulationService {
         Location location = locationRepository.findById(locationId)
                 .orElseThrow(() -> new IllegalArgumentException("Location non trovata"));
 
+
+        rdfService.exportGarden(location);
+        String simulationUri = rdfService.exportSimulationRun(location, "APPLIED");
+
         List<PlantInstance> plants =
                 plantInstanceRepository.findByLocation(location);
 
@@ -138,8 +141,13 @@ public class SimulationService {
         for (PlantInstance plant : plants) {
             List<SimulationStepResult> results = new ArrayList<>();
 
+
+            rdfService.exportPlantInstance(plant);
+            rdfService.collegaGardenPlant(location, plant);
+
+
             for (WeatherDay weatherDay : forecast) {
-                results.add(simulationProcessor.processStep(plant, weatherDay));
+                results.add(simulationProcessor.processStep(simulationUri,plant, weatherDay));
             }
 
             List<SimulationStepDTO> dtoResults = toDTOList(results);

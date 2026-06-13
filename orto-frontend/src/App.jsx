@@ -7,6 +7,7 @@ import GardenPlants from "./components/garden/GardenPlants";
 import AddPlantForm from "./components/garden/AddPlantForm";
 import SimulationStart from "./components/simulation/SimulationStart";
 import SimulationResults from "./components/simulation/SimulationResults";
+import RdfSimulationRuns from "./components/simulation/RdfSimulationRuns";
 
 
 //API
@@ -21,7 +22,10 @@ import {
   deletePlant,
   getPlantsByLocation,
   runGardenSimulation,
-  deleteGardenSimulation
+  deleteGardenSimulation,
+  getRdfSimulationHistory,
+
+
 } from "./api/api";
 
 //stato iniziale form
@@ -47,7 +51,10 @@ function App() {
   const [species, setSpecies] = useState([]); //Specie disponibili
   const [plants, setPlants] = useState([]);   //Piante orto select
   const [gardens, setGardens] = useState([]); //orti disponibili
-  const [simulationResults, setSimulationResults] = useState([]); //Risultati simulazione
+  const [simulationResults, setSimulationResults] = useState([]);//Risultati simulazione
+
+
+  const [rdfSimulationHistory, setRdfSimulationHistory] = useState([]);
 
   const [currentLocationId, setCurrentLocationId] = useState(""); //Stato: caricP+Sim+DeleteSim
   const [days, setDays] = useState(2); //Giorni da simulare card6
@@ -75,6 +82,33 @@ function App() {
     loadSpecies();
     loadGardens();
   }, []);
+
+
+
+//////////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////
+
+
+  async function loadRdfSimulationHistory(locationId = currentLocationId) {
+    resetFeedback();
+
+    if (!locationId) {
+      setError("Seleziona prima un orto.");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const data = await getRdfSimulationHistory(locationId);
+      setRdfSimulationHistory(data);
+      setMessage("Storico RDF simulazioni caricato correttamente.");
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  }
 
   async function loadSpecies() {
     resetFeedback();
@@ -341,6 +375,9 @@ function App() {
     }));
 
     setSimulationResults([]);
+    setRdfSimulationHistory([]);
+
+
 
     if (!locationId) {
       setPlants([]);
@@ -396,6 +433,9 @@ function App() {
 
 
       setSimulationResults(data);
+
+      await loadRdfSimulationHistory(currentLocationId);
+
       setMessage("Simulazione completata correttamente.");
     } catch (err) {
       setError(err.message);
@@ -516,6 +556,17 @@ function App() {
               loading={loading}
               hasSelectedGarden={!!currentLocationId}
           />
+
+
+          <RdfSimulationRuns
+              gardens={gardens}
+              currentLocationId={currentLocationId}
+              rdfSimulationHistory={rdfSimulationHistory}
+              onSelectGarden={handleSelectGarden}
+              onLoadHistory={loadRdfSimulationHistory}
+              loading={loading}
+          />
+
         </main>
       </div>
   );
@@ -523,13 +574,20 @@ function App() {
 
 
 
-//
+//Utility
 function toNumberOrNull(value) {
   if (value === "" || value === null || value === undefined) {
     return null;
   }
-
   return Number(value);
+}
+
+function extractRunId(simulationUri) {
+  if (!simulationUri) {
+    return "";
+  }
+
+  return simulationUri.split("/").pop();
 }
 
 

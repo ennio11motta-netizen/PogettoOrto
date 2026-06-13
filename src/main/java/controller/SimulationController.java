@@ -6,7 +6,7 @@ import dto.PlantSimulationResultDTO;
 import dto.SimulationStepDTO;
 import org.springframework.web.bind.annotation.*;
 import reqResp.SimulationRunRequest;
-import service.SimulationService;
+import simulation.SimulationService;
 import java.util.List;
 
 @RestController

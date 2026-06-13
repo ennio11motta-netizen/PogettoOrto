@@ -5,6 +5,7 @@ import exception.GrowthStage;
 import model.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import rdf.RdfService;
 import repository.*;
 import reqResp.CreatePlantRequest;
 import util.GrowthCalculator;
@@ -29,6 +30,8 @@ public class PlantService {
     private final LocationRepository locationRepository;
     private final RiskAssessmentRepository riskAssessmentRepository;
 
+    private final RdfService rdfService;
+
 
 
     public PlantService(
@@ -37,7 +40,8 @@ public class PlantService {
             PlantInstanceRepository plantInstanceRepository,
             GrowthForecastRepository growthForecastRepository,
             RiskAssessmentRepository riskAssessmentRepository,
-            GrowthCalculator growthCalculator
+            GrowthCalculator growthCalculator,
+            RdfService rdfService
     ) {
 
         this.locationRepository = locationRepository;
@@ -46,40 +50,8 @@ public class PlantService {
         this.growthForecastRepository = growthForecastRepository;
         this.riskAssessmentRepository = riskAssessmentRepository;
         this.growthCalculator = growthCalculator;
+        this.rdfService = rdfService;
 
-    }
-
-    /**
-     * Salva una nuova specie vegetale.
-     */
-    @Transactional
-    public PlantSpecie salvaSpecie(PlantSpecie specie) {
-
-        if (specie == null) {
-            throw new IllegalArgumentException("PlantSpecie non può essere null");
-        }
-
-        return plantSpecieRepository.save(specie);
-    }
-
-    /**
-     * Salva una nuova istanza di pianta (pianta reale).
-     */
-    public PlantInstance salvaPianta(PlantInstance pianta) {
-
-        if (pianta == null) {
-            throw new IllegalArgumentException("PlantInstance non può essere null");
-        }
-
-        if (pianta.getPlantSpecie() == null) {
-            throw new IllegalArgumentException("La pianta deve avere una specie associata");
-        }
-
-        if (pianta.getPlantSpecie().getSpecieId() == null) {
-            throw new IllegalArgumentException("La specie deve essere salvata prima");
-        }
-
-        return plantInstanceRepository.save(pianta);
     }
 
     /**
@@ -193,6 +165,13 @@ public class PlantService {
         plant.setNote(request.getNote());
 
         PlantInstance savedPlant = plantInstanceRepository.save(plant);
+
+
+        rdfService.exportGarden(location);
+        rdfService.exportPlantInstance(savedPlant);
+        rdfService.collegaGardenPlant(location, savedPlant);
+        rdfService.salvaRDFSuFile("data/orto.ttl");
+
 
         return PlantDTO.fromEntity(savedPlant);
     }

@@ -5,6 +5,7 @@ package service;
 import model.Location;
 import model.PlantInstance;
 
+import model.PlantSpecie;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import repository.*;
@@ -12,6 +13,7 @@ import reqResp.CreateGardenRequest;
 import reqResp.GardenResponse;
 
 import java.util.List;
+import rdf.RdfService;
 
 @Service
 public class GardenSetupService {
@@ -24,19 +26,25 @@ public class GardenSetupService {
     private final GrowthForecastRepository growthForecastRepository;
     private final RiskAssessmentRepository riskAssessmentRepository;
 
+    private final RdfService rdfService;
+
 
     public GardenSetupService(
             LocationRepository locationRepository,
             PlantInstanceRepository plantInstanceRepository,
             WeatherDayRepository weatherDayRepository,
             GrowthForecastRepository growthForecastRepository,
-            RiskAssessmentRepository riskAssessmentRepository
+            RiskAssessmentRepository riskAssessmentRepository,
+            RdfService rdfService
     ) {
         this.locationRepository = locationRepository;
         this.plantInstanceRepository = plantInstanceRepository;
         this.weatherDayRepository = weatherDayRepository;
         this.growthForecastRepository = growthForecastRepository;
         this.riskAssessmentRepository = riskAssessmentRepository;
+
+        this.rdfService = rdfService;
+
     }
 
 
@@ -50,6 +58,10 @@ public class GardenSetupService {
         location.setLongitudine(request.getLongitudine());
 
         Location savedLocation = locationRepository.save(location);
+
+        rdfService.exportGarden(savedLocation);
+        rdfService.salvaRDFSuFile("data/orto.ttl");
+
 
         return new GardenResponse(
                 savedLocation.getLocationId(),
@@ -121,5 +133,7 @@ public class GardenSetupService {
                 ))
                 .toList();
     }
+
+
 
 }

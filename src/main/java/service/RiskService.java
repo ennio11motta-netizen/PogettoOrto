@@ -57,28 +57,28 @@ public class RiskService {
         return riskAssessmentRepository.saveOrUpdateByPlantAndDate(assessment);
     }
 
-    public List<RiskAssessment> getByPlantInstance(PlantInstance pianta) {
-        if (pianta == null) {
-            throw new IllegalArgumentException("PlantInstance non può essere null");
-        }
+//    public List<RiskAssessment> getByPlantInstance(PlantInstance pianta) {
+//        if (pianta == null) {
+//            throw new IllegalArgumentException("PlantInstance non può essere null");
+//        }
+//
+//        return riskAssessmentRepository.findByPlantInstanceOrderByDateAsc(pianta);
+//    }
 
-        return riskAssessmentRepository.findByPlantInstanceOrderByDateAsc(pianta);
-    }
-
-    public Optional<RiskAssessment> getByPlantInstanceAndDate(
-            PlantInstance pianta,
-            LocalDateTime data
-    ) {
-        if (pianta == null) {
-            throw new IllegalArgumentException("PlantInstance non può essere null");
-        }
-
-        if (data == null) {
-            throw new IllegalArgumentException("La data non può essere null");
-        }
-
-        return riskAssessmentRepository.findByPlantInstanceAndDate(pianta, data);
-    }
+//    public Optional<RiskAssessment> getByPlantInstanceAndDate(
+//            PlantInstance pianta,
+//            LocalDateTime data
+//    ) {
+//        if (pianta == null) {
+//            throw new IllegalArgumentException("PlantInstance non può essere null");
+//        }
+//
+//        if (data == null) {
+//            throw new IllegalArgumentException("La data non può essere null");
+//        }
+//
+//        return riskAssessmentRepository.findByPlantInstanceAndDate(pianta, data);
+//    }
 
     private void validateInput(
             PlantInstance pianta,

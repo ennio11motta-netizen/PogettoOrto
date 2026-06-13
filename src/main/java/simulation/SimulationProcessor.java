@@ -102,6 +102,26 @@ public class SimulationProcessor {
         );
     }
 
+
+    @Transactional
+    public SimulationStepResult processStep(
+            String simulationUri,
+            PlantInstance pianta,
+            WeatherDay weatherDay
+    ) {
+        SimulationStepResult result = processStep(pianta, weatherDay);
+
+        rdfService.collegaSimulationStep(
+                simulationUri,
+                pianta,
+                result.getWeatherDay(),
+                result.getRiskAssessment(),
+                result.getGrowthForecast()
+        );
+
+        return result;
+    }
+
     private void validateInput(
             PlantInstance pianta,
             WeatherDay weatherDay
