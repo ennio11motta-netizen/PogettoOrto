@@ -1,4 +1,4 @@
-package rdf;
+package service.rdf;
 
 import org.apache.jena.query.*;
 import org.apache.jena.rdf.model.Model;

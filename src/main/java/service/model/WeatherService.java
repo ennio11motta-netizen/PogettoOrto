@@ -1,5 +1,5 @@
 
-package service;
+package service.model;
 
 import model.WeatherDay;
 import org.springframework.stereotype.Service;

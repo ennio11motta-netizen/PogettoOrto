@@ -1,16 +1,18 @@
 
 
-package simulation;
+package service.simulation;
 
-import dto.PlantSimulationResultDTO;
-import dto.SimulationStepDTO;
+import dto.model.PlantSimulationResultDTO;
+import dto.model.SimulationStepDTO;
 import exception.GrowthStage;
 import model.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import rdf.RdfService;
+import service.rdf.RdfService;
 import repository.*;
-import service.ExternalWeatherService;
+import service.model.ExternalWeatherService;
+import simulation.SimulationProcessor;
+import simulation.SimulationStepResult;
 import util.IrrigationCalculator;
 import util.IrrigationResult;
 

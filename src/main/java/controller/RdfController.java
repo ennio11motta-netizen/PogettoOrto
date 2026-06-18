@@ -2,11 +2,12 @@ package controller;
 
 
 import org.springframework.web.bind.annotation.*;
-import rdf.*;
-import rdfDTO.RdfGardenDetailDTO;
-import rdfDTO.RdfSimulationRunDTO;
-import rdfDTO.RdfSimulationRunDetailDTO;
-import rdfDTO.RdfSimulationRunHistoryDTO;
+import dto.rdf.RdfGardenDetailDTO;
+import dto.rdf.RdfSimulationRunDTO;
+import dto.rdf.RdfSimulationRunDetailDTO;
+import dto.rdf.RdfSimulationRunHistoryDTO;
+import service.rdf.RdfGardenDetailService;
+import service.rdf.RdfSimulationRunService;
 
 import java.util.List;
 

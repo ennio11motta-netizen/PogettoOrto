@@ -1,12 +1,12 @@
-package rdf;
+package service.rdf;
 
 
+import dto.rdf.*;
 import org.apache.jena.query.*;
 import org.apache.jena.rdf.model.Literal;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.RDFNode;
 import org.springframework.stereotype.Service;
-import rdfDTO.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -422,69 +422,6 @@ public class RdfSimulationRunService {
     }
 
     ////////////////////////////////////////////////
-//    private List<RdfRiskHistoryDTO> queryRisksForSimulation(
-//            Model model,
-//            String simulationUri
-//    ) {
-//        List<RdfRiskHistoryDTO> risks = new ArrayList<>();
-//
-//        String queryString = """
-//            PREFIX orto: <http://orto.example/>
-//
-//            SELECT DISTINCT ?plant ?plantName ?risk ?riskCaldo ?riskFreddo ?riskVento
-//                            ?riskMalattia ?consigli
-//            WHERE {
-//                <%s> orto:simulationHasPlant ?plant .
-//                <%s> orto:simulationHasRisk ?risk .
-//
-//                ?plant orto:hasRisk ?risk .
-//
-//                OPTIONAL { ?plant orto:name ?plantName . }
-//
-//                OPTIONAL { ?risk orto:riskCaldo ?riskCaldo . }
-//                OPTIONAL { ?risk orto:riskFreddo ?riskFreddo . }
-//                OPTIONAL { ?risk orto:riskVento ?riskVento . }
-//                OPTIONAL { ?risk orto:riskMalattia ?riskMalattia . }
-//                OPTIONAL { ?risk orto:consigli ?consigli . }
-//            }
-//            ORDER BY ?plant ?risk
-//            """.formatted(simulationUri, simulationUri);
-//
-//        Query query = QueryFactory.create(queryString);
-//
-//        try (QueryExecution qexec = QueryExecutionFactory.create(query, model)) {
-//            ResultSet resultSet = qexec.execSelect();
-//
-//            while (resultSet.hasNext()) {
-//                QuerySolution solution = resultSet.nextSolution();
-//
-//                RdfRiskHistoryDTO dto = new RdfRiskHistoryDTO();
-//
-//                RDFNode plantNode = solution.get("plant");
-//                RDFNode riskNode = solution.get("risk");
-//
-//                if (plantNode != null) {
-//                    dto.setPlantUri(plantNode.toString());
-//                }
-//
-//                if (riskNode != null) {
-//                    dto.setRiskUri(riskNode.toString());
-//                }
-//
-//                dto.setPlantName(getLiteralString(solution, "plantName"));
-//
-//                dto.setRiskCaldo(getLiteralString(solution, "riskCaldo"));
-//                dto.setRiskFreddo(getLiteralString(solution, "riskFreddo"));
-//                dto.setRiskVento(getLiteralString(solution, "riskVento"));
-//                dto.setRiskMalattia(getLiteralString(solution, "riskMalattia"));
-//                dto.setConsigli(getLiteralString(solution, "consigli"));
-//
-//                risks.add(dto);
-//            }
-//        }
-//
-//        return risks;
-//    }
     /////////////////////////////////////////////
     private List<RdfRiskHistoryDTO> queryRisksForSimulation(
             Model model,

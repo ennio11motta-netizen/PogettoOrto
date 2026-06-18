@@ -314,4 +314,3 @@ function formatDateOnly(value) {
 
     return value.split("T")[0];
 }
-``

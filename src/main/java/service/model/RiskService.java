@@ -1,5 +1,5 @@
 
-package service;
+package service.model;
 
 import model.PlantInstance;
 import model.RiskAssessment;
@@ -8,10 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import repository.RiskAssessmentRepository;
 import util.RiskCalculator;
-
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Optional;
 
 /**
  * Service responsabile della valutazione del rischio.
@@ -57,28 +53,6 @@ public class RiskService {
         return riskAssessmentRepository.saveOrUpdateByPlantAndDate(assessment);
     }
 
-//    public List<RiskAssessment> getByPlantInstance(PlantInstance pianta) {
-//        if (pianta == null) {
-//            throw new IllegalArgumentException("PlantInstance non può essere null");
-//        }
-//
-//        return riskAssessmentRepository.findByPlantInstanceOrderByDateAsc(pianta);
-//    }
-
-//    public Optional<RiskAssessment> getByPlantInstanceAndDate(
-//            PlantInstance pianta,
-//            LocalDateTime data
-//    ) {
-//        if (pianta == null) {
-//            throw new IllegalArgumentException("PlantInstance non può essere null");
-//        }
-//
-//        if (data == null) {
-//            throw new IllegalArgumentException("La data non può essere null");
-//        }
-//
-//        return riskAssessmentRepository.findByPlantInstanceAndDate(pianta, data);
-//    }
 
     private void validateInput(
             PlantInstance pianta,

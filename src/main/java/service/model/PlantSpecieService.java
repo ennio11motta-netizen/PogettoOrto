@@ -1,6 +1,6 @@
-package service;
+package service.model;
 
-import dto.PlantSpecieDTO;
+import dto.model.PlantSpecieDTO;
 import model.PlantInstance;
 import model.PlantSpecie;
 import org.springframework.stereotype.Service;

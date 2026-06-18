@@ -5,7 +5,7 @@ import reqResp.CreateGardenRequest;
 import reqResp.GardenResponse;
 
 import org.springframework.web.bind.annotation.*;
-import service.GardenSetupService;
+import service.model.GardenSetupService;
 
 import java.util.List;
 

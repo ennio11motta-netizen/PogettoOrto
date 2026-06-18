@@ -2,11 +2,11 @@ package controller;
 
 import org.springframework.http.ResponseEntity;
 import reqResp.GardenSimulationRequest;
-import dto.PlantSimulationResultDTO;
-import dto.SimulationStepDTO;
+import dto.model.PlantSimulationResultDTO;
+import dto.model.SimulationStepDTO;
 import org.springframework.web.bind.annotation.*;
 import reqResp.SimulationRunRequest;
-import simulation.SimulationService;
+import service.simulation.SimulationService;
 import java.util.List;
 
 @RestController

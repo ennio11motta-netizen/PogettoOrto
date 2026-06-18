@@ -27,7 +27,7 @@ orto:windKmh  <http://www.w3.org/2000/01/rdf-schema#label>
         orto:storeGDD         "52.60000000000001"^^<http://www.w3.org/2001/XMLSchema#double> .
 
 <http://orto.example/risk/3>
-        a                  orto:RiskAssessment , orto:Risk , orto:LowRisk;
+        a                  orto:LowRisk , orto:Risk , orto:RiskAssessment;
         orto:consigli      "Nessun rischio rilevante.";
         orto:riskCaldo     "LOW";
         orto:riskFreddo    "LOW";
@@ -76,36 +76,26 @@ orto:Garden  <http://www.w3.org/2000/01/rdf-schema#label>
 <http://orto.example/plant/3>
         a                     orto:EarlyGrowthStage , orto:Plant , orto:PlantInstance;
         orto:belongsToGarden  <http://orto.example/garden/2>;
-        orto:growthStage      "SEMINA";
-        orto:hasForecast      <http://orto.example/forecast/7> , <http://orto.example/forecast/8>;
-        orto:hasRisk          <http://orto.example/risk/6> , <http://orto.example/risk/5>;
-        orto:influencedBy     <http://orto.example/weather/3> , <http://orto.example/weather/4>;
+        orto:growthStage      "EMERGENZA";
+        orto:hasForecast      <http://orto.example/forecast/7> , <http://orto.example/forecast/10> , <http://orto.example/forecast/9> , <http://orto.example/forecast/8>;
+        orto:hasRisk          <http://orto.example/risk/8> , <http://orto.example/risk/7> , <http://orto.example/risk/6> , <http://orto.example/risk/5>;
+        orto:influencedBy     <http://orto.example/weather/6> , <http://orto.example/weather/3> , <http://orto.example/weather/4> , <http://orto.example/weather/5>;
         orto:name             "Pomodoro1";
         orto:note             "";
         orto:speciesName      "Pomodoro";
-        orto:storeGDD         "26.400000000000002"^^<http://www.w3.org/2001/XMLSchema#double> .
+        orto:storeGDD         "53.6"^^<http://www.w3.org/2001/XMLSchema#double> .
 
 orto:EarlyGrowthStage
         <http://www.w3.org/2000/01/rdf-schema#subClassOf>
                 orto:GrowthStage .
 
 <http://orto.example/risk/5>
-        a                  orto:LowRisk , orto:Risk , orto:RiskAssessment;
+        a                  orto:RiskAssessment , orto:Risk , orto:LowRisk;
         orto:consigli      "Nessun rischio rilevante.";
         orto:riskCaldo     "LOW";
         orto:riskFreddo    "LOW";
         orto:riskMalattia  "LOW";
         orto:riskVento     "LOW" .
-
-<http://orto.example/garden/1>
-        a               orto:Garden;
-        orto:hasPlant   <http://orto.example/plant/2> , <http://orto.example/plant/1>;
-        orto:latitude   "39.1766"^^<http://www.w3.org/2001/XMLSchema#double>;
-        orto:longitude  "8.9716"^^<http://www.w3.org/2001/XMLSchema#double>;
-        orto:name       "Orto1" .
-
-orto:speciesName  <http://www.w3.org/2000/01/rdf-schema#label>
-                "nome specie"@it .
 
 orto:forGarden  <http://www.w3.org/2000/01/rdf-schema#domain>
                 orto:SimulationRun;
@@ -113,6 +103,16 @@ orto:forGarden  <http://www.w3.org/2000/01/rdf-schema#domain>
                 "per orto"@it;
         <http://www.w3.org/2000/01/rdf-schema#range>
                 orto:Garden .
+
+orto:speciesName  <http://www.w3.org/2000/01/rdf-schema#label>
+                "nome specie"@it .
+
+<http://orto.example/garden/1>
+        a               orto:Garden;
+        orto:hasPlant   <http://orto.example/plant/1> , <http://orto.example/plant/2>;
+        orto:latitude   "39.1766"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:longitude  "8.9716"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:name       "Orto1" .
 
 orto:hasRisk  <http://www.w3.org/2000/01/rdf-schema#domain>
                 orto:Plant;
@@ -149,6 +149,25 @@ orto:simulationHasPlant
         <http://www.w3.org/2000/01/rdf-schema#range>
                 orto:Plant .
 
+<http://orto.example/forecast/10>
+        a                    orto:GrowthForecast;
+        orto:dateTime        "2026-06-16T14:08:32.460118600";
+        orto:daysToMaturity  "56"^^<http://www.w3.org/2001/XMLSchema#int>;
+        orto:gddDaily        "13.5"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:growthStage     "EMERGENZA";
+        orto:percentCiclo    "6.7"^^<http://www.w3.org/2001/XMLSchema#double> .
+
+<http://orto.example/weather/5>
+        a                    orto:WeatherDay;
+        orto:dateTime        "2026-06-16T14:08:32.141501900";
+        orto:generatesRisk   <http://orto.example/risk/7>;
+        orto:precipitazione  "0.0"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:tempMax         "30.2"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:tempMin         "17.2"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:umidita         "71.58333333333333"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:uvIndex         "8.25"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:windKmh         "17.9"^^<http://www.w3.org/2001/XMLSchema#double> .
+
 <http://orto.example/forecast/3>
         a                    orto:GrowthForecast;
         orto:dateTime        "2026-06-13T20:28:07.217669";
@@ -159,6 +178,14 @@ orto:simulationHasPlant
 
 orto:daysToMaturity  <http://www.w3.org/2000/01/rdf-schema#label>
                 "giorni alla maturazione"@it .
+
+<http://orto.example/risk/7>
+        a                  orto:LowRisk , orto:Risk , orto:RiskAssessment;
+        orto:consigli      "Nessun rischio rilevante.";
+        orto:riskCaldo     "LOW";
+        orto:riskFreddo    "LOW";
+        orto:riskMalattia  "LOW";
+        orto:riskVento     "LOW" .
 
 orto:AdvancedGrowthStage
         <http://www.w3.org/2000/01/rdf-schema#subClassOf>
@@ -176,7 +203,7 @@ orto:simulationHasWeather
                 orto:WeatherDay .
 
 <http://orto.example/risk/2>
-        a                  orto:RiskAssessment , orto:Risk , orto:LowRisk;
+        a                  orto:LowRisk , orto:Risk , orto:RiskAssessment;
         orto:consigli      "Nessun rischio rilevante.";
         orto:riskCaldo     "LOW";
         orto:riskFreddo    "LOW";
@@ -250,7 +277,7 @@ orto:CriticalRisk  <http://www.w3.org/2000/01/rdf-schema#subClassOf>
         orto:storeGDD         "26.300000000000004"^^<http://www.w3.org/2001/XMLSchema#double> .
 
 <http://orto.example/risk/4>
-        a                  orto:RiskAssessment , orto:Risk , orto:LowRisk;
+        a                  orto:LowRisk , orto:Risk , orto:RiskAssessment;
         orto:consigli      "Nessun rischio rilevante.";
         orto:riskCaldo     "LOW";
         orto:riskFreddo    "LOW";
@@ -264,6 +291,16 @@ orto:simulationHasForecast
                 "simulazione ha previsione crescita"@it;
         <http://www.w3.org/2000/01/rdf-schema#range>
                 orto:GrowthForecast .
+
+<http://orto.example/simulation/2-1781611710872>
+        a                           orto:SimulationRun , orto:AppliedSimulation;
+        orto:createdAt              "2026-06-16T14:08:30.872968200";
+        orto:forGarden              <http://orto.example/garden/2>;
+        orto:mode                   "APPLIED";
+        orto:simulationHasForecast  <http://orto.example/forecast/9> , <http://orto.example/forecast/10>;
+        orto:simulationHasPlant     <http://orto.example/plant/3>;
+        orto:simulationHasRisk      <http://orto.example/risk/8> , <http://orto.example/risk/7>;
+        orto:simulationHasWeather   <http://orto.example/weather/5> , <http://orto.example/weather/6> .
 
 <http://orto.example/forecast/7>
         a                    orto:GrowthForecast;
@@ -295,7 +332,7 @@ orto:simulationHasForecast
         orto:windKmh         "15.3"^^<http://www.w3.org/2001/XMLSchema#double> .
 
 <http://orto.example/risk/6>
-        a                  orto:LowRisk , orto:Risk , orto:RiskAssessment;
+        a                  orto:RiskAssessment , orto:Risk , orto:LowRisk;
         orto:consigli      "Nessun rischio rilevante.";
         orto:riskCaldo     "LOW";
         orto:riskFreddo    "LOW";
@@ -321,7 +358,7 @@ orto:simulationHasRisk
                 orto:Risk .
 
 <http://orto.example/risk/1>
-        a                  orto:RiskAssessment , orto:Risk , orto:LowRisk;
+        a                  orto:LowRisk , orto:Risk , orto:RiskAssessment;
         orto:consigli      "Nessun rischio rilevante.";
         orto:riskCaldo     "LOW";
         orto:riskFreddo    "LOW";
@@ -335,11 +372,30 @@ orto:belongsToGarden  <http://www.w3.org/2000/01/rdf-schema#domain>
         <http://www.w3.org/2000/01/rdf-schema#range>
                 orto:Garden .
 
+<http://orto.example/forecast/9>
+        a                    orto:GrowthForecast;
+        orto:dateTime        "2026-06-16T14:08:32.297747600";
+        orto:daysToMaturity  "56"^^<http://www.w3.org/2001/XMLSchema#int>;
+        orto:gddDaily        "13.7"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:growthStage     "SEMINA";
+        orto:percentCiclo    "5.0125"^^<http://www.w3.org/2001/XMLSchema#double> .
+
 orto:longitude  <http://www.w3.org/2000/01/rdf-schema#label>
                 "longitudine"@it .
 
 orto:influencedBy  <http://www.w3.org/2000/01/rdf-schema#domain>
                 orto:Plant .
+
+<http://orto.example/weather/6>
+        a                    orto:WeatherDay;
+        orto:dateTime        "2026-06-17T14:08:32.141501900";
+        orto:generatesRisk   <http://orto.example/risk/8>;
+        orto:precipitazione  "0.0"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:tempMax         "28.3"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:tempMin         "18.7"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:umidita         "74.45833333333333"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:uvIndex         "8.25"^^<http://www.w3.org/2001/XMLSchema#double>;
+        orto:windKmh         "16.9"^^<http://www.w3.org/2001/XMLSchema#double> .
 
 orto:uvIndex  <http://www.w3.org/2000/01/rdf-schema#label>
                 "indice UV"@it .
@@ -354,6 +410,14 @@ orto:uvIndex  <http://www.w3.org/2000/01/rdf-schema#label>
 
 orto:ModerateRisk  <http://www.w3.org/2000/01/rdf-schema#subClassOf>
                 orto:Risk .
+
+<http://orto.example/risk/8>
+        a                  orto:LowRisk , orto:Risk , orto:RiskAssessment;
+        orto:consigli      "Nessun rischio rilevante.";
+        orto:riskCaldo     "LOW";
+        orto:riskFreddo    "LOW";
+        orto:riskMalattia  "LOW";
+        orto:riskVento     "LOW" .
 
 orto:dateTime  <http://www.w3.org/2000/01/rdf-schema#label>
                 "data e ora"@it .

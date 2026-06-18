@@ -1,9 +1,9 @@
-package service;
+package service.model;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import dto.WeatherApiDTO;
+import dto.model.WeatherApiDTO;
 import mapper.WeatherMapper;
 import model.Location;
 import model.WeatherDay;

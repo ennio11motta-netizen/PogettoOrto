@@ -1,11 +1,10 @@
 
-package service;
+package service.model;
 
 
 import model.Location;
 import model.PlantInstance;
 
-import model.PlantSpecie;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import repository.*;
@@ -13,7 +12,7 @@ import reqResp.CreateGardenRequest;
 import reqResp.GardenResponse;
 
 import java.util.List;
-import rdf.RdfService;
+import service.rdf.RdfService;
 
 @Service
 public class GardenSetupService {

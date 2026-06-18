@@ -1,14 +1,14 @@
-package rdf;
+package service.rdf;
 
 
 
-import rdfDTO.RdfGardenDetailDTO;
+import dto.rdf.RdfGardenDetailDTO;
 import org.apache.jena.query.*;
 import org.apache.jena.rdf.model.Literal;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.RDFNode;
 import org.springframework.stereotype.Service;
-import rdfDTO.RdfWeatherRiskRelationDTO;
+import dto.rdf.RdfWeatherRiskRelationDTO;
 
 import java.util.ArrayList;
 import java.util.List;

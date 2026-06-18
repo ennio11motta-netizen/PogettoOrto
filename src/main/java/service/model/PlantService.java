@@ -1,11 +1,11 @@
-package service;
+package service.model;
 
-import dto.PlantDTO;
+import dto.model.PlantDTO;
 import exception.GrowthStage;
 import model.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import rdf.RdfService;
+import service.rdf.RdfService;
 import repository.*;
 import reqResp.CreatePlantRequest;
 import util.GrowthCalculator;

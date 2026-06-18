@@ -1,6 +1,6 @@
 package mapper;
 
-import dto.WeatherApiDTO;
+import dto.model.WeatherApiDTO;
 import model.Location;
 import model.WeatherDay;
 import java.time.LocalDateTime;

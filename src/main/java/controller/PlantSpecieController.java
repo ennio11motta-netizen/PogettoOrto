@@ -1,11 +1,11 @@
 
 package controller;
 
-import dto.PlantSpecieDTO;
+import dto.model.PlantSpecieDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reqResp.CreatePlantSpecieRequest;
-import service.PlantSpecieService;
+import service.model.PlantSpecieService;
 
 import java.util.List;
 

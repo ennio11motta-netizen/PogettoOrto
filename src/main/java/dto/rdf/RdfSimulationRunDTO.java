@@ -1,4 +1,4 @@
-package rdfDTO;
+package dto.rdf;
 
 public class RdfSimulationRunDTO {
 

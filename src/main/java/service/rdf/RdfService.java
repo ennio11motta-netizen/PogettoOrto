@@ -1,4 +1,4 @@
-package rdf;
+package service.rdf;
 import exception.GrowthStage;
 import exception.RiskLevel;
 import model.*;

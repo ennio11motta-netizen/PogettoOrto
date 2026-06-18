@@ -4,9 +4,9 @@ package controller;
 
 import org.springframework.http.ResponseEntity;
 import reqResp.CreatePlantRequest;
-import dto.PlantDTO;
+import dto.model.PlantDTO;
 import org.springframework.web.bind.annotation.*;
-import service.PlantService;
+import service.model.PlantService;
 import java.util.List;
 
 @RestController

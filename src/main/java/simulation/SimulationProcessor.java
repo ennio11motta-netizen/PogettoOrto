@@ -7,10 +7,10 @@ import model.RiskAssessment;
 import model.WeatherDay;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import rdf.RdfService;
-import service.PlantService;
-import service.RiskService;
-import service.WeatherService;
+import service.rdf.RdfService;
+import service.model.PlantService;
+import service.model.RiskService;
+import service.model.WeatherService;
 
 @Service
 public class SimulationProcessor {
