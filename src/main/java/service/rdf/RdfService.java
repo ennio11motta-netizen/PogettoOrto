@@ -6,19 +6,20 @@ import static model.rdf.RdfVocabulary.*;
 
 import model.data.*;
 import model.rdf.RdfOntologyInitializer;
+import org.apache.jena.query.*;
 import org.apache.jena.rdf.model.*;
 import org.apache.jena.reasoner.Reasoner;
 import org.apache.jena.vocabulary.RDF;
 
 import org.springframework.stereotype.Service;
 
-import org.apache.jena.query.QueryExecutionFactory;
-import org.apache.jena.query.QueryFactory;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * RdfService gestisce:
@@ -518,7 +519,87 @@ public class RdfService {
         model.write(System.out, "TURTLE");
     }
 
+
     // ===============================
+    // RESET RDF SIMULATION
+    // ===============================
+    public void resetSimulationDataForGarden(
+            Location location,
+            List<PlantInstance> plants
+    ) {
+        if (location == null) {
+            throw new IllegalArgumentException("Location non può essere null");
+        }
+
+        if (location.getLocationId() == null) {
+            throw new IllegalArgumentException("Location deve avere un id");
+        }
+
+        if (plants == null) {
+            throw new IllegalArgumentException("Lista piante non può essere null");
+        }
+
+        Resource garden =
+                model.createResource(NS + "garden/" + location.getLocationId());
+
+        Set<Resource> simulations = findSimulationRunsForGarden(garden);
+
+        Set<Resource> weatherResources = new HashSet<>();
+        Set<Resource> riskResources = new HashSet<>();
+        Set<Resource> forecastResources = new HashSet<>();
+
+        for (Resource simulation : simulations) {
+            weatherResources.addAll(
+                    listResourceObjects(simulation, SIMULATION_HAS_WEATHER)
+            );
+
+            riskResources.addAll(
+                    listResourceObjects(simulation, SIMULATION_HAS_RISK)
+            );
+
+            forecastResources.addAll(
+                    listResourceObjects(simulation, SIMULATION_HAS_FORECAST)
+            );
+        }
+
+        for (Resource simulation : simulations) {
+            removeResourceCompletely(simulation);
+        }
+
+        for (Resource weather : weatherResources) {
+            removeResourceCompletely(weather);
+        }
+
+        for (Resource risk : riskResources) {
+            removeResourceCompletely(risk);
+        }
+
+        for (Resource forecast : forecastResources) {
+            removeResourceCompletely(forecast);
+        }
+
+        for (PlantInstance plant : plants) {
+            if (plant == null || plant.getPlantId() == null) {
+                continue;
+            }
+
+            Resource plantRes =
+                    model.createResource(NS + "plant/" + plant.getPlantId());
+
+            model.removeAll(plantRes, HAS_RISK, null);
+            model.removeAll(plantRes, HAS_FORECAST, null);
+            model.removeAll(plantRes, INFLUENCED_BY, null);
+            model.removeAll(plantRes, IS_IN_DANGER, null);
+
+            exportPlantInstance(plant);
+            collegaGardenPlant(location, plant);
+        }
+
+        exportGarden(location);
+    }
+
+
+        // ===============================
     // UTILITY
     // ===============================
 
@@ -532,5 +613,65 @@ public class RdfService {
         return stage == GrowthStage.SEMINA ||
                 stage == GrowthStage.EMERGENZA ||
                 stage == GrowthStage.VEGETATIVO;
+    }
+
+    private Set<Resource> findSimulationRunsForGarden(Resource garden) {
+        Set<Resource> simulations = new HashSet<>();
+
+        String queryString = """
+            PREFIX orto: <http://orto.example/>
+
+            SELECT DISTINCT ?simulation
+            WHERE {
+                ?simulation a orto:SimulationRun ;
+                            orto:forGarden <%s> .
+            }
+            """.formatted(garden.getURI());
+
+        Query query = QueryFactory.create(queryString);
+
+        try (QueryExecution qexec = QueryExecutionFactory.create(query, model)) {
+            ResultSet resultSet = qexec.execSelect();
+
+            while (resultSet.hasNext()) {
+                QuerySolution solution = resultSet.nextSolution();
+                RDFNode simulationNode = solution.get("simulation");
+
+                if (simulationNode != null && simulationNode.isResource()) {
+                    simulations.add(simulationNode.asResource());
+                }
+            }
+        }
+
+        return simulations;
+    }
+
+    private Set<Resource> listResourceObjects(
+            Resource subject,
+            Property property
+    ) {
+        Set<Resource> resources = new HashSet<>();
+
+        NodeIterator iterator =
+                model.listObjectsOfProperty(subject, property);
+
+        while (iterator.hasNext()) {
+            RDFNode node = iterator.nextNode();
+
+            if (node != null && node.isResource()) {
+                resources.add(node.asResource());
+            }
+        }
+
+        return resources;
+    }
+
+    private void removeResourceCompletely(Resource resource) {
+        if (resource == null) {
+            return;
+        }
+
+        model.removeAll(resource, null, null);
+        model.removeAll(null, null, resource);
     }
 }

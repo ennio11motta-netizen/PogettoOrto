@@ -103,3 +103,11 @@ export function getRdfGardenDetail(locationId) {
 export function getRdfSimulationHistory(locationId) {
     return request(`/rdf/simulation-history/${locationId}`);
 }
+
+
+export function resetGardenSimulationHistory(locationId) {
+    return request(`/simulation/history/${locationId}`, {
+        method: "DELETE"
+    });
+}
+

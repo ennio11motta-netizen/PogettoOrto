@@ -57,7 +57,13 @@ public class SimulationController {
         return ResponseEntity.noContent().build();
     }
 
-
+    @DeleteMapping("/history/{locationId}")
+    public ResponseEntity<Void> resetGardenSimulationHistory(
+            @PathVariable Integer locationId
+    ) {
+        simulationService.resetGardenSimulationHistory(locationId);
+        return ResponseEntity.noContent().build();
+    }
 
 
 

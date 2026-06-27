@@ -195,6 +195,39 @@ public class SimulationService {
 
         weatherDayRepository.deleteByLocation(location);
     }
+    // =========================================================
+    // RESET SIMULAZIONE (WARPED ON DELETE)
+    // =========================================================
+    @Transactional
+    public void resetGardenSimulationHistory(Integer locationId) {
+        if (locationId == null) {
+            throw new IllegalArgumentException("Location obbligatoria");
+        }
+
+        Location location = locationRepository.findById(locationId)
+                .orElseThrow(() -> new IllegalArgumentException(
+                        "Location non trovata con id: " + locationId
+                ));
+
+        List<PlantInstance> plants =
+                plantInstanceRepository.findByLocation(location);
+
+        for (PlantInstance plant : plants) {
+            growthForecastRepository.deleteByPlantInstance(plant);
+            riskAssessmentRepository.deleteByPlantInstance(plant);
+
+            plant.setStoreGDD(0.0);
+            plant.setGrowthStage(GrowthStage.SEMINA);
+
+            plantInstanceRepository.update(plant);
+        }
+
+        weatherDayRepository.deleteByLocation(location);
+
+        rdfService.resetSimulationDataForGarden(location, plants);
+        rdfService.persist();
+    }
+
 
     // =========================================================
     // VALIDAZIONI

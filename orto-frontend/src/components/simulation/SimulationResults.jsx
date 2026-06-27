@@ -21,7 +21,7 @@ export default function SimulationResults({
                     onClick={onDeleteSimulation}
                     disabled={loading || !hasSelectedGarden}
                     >
-                    Elimina simulazione DB
+                    Elimina ultima simulazione DB
                 </button>
 
                 </div>

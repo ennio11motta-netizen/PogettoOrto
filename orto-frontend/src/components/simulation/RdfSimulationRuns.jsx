@@ -4,7 +4,9 @@ export default function RdfSimulationRuns({
                                               rdfSimulationHistory,
                                               onSelectGarden,
                                               onLoadHistory,
-                                              loading
+                                              loading,
+                                              onResetHistory
+
                                           }) {
     return (
         <section className="card full-width">
@@ -18,6 +20,15 @@ export default function RdfSimulationRuns({
                         disabled={loading || !currentLocationId}
                     >
                         Carica storico RDF
+                    </button>
+
+                    <button
+                        type="button"
+                        onClick={() => onResetHistory(currentLocationId)}
+                        disabled={loading || !currentLocationId}
+                        className="danger-button"
+                    >
+                        Reset simulazioni
                     </button>
                 </div>
             </div>

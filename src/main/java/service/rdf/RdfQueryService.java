@@ -155,4 +155,7 @@ public class RdfQueryService {
             throw new IllegalArgumentException("Query SPARQL obbligatoria");
         }
     }
+
+
+
 }

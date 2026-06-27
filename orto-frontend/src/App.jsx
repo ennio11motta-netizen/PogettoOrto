@@ -24,6 +24,7 @@ import {
   runGardenSimulation,
   deleteGardenSimulation,
   getRdfSimulationHistory,
+  resetGardenSimulationHistory
 
 
 } from "./api/api";
@@ -87,6 +88,41 @@ function App() {
 
 //////////////////////////////////////////////////////////////////
   ////////////////////////////////////////////////
+
+  async function handleResetSimulationHistory(locationId = currentLocationId) {
+    resetFeedback();
+
+    if (!locationId) {
+      setError("Seleziona prima un orto.");
+      return;
+    }
+
+    const confirmed = window.confirm(
+        "Vuoi eliminare tutte le simulazioni, i forecast, i rischi, il meteo e lo storico RDF collegati a questo orto? Le piante resteranno, ma torneranno a SEMINA e GDD 0."
+    );
+
+    if (!confirmed) {
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      await resetGardenSimulationHistory(locationId);
+
+      setSimulationResults([]);
+      setRdfSimulationHistory([]);
+
+      await loadPlants(locationId);
+      await loadRdfSimulationHistory(locationId);
+
+      setMessage("Storico simulazioni e grafo RDF resettati correttamente.");
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  }
 
 
   async function loadRdfSimulationHistory(locationId = currentLocationId) {
@@ -564,6 +600,7 @@ function App() {
               rdfSimulationHistory={rdfSimulationHistory}
               onSelectGarden={handleSelectGarden}
               onLoadHistory={loadRdfSimulationHistory}
+              onResetHistory={handleResetSimulationHistory}
               loading={loading}
           />
 
