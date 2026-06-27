@@ -2,8 +2,8 @@
 package service.model;
 
 
-import model.Location;
-import model.PlantInstance;
+import model.data.Location;
+import model.data.PlantInstance;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -59,8 +59,8 @@ public class GardenSetupService {
         Location savedLocation = locationRepository.save(location);
 
         rdfService.exportGarden(savedLocation);
-        rdfService.salvaRDFSuFile("data/orto.ttl");
-
+//        rdfService.salvaRDFSuFile("data/orto.ttl");
+        rdfService.persist();
 
         return new GardenResponse(
                 savedLocation.getLocationId(),

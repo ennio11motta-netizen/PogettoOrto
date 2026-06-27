@@ -2,9 +2,9 @@ package simulation;
 
 
 
-import model.GrowthForecast;
-import model.RiskAssessment;
-import model.WeatherDay;
+import model.data.GrowthForecast;
+import model.data.RiskAssessment;
+import model.data.WeatherDay;
 
 public class SimulationStepResult {
 

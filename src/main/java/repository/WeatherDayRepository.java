@@ -2,8 +2,8 @@ package repository;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
-import model.Location;
-import model.WeatherDay;
+import model.data.Location;
+import model.data.WeatherDay;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;

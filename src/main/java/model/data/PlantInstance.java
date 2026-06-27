@@ -1,4 +1,4 @@
-package model;
+package model.data;
 
 import exception.GrowthStage;
 import jakarta.persistence.*;
@@ -37,7 +37,7 @@ public class PlantInstance {
 //    //1 PlantInstance → N GrowthForecast
     @OneToMany(mappedBy = "plantInstance")
    private Set<GrowthForecast> growthForecasts = new HashSet<>();
-//
+
 //    //1 PlantInstance → N RiskAssessment
     @OneToMany(mappedBy = "plantInstance")
     private Set<RiskAssessment> riskAssessments =new  HashSet<>();

@@ -1,4 +1,4 @@
-package model;
+package model.data;
 
 import exception.RiskLevel;
 import jakarta.persistence.*;

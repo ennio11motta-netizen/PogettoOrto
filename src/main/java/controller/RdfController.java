@@ -3,8 +3,8 @@ package controller;
 
 import org.springframework.web.bind.annotation.*;
 import dto.rdf.RdfGardenDetailDTO;
-import dto.rdf.RdfSimulationRunDTO;
-import dto.rdf.RdfSimulationRunDetailDTO;
+//import dto.rdf.RdfSimulationRunDTO;
+//import dto.rdf.RdfSimulationRunDetailDTO;
 import dto.rdf.RdfSimulationRunHistoryDTO;
 import service.rdf.RdfGardenDetailService;
 import service.rdf.RdfSimulationRunService;
@@ -31,21 +31,21 @@ public class RdfController {
     }
 
 
+//    @Deprecated
+//    @GetMapping("/simulation-runs/{locationId}")
+//    public List<RdfSimulationRunDTO> getSimulationRuns(
+//            @PathVariable Integer locationId
+//    ) {
+//        return rdfSimulationRunService.getSimulationRunsByGarden(locationId);
+//    }
 
-    @GetMapping("/simulation-runs/{locationId}")
-    public List<RdfSimulationRunDTO> getSimulationRuns(
-            @PathVariable Integer locationId
-    ) {
-        return rdfSimulationRunService.getSimulationRunsByGarden(locationId);
-    }
-
-
-    @GetMapping("/simulation-run-detail/{runId}")
-    public RdfSimulationRunDetailDTO getSimulationRunDetail(
-            @PathVariable String runId
-    ) {
-        return rdfSimulationRunService.getSimulationRunDetail(runId);
-    }
+//    @Deprecated
+//    @GetMapping("/simulation-run-detail/{runId}")
+//    public RdfSimulationRunDetailDTO getSimulationRunDetail(
+//            @PathVariable String runId
+//    ) {
+//        return rdfSimulationRunService.getSimulationRunDetail(runId);
+//    }
 
     @GetMapping("/simulation-history/{locationId}")
     public List<RdfSimulationRunHistoryDTO> getSimulationHistory(

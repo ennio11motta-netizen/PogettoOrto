@@ -2,7 +2,7 @@ package dto.model;
 
 
 
-import model.PlantSpecie;
+import model.data.PlantSpecie;
 
 public class PlantSpecieDTO {
 

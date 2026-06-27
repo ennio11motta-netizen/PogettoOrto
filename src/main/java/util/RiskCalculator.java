@@ -2,10 +2,10 @@ package util;
 
 import config.RiskThresholdConfig;
 import exception.RiskLevel;
-import model.PlantInstance;
-import model.PlantSpecie;
-import model.RiskAssessment;
-import model.WeatherDay;
+import model.data.PlantInstance;
+import model.data.PlantSpecie;
+import model.data.RiskAssessment;
+import model.data.WeatherDay;
 import org.springframework.stereotype.Component;
 
 @Component

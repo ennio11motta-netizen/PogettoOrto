@@ -2,7 +2,7 @@ package service.model;
 
 import dto.model.PlantDTO;
 import exception.GrowthStage;
-import model.*;
+import model.data.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import service.rdf.RdfService;
@@ -170,8 +170,8 @@ public class PlantService {
         rdfService.exportGarden(location);
         rdfService.exportPlantInstance(savedPlant);
         rdfService.collegaGardenPlant(location, savedPlant);
-        rdfService.salvaRDFSuFile("data/orto.ttl");
-
+//        rdfService.salvaRDFSuFile("data/orto.ttl");
+        rdfService.persist();
 
         return PlantDTO.fromEntity(savedPlant);
     }

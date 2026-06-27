@@ -99,15 +99,7 @@ export function deletePlant(plantId) {
 export function getRdfGardenDetail(locationId) {
     return request(`/rdf/garden-detail/${locationId}`);
 }
-/////////////////////////////////////
-export function getRdfSimulationRuns(locationId) {
-    return request(`/rdf/simulation-runs/${locationId}`);
-}
 
-export function getRdfSimulationRunDetail(runId) {
-    return request(`/rdf/simulation-run-detail/${runId}`);
-}
-//////////////////////////////////////
 export function getRdfSimulationHistory(locationId) {
     return request(`/rdf/simulation-history/${locationId}`);
 }

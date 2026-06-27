@@ -5,7 +5,7 @@ package service.simulation;
 import dto.model.PlantSimulationResultDTO;
 import dto.model.SimulationStepDTO;
 import exception.GrowthStage;
-import model.*;
+import model.data.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import service.rdf.RdfService;
@@ -231,7 +231,8 @@ public class SimulationService {
     // =========================================================
     public void finalizzaRDF() {
         rdfService.applicaInferenzaPiantePericolose();
-        rdfService.salvaRDFSuFile("data/orto.ttl");
+//        rdfService.salvaRDFSuFile("data/orto.ttl");
+        rdfService.persist();
     }
 
     // =========================================================

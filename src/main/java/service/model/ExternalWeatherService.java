@@ -5,8 +5,8 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import dto.model.WeatherApiDTO;
 import mapper.WeatherMapper;
-import model.Location;
-import model.WeatherDay;
+import model.data.Location;
+import model.data.WeatherDay;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;

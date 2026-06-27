@@ -7,12 +7,12 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
 
-        <class>model.Location</class>
-        <class>model.PlantSpecie</class>
-        <class>model.PlantInstance</class>
-       <class>model.WeatherDay</class>
-       <class>model.GrowthForecast</class>
-       <class>model.RiskAssessment</class>
+        <class>model.data.Location</class>
+        <class>model.data.PlantSpecie</class>
+        <class>model.data.PlantInstance</class>
+       <class>model.data.WeatherDay</class>
+       <class>model.data.GrowthForecast</class>
+       <class>model.data.RiskAssessment</class>
 
 
 

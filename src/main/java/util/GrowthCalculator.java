@@ -1,9 +1,9 @@
 package util;
 
 import exception.GrowthStage;
-import model.PlantInstance;
-import model.PlantSpecie;
-import model.WeatherDay;
+import model.data.PlantInstance;
+import model.data.PlantSpecie;
+import model.data.WeatherDay;
 import org.springframework.stereotype.Component;
 
 /**

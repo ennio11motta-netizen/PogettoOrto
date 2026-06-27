@@ -1,9 +1,9 @@
 
 package service.model;
 
-import model.PlantInstance;
-import model.RiskAssessment;
-import model.WeatherDay;
+import model.data.PlantInstance;
+import model.data.RiskAssessment;
+import model.data.WeatherDay;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import repository.RiskAssessmentRepository;

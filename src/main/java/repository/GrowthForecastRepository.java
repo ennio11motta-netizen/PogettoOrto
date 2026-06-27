@@ -1,8 +1,8 @@
 package repository;
 
 import jakarta.persistence.EntityManager;
-import model.GrowthForecast;
-import model.PlantInstance;
+import model.data.GrowthForecast;
+import model.data.PlantInstance;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -86,15 +86,6 @@ public class GrowthForecastRepository {
         }
 
     }
-
-//    public void deleteByPlantInstance(PlantInstance pianta) {
-//        List<GrowthForecast> forecasts = findByPlantInstance(pianta);
-//
-//        for (GrowthForecast forecast : forecasts) {
-//            em.remove(forecast);
-//        }
-//    }
-
 
 
     public int deleteByPlantInstance(PlantInstance pianta) {

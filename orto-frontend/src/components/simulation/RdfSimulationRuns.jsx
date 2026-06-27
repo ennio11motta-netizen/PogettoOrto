@@ -238,18 +238,27 @@ function RdfForecastsSection({ forecasts }) {
                     <table>
                         <thead>
                         <tr>
+                            <th>Pianta</th>
                             <th>Data</th>
                             <th>GDD giornaliero</th>
                             <th>% ciclo</th>
                             <th>Stadio</th>
                             <th>Giorni maturazione</th>
-                            <th>URI</th>
+                            <th>Forecast</th>
                         </tr>
                         </thead>
 
                         <tbody>
                         {forecasts.map((forecast) => (
                             <tr key={forecast.forecastUri}>
+                                <td>
+                                    <strong>
+                                        {forecast.plantName || shortUri(forecast.plantUri) || "-"}
+                                    </strong>
+                                    <br />
+                                    <small>Pianta: {shortUri(forecast.plantUri)}</small>
+                                </td>
+
                                 <td>{formatDateTime(forecast.dateTime)}</td>
                                 <td>{formatNumber(forecast.gddDaily)}</td>
                                 <td>{formatNumber(forecast.percentCiclo)}%</td>

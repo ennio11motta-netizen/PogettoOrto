@@ -1,5 +1,5 @@
 package repository;
-import model.Location;
+import model.data.Location;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
 import org.springframework.stereotype.Repository;

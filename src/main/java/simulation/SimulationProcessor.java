@@ -1,10 +1,10 @@
 
 package simulation;
 
-import model.GrowthForecast;
-import model.PlantInstance;
-import model.RiskAssessment;
-import model.WeatherDay;
+import model.data.GrowthForecast;
+import model.data.PlantInstance;
+import model.data.RiskAssessment;
+import model.data.WeatherDay;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import service.rdf.RdfService;

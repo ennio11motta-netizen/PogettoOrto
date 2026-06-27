@@ -11,6 +11,10 @@ public class RdfForecastHistoryDTO {
     private String growthStage;
     private Integer daysToMaturity;
 
+    private String plantUri;
+    private String plantName;
+
+
     public RdfForecastHistoryDTO() {
     }
 
@@ -60,5 +64,21 @@ public class RdfForecastHistoryDTO {
 
     public void setDaysToMaturity(Integer daysToMaturity) {
         this.daysToMaturity = daysToMaturity;
+    }
+
+    public String getPlantName() {
+        return plantName;
+    }
+
+    public void setPlantName(String plantName) {
+        this.plantName = plantName;
+    }
+
+    public String getPlantUri() {
+        return plantUri;
+    }
+
+    public void setPlantUri(String plantUri) {
+        this.plantUri = plantUri;
     }
 }

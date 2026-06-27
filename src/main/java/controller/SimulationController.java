@@ -58,6 +58,10 @@ public class SimulationController {
     }
 
 
+
+
+
+
     private void validateGardenSimulationRequest(GardenSimulationRequest request) {
         if (request == null) {
             throw new IllegalArgumentException("La richiesta non può essere null");

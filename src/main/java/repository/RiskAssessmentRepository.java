@@ -1,8 +1,8 @@
 package repository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
-import model.PlantInstance;
-import model.RiskAssessment;
+import model.data.PlantInstance;
+import model.data.RiskAssessment;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
@@ -133,13 +133,6 @@ public class RiskAssessmentRepository {
         }
     }
 
-//    public void deleteByPlantInstance(PlantInstance pianta) {
-//        List<RiskAssessment> risks = findByPlantInstance(pianta);
-//
-//        for (RiskAssessment risk : risks) {
-//            em.remove(risk);
-//        }
-//    }
 
 
     public int deleteByPlantInstance(PlantInstance pianta) {

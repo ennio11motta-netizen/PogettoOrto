@@ -4,8 +4,8 @@ package util;
 
 import exception.GrowthStage;
 import exception.IrrigationLevel;
-import model.PlantInstance;
-import model.WeatherDay;
+import model.data.PlantInstance;
+import model.data.WeatherDay;
 import org.springframework.stereotype.Component;
 
 @Component

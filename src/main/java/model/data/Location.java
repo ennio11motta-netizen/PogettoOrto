@@ -1,4 +1,4 @@
-package model;
+package model.data;
 
 import jakarta.persistence.*;
 
@@ -28,12 +28,6 @@ public class Location {
     private Set<PlantInstance> plantInstances = new HashSet<>();
 
 
-
-//   public Location(Double latitudine, Double longitudine, String nome) {
-//        this.latitudine = latitudine;
-//       this.longitudine = longitudine;
-//       this.nome = nome;
-//   }
 
     public Location() {}
 

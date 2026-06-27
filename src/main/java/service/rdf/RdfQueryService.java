@@ -1,41 +1,139 @@
 package service.rdf;
 
 import org.apache.jena.query.*;
+import org.apache.jena.rdf.model.Literal;
 import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.RDFNode;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+import org.apache.jena.query.*;
 
 /**
- * Service per query SPARQL sul modello RDF (con reasoning).
+ * Servizio di supporto per query SPARQL sul modello RDF.
+ *
+ * Responsabilità:
+ * - eseguire query SPARQL comuni
+ * - estrarre valori RDFNode/literal
+ * - evitare duplicazione di helper nei servizi RDF
  */
+@Service
 public class RdfQueryService {
 
-    private final Model model;
+    public List<String> querySingleColumn(
+            Model model,
+            String queryString,
+            String variableName
+    ) {
+        validateModelAndQuery(model, queryString);
 
-    public RdfQueryService(Model model) {
-        this.model = model;
-    }
+        List<String> values = new ArrayList<>();
 
-    /**
-     * Recupera le percentuali di crescita (dato numerico).
-     */
-    public void queryPercentualiCrescita() {
+        Query query = QueryFactory.create(queryString);
 
-        String queryString = """
-            PREFIX orto: <http://orto.example/>
+        try (QueryExecution qexec = QueryExecutionFactory.create(query, model)) {
+            ResultSet resultSet = qexec.execSelect();
 
-            SELECT ?f ?percentuale
-            WHERE {
-                ?f a orto:GrowthForecast ;
-                   orto:percentCiclo ?percentuale .
+            while (resultSet.hasNext()) {
+                QuerySolution solution = resultSet.nextSolution();
+                RDFNode node = solution.get(variableName);
+
+                if (node != null) {
+                    values.add(node.toString());
+                }
             }
-        """;
+        }
 
-        esegui(queryString);
+        return values;
+    }
+
+    public boolean ask(
+            Model model,
+            String askQueryString
+    ) {
+        validateModelAndQuery(model, askQueryString);
+
+        Query query = QueryFactory.create(askQueryString);
+
+        try (QueryExecution qexec = QueryExecutionFactory.create(query, model)) {
+            return qexec.execAsk();
+        }
+    }
+
+    public String getLiteralString(
+            QuerySolution solution,
+            String variableName
+    ) {
+        RDFNode node = solution.get(variableName);
+
+        if (node == null || !node.isLiteral()) {
+            return null;
+        }
+
+        return node.asLiteral().getString();
+    }
+
+    public Double getLiteralDouble(
+            QuerySolution solution,
+            String variableName
+    ) {
+        RDFNode node = solution.get(variableName);
+
+        if (node == null || !node.isLiteral()) {
+            return null;
+        }
+
+        Literal literal = node.asLiteral();
+
+        try {
+            return literal.getDouble();
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public Integer getLiteralInteger(
+            QuerySolution solution,
+            String variableName
+    ) {
+        RDFNode node = solution.get(variableName);
+
+        if (node == null || !node.isLiteral()) {
+            return null;
+        }
+
+        Literal literal = node.asLiteral();
+
+        try {
+            return literal.getInt();
+        } catch (Exception e) {
+            try {
+                return (int) literal.getLong();
+            } catch (Exception ignored) {
+                return null;
+            }
+        }
+    }
+
+    public RDFNode getNode(
+            QuerySolution solution,
+            String variableName
+    ) {
+        return solution.get(variableName);
     }
 
     /**
-     * Metodo generico per eseguire query.
+     * Metodo opzionale solo per debug.
+     * Non usarlo nel flusso applicativo della card 8.
      */
-    public void esegui(String queryString) {
+    public void printSelect(
+            Model model,
+            String queryString
+    ) {
+        validateModelAndQuery(model, queryString);
 
         Query query = QueryFactory.create(queryString);
 
@@ -45,153 +143,16 @@ public class RdfQueryService {
         }
     }
 
-    // =========================================================
-    // ✅ QUERY SEMANTICHE CON REASONING
-    // =========================================================
+    private void validateModelAndQuery(
+            Model model,
+            String queryString
+    ) {
+        if (model == null) {
+            throw new IllegalArgumentException("Model RDF non può essere null");
+        }
 
-    /**
-     * Recupera TUTTI i rischi (grazie a subClassOf + reasoning).
-     */
-    public void queryTuttiIRischi() {
-
-        String queryString = """
-            PREFIX orto: <http://orto.example/>
-
-            SELECT ?risk
-            WHERE {
-                ?risk a orto:Risk .
-            }
-        """;
-
-        esegui(queryString);
+        if (queryString == null || queryString.isBlank()) {
+            throw new IllegalArgumentException("Query SPARQL obbligatoria");
+        }
     }
-
-    /**
-     * Recupera solo rischi critici (specifico).
-     */
-    public void queryRischiCritici() {
-
-        String queryString = """
-            PREFIX orto: <http://orto.example/>
-
-            SELECT ?risk
-            WHERE {
-                ?risk a orto:CriticalRisk .
-            }
-        """;
-
-        esegui(queryString);
-    }
-
-    /**
-     * Recupera TUTTE le piante (grazie a ontologia).
-     */
-    public void queryTutteLePiante() {
-
-        String queryString = """
-            PREFIX orto: <http://orto.example/>
-
-            SELECT ?plant
-            WHERE {
-                ?plant a orto:Plant .
-            }
-        """;
-
-        esegui(queryString);
-    }
-
-    /**
-     * Recupera piante con QUALSIASI rischio
-     * (grazie a reasoning sulle classi Risk).
-     */
-    public void queryPianteConRischio() {
-
-        String queryString = """
-            PREFIX orto: <http://orto.example/>
-
-            SELECT ?plant ?risk
-            WHERE {
-                ?plant orto:hasRisk ?risk .
-                ?risk a orto:Risk .
-            }
-        """;
-
-        esegui(queryString);
-    }
-
-    /**
-     * Recupera condizioni meteo che generano rischi
-     * (senza specificare il tipo grazie a reasoning).
-     */
-    public void queryMeteoRischiGenerici() {
-
-        String queryString = """
-            PREFIX orto: <http://orto.example/>
-
-            SELECT ?weather ?risk
-            WHERE {
-                ?weather orto:generatesRisk ?risk .
-                ?risk a orto:Risk .
-            }
-        """;
-
-        esegui(queryString);
-    }
-
-    /**
-     * Recupera tutte le piante con GROWTH STAGE
-     * usando la gerarchia (EARLY + ADVANCED).
-     */
-    public void queryPiantePerStadio() {
-
-        String queryString = """
-            PREFIX orto: <http://orto.example/>
-
-            SELECT ?plant
-            WHERE {
-                ?plant a orto:GrowthStage .
-            }
-        """;
-
-        esegui(queryString);
-    }
-
-    /**
-     * Query decisionale: piante avanzate con qualsiasi rischio.
-     */
-    public void queryPianteAvanzateConRischio() {
-
-        String queryString = """
-            PREFIX orto: <http://orto.example/>
-
-            SELECT DISTINCT ?plant
-            WHERE {
-                ?plant a orto:AdvancedGrowthStage .
-                ?plant orto:hasRisk ?risk .
-                ?risk a orto:Risk .
-            }
-        """;
-
-        esegui(queryString);
-    }
-
-    /**
-     * Query dopo inferenza:
-     * trova piante automaticamente classificate "in pericolo".
-     */
-    public void queryPianteInPericolo() {
-
-        String queryString = """
-            PREFIX orto: <http://orto.example/>
-
-            SELECT ?plant
-            WHERE {
-                ?plant orto:isInDanger true .
-            }
-        """;
-
-        esegui(queryString);
-    }
-
-
 }

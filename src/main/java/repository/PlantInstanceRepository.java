@@ -1,9 +1,9 @@
 package repository;
-import model.Location;
-import model.PlantInstance;
+import model.data.Location;
+import model.data.PlantInstance;
 import java.util.List;
 import jakarta.persistence.EntityManager;
-import model.PlantSpecie;
+import model.data.PlantSpecie;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 

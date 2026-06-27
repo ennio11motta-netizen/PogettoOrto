@@ -3,7 +3,7 @@ package repository;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
-import model.PlantSpecie;
+import model.data.PlantSpecie;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

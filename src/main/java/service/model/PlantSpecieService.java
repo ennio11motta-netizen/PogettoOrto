@@ -1,8 +1,8 @@
 package service.model;
 
 import dto.model.PlantSpecieDTO;
-import model.PlantInstance;
-import model.PlantSpecie;
+import model.data.PlantInstance;
+import model.data.PlantSpecie;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import repository.PlantInstanceRepository;
