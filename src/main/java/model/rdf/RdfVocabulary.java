@@ -56,6 +56,10 @@ public final class RdfVocabulary {
             ResourceFactory.createProperty(NS, "daysToMaturity");
 
 
+    public static final Property BASED_ON_WEATHER =
+            ResourceFactory.createProperty(NS, "basedOnWeather");
+
+
     public static final Property NOTE =
             ResourceFactory.createProperty(NS, "note");
 

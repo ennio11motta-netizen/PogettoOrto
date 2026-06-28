@@ -235,6 +235,7 @@ function RdfRisksSection({ risks }) {
     );
 }
 
+/////////////////////////////////////////////////
 function RdfForecastsSection({ forecasts }) {
     return (
         <div className="rdf-section">
@@ -250,12 +251,12 @@ function RdfForecastsSection({ forecasts }) {
                         <thead>
                         <tr>
                             <th>Pianta</th>
-                            <th>Data</th>
+                            <th>Giorno meteo</th>
                             <th>GDD giornaliero</th>
                             <th>% ciclo</th>
                             <th>Stadio</th>
                             <th>Giorni maturazione</th>
-                            <th>Forecast</th>
+
                         </tr>
                         </thead>
 
@@ -270,12 +271,22 @@ function RdfForecastsSection({ forecasts }) {
                                     <small>Pianta: {shortUri(forecast.plantUri)}</small>
                                 </td>
 
-                                <td>{formatDateTime(forecast.dateTime)}</td>
+                                <td>
+                                    {formatDateTime(
+                                        forecast.weatherDateTime || forecast.forecastCreatedAt
+                                    )}
+                                    <br />
+                                    <small>
+                                        Uri Meteo : {shortUri(forecast.weatherUri)}</small>
+                                </td>
+
                                 <td>{formatNumber(forecast.gddDaily)}</td>
                                 <td>{formatNumber(forecast.percentCiclo)}%</td>
                                 <td>{forecast.growthStage || "-"}</td>
                                 <td>{forecast.daysToMaturity ?? "-"}</td>
-                                <td>{shortUri(forecast.forecastUri)}</td>
+
+                                {/*<td>{shortUri(forecast.forecastUri)}</td>*/}
+
                             </tr>
                         ))}
                         </tbody>
@@ -285,6 +296,7 @@ function RdfForecastsSection({ forecasts }) {
         </div>
     );
 }
+
 
 function RiskBadge({ value }) {
     const className = `badge risk-${value?.toLowerCase() || "unknown"}`;

@@ -5,7 +5,9 @@ package dto.rdf;
 public class RdfForecastHistoryDTO {
 
     private String forecastUri;
-    private String dateTime;
+
+    private String forecastCreatedAt;
+
     private Double gddDaily;
     private Double percentCiclo;
     private String growthStage;
@@ -13,6 +15,11 @@ public class RdfForecastHistoryDTO {
 
     private String plantUri;
     private String plantName;
+
+
+    private String weatherUri;
+    private String weatherDateTime;
+
 
 
     public RdfForecastHistoryDTO() {
@@ -26,13 +33,7 @@ public class RdfForecastHistoryDTO {
         this.forecastUri = forecastUri;
     }
 
-    public String getDateTime() {
-        return dateTime;
-    }
 
-    public void setDateTime(String dateTime) {
-        this.dateTime = dateTime;
-    }
 
     public Double getGddDaily() {
         return gddDaily;
@@ -80,5 +81,30 @@ public class RdfForecastHistoryDTO {
 
     public void setPlantUri(String plantUri) {
         this.plantUri = plantUri;
+    }
+
+    public String getWeatherDateTime() {
+        return weatherDateTime;
+    }
+
+    public void setWeatherDateTime(String weatherDateTime) {
+        this.weatherDateTime = weatherDateTime;
+    }
+
+    public String getWeatherUri() {
+        return weatherUri;
+    }
+
+    public void setWeatherUri(String weatherUri) {
+        this.weatherUri = weatherUri;
+    }
+
+
+    public String getForecastCreatedAt() {
+        return forecastCreatedAt;
+    }
+
+    public void setForecastCreatedAt(String forecastCreatedAt) {
+        this.forecastCreatedAt = forecastCreatedAt;
     }
 }

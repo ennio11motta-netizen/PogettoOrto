@@ -48,10 +48,12 @@ public class SimulationProcessor {
         this.rdfService = rdfService;
     }
 
+    //////////////////////////////////
     @Transactional
     public SimulationStepResult processStep(
             PlantInstance pianta,
             WeatherDay weatherDay
+
     ) {
         validateInput(pianta, weatherDay);
 
@@ -93,6 +95,7 @@ public class SimulationProcessor {
          */
         rdfService.collegaRelazioni(pianta, savedWeatherDay, riskAssessment);
         rdfService.collegaPlantForecast(pianta, growthForecast);
+        rdfService.collegaForecastWeather(growthForecast, savedWeatherDay);
         rdfService.collegaPlantRisk(pianta, riskAssessment);
 
         return new SimulationStepResult(

@@ -327,26 +327,30 @@ public class RdfSimulationRunService {
         List<RdfForecastHistoryDTO> forecasts = new ArrayList<>();
 
         String queryString = """
-                PREFIX orto: <http://orto.example/>
+        PREFIX orto: <http://orto.example/>
 
-                SELECT DISTINCT ?plant ?plantName ?forecast ?dateTime ?gddDaily
-                                ?percentCiclo ?growthStage ?daysToMaturity
-                WHERE {
-                    <%s> orto:simulationHasPlant ?plant .
-                    <%s> orto:simulationHasForecast ?forecast .
+        SELECT DISTINCT ?plant ?plantName ?forecast ?weather ?weatherDateTime
+                        ?forecastCreatedAt ?gddDaily ?percentCiclo
+                        ?growthStage ?daysToMaturity
+        WHERE {
+            <%s> orto:simulationHasPlant ?plant .
+            <%s> orto:simulationHasForecast ?forecast .
 
-                    ?plant orto:hasForecast ?forecast .
+            ?plant orto:hasForecast ?forecast .
 
-                    OPTIONAL { ?plant orto:name ?plantName . }
+            OPTIONAL { ?plant orto:name ?plantName . }
 
-                    OPTIONAL { ?forecast orto:dateTime ?dateTime . }
-                    OPTIONAL { ?forecast orto:gddDaily ?gddDaily . }
-                    OPTIONAL { ?forecast orto:percentCiclo ?percentCiclo . }
-                    OPTIONAL { ?forecast orto:growthStage ?growthStage . }
-                    OPTIONAL { ?forecast orto:daysToMaturity ?daysToMaturity . }
-                }
-                ORDER BY ?plant ?dateTime ?forecast
-                """.formatted(simulationUri, simulationUri);
+            OPTIONAL { ?forecast orto:basedOnWeather ?weather . }
+            OPTIONAL { ?weather orto:dateTime ?weatherDateTime . }
+
+            OPTIONAL { ?forecast orto:dateTime ?forecastCreatedAt . }
+            OPTIONAL { ?forecast orto:gddDaily ?gddDaily . }
+            OPTIONAL { ?forecast orto:percentCiclo ?percentCiclo . }
+            OPTIONAL { ?forecast orto:growthStage ?growthStage . }
+            OPTIONAL { ?forecast orto:daysToMaturity ?daysToMaturity . }
+        }
+        ORDER BY ?plant ?weatherDateTime ?forecast
+        """.formatted(simulationUri, simulationUri);
 
         Query query = QueryFactory.create(queryString);
 
@@ -360,6 +364,7 @@ public class RdfSimulationRunService {
 
                 RDFNode plantNode = solution.get("plant");
                 RDFNode forecastNode = solution.get("forecast");
+                RDFNode weatherNode = solution.get("weather");
 
                 if (plantNode != null) {
                     dto.setPlantUri(plantNode.toString());
@@ -369,8 +374,20 @@ public class RdfSimulationRunService {
                     dto.setForecastUri(forecastNode.toString());
                 }
 
+
+                if (weatherNode != null) {
+                    dto.setWeatherUri(weatherNode.toString());
+                }
+
+
                 dto.setPlantName(rdfQueryService.getLiteralString(solution, "plantName"));
-                dto.setDateTime(rdfQueryService.getLiteralString(solution, "dateTime"));
+
+
+               dto.setWeatherDateTime(rdfQueryService.getLiteralString(solution, "weatherDateTime"));
+
+
+               dto.setForecastCreatedAt(rdfQueryService.getLiteralString(solution, "forecastCreatedAt"));
+
                 dto.setGddDaily(rdfQueryService.getLiteralDouble(solution, "gddDaily"));
                 dto.setPercentCiclo(rdfQueryService.getLiteralDouble(solution, "percentCiclo"));
                 dto.setGrowthStage(rdfQueryService.getLiteralString(solution, "growthStage"));

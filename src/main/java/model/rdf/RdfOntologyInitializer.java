@@ -34,6 +34,8 @@ public class RdfOntologyInitializer {
         model.add(GDD_DAILY, RDFS.label, model.createLiteral("GDD giornaliero", "it"));
         model.add(PERCENT_CICLO, RDFS.label, model.createLiteral("percentuale ciclo", "it"));
         model.add(DAYS_TO_MATURITY, RDFS.label, model.createLiteral("giorni alla maturazione", "it"));
+        model.add(BASED_ON_WEATHER, RDFS.label, model.createLiteral("basato sul meteo", "it"));
+
         model.add(NOTE, RDFS.label, model.createLiteral("note", "it"));
         model.add(SPECIES_NAME, RDFS.label, model.createLiteral("nome specie", "it"));
 
@@ -68,6 +70,11 @@ public class RdfOntologyInitializer {
 
         model.add(HAS_FORECAST, RDFS.domain, PLANT_CLASS);
         model.add(HAS_FORECAST, RDFS.range, FORECAST_CLASS);
+
+
+        model.add(BASED_ON_WEATHER, RDFS.domain, FORECAST_CLASS);
+        model.add(BASED_ON_WEATHER, RDFS.range, WEATHER_CLASS);
+
 
         model.add(GENERATES_RISK, RDFS.domain, WEATHER_CLASS);
         model.add(GENERATES_RISK, RDFS.range, RISK_CLASS);
