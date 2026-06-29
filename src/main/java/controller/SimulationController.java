@@ -51,6 +51,33 @@ public class SimulationController {
         );
     }
 
+    @PostMapping("/apply-garden")
+    public ResponseEntity<List<PlantSimulationResultDTO>> applyGardenSimulation(
+            @RequestBody GardenSimulationRequest request
+    ) {
+        List<PlantSimulationResultDTO> result =
+                simulationService.runGardenSimulation(
+                        request.getLocationId(),
+                        request.getGiorni()
+                );
+
+        return ResponseEntity.ok(result);
+    }
+
+
+    @PostMapping("/preview-garden")
+    public ResponseEntity<List<PlantSimulationResultDTO>> previewGardenSimulation(
+            @RequestBody GardenSimulationRequest request
+    ) {
+        List<PlantSimulationResultDTO> result =
+                simulationService.previewGardenSimulation(
+                        request.getLocationId(),
+                        request.getGiorni()
+                );
+
+        return ResponseEntity.ok(result);
+    }
+
     @DeleteMapping("/garden/{locationId}")
     public ResponseEntity<Void> deleteGardenSimulation(@PathVariable Integer locationId) {
         simulationService.deleteGardenSimulation(locationId);

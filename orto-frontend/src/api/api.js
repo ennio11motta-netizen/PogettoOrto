@@ -80,6 +80,25 @@ export function runGardenSimulation(payload) {
     });
 }
 
+
+export function previewGardenSimulation(payload) {
+    return request("/simulation/preview-garden", {
+        method: "POST",
+        body: JSON.stringify(payload)
+    });
+}
+
+
+
+export function applyGardenSimulation(payload) {
+    return request("/simulation/apply-garden", {
+        method: "POST",
+        body: JSON.stringify(payload)
+    });
+}
+
+
+
 export function deleteGardenSimulation(locationId) {
     return request(`/simulation/garden/${locationId}`, {
         method: "DELETE"

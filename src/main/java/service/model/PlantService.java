@@ -59,6 +59,9 @@ public class PlantService {
      * - aggiorna la crescita della pianta
      * - calcola i nuovi indicatori
      * - genera un GrowthForecast
+     * - modifica pianta reale
+     salva forecast
+
      */
     @Transactional
     public GrowthForecast aggiornaCrescitaEGeneraForecast(
@@ -138,6 +141,84 @@ public class PlantService {
         // ===============================
         return growthForecastRepository.save(forecast);
     }
+/////////////////////
+///
+/// usa una copia della pianta
+/// calcola forecast
+/// non salva niente
+/// non modifica niente/////////////////////////////
+public GrowthForecast calcolaForecastPreview(
+        PlantInstance pianta,
+        WeatherDay weatherDay,
+        Double gddMedioPrevisto
+) {
+    if (pianta == null) {
+        throw new IllegalArgumentException("PlantInstance non può essere null");
+    }
+
+    if (weatherDay == null) {
+        throw new IllegalArgumentException("WeatherDay non può essere null");
+    }
+
+    if (pianta.getPlantSpecie() == null) {
+        throw new IllegalArgumentException("La pianta deve avere una specie associata");
+    }
+
+    /*
+     * IMPORTANTE:
+     *  copia temporanea della pianta,
+     *  la PREVIEW non modifica la PlantInstance.
+     */
+    PlantInstance previewPlant = creaCopiaPiantaPerPreview(pianta);
+
+    /*
+     * Aggiorna crescita SOLO sulla copia.
+     */
+    growthCalculator.aggiornaCrescita(previewPlant, weatherDay);
+
+    Double gddGiornaliero = growthCalculator.calcolaGDDGiornaliero(
+            previewPlant.getPlantSpecie(),
+            weatherDay
+    );
+
+    Double percentuale = growthCalculator.calcolaPercentualeCiclo(
+            previewPlant.getPlantSpecie(),
+            previewPlant.getStoreGDD()
+    );
+
+    Double gddMedioEffettivo = gddMedioPrevisto;
+
+    if (gddMedioEffettivo == null || gddMedioEffettivo <= 0) {
+        gddMedioEffettivo = gddGiornaliero;
+    }
+
+    Integer giorniAllaMaturazione =
+            growthCalculator.stimaGiorniAllaMaturazione(
+                    previewPlant,
+                    gddMedioEffettivo
+            );
+
+    /*
+     * Forecast non persistito.
+     * Non chiama growthForecastRepository.save(...)
+     */
+    GrowthForecast forecast = new GrowthForecast();
+    forecast.setPlantInstance(previewPlant);
+    forecast.setDateTime(LocalDateTime.now());
+    forecast.setGddPrevistiGiorn(gddGiornaliero);
+    forecast.setPercentCiclo(percentuale);
+    forecast.setStadioPrevisto(previewPlant.getGrowthStage());
+    forecast.setGiorniNuovoStadio(giorniAllaMaturazione);
+
+    return forecast;
+}
+
+
+
+
+
+
+
 
     @Transactional
     public PlantDTO createPlant(CreatePlantRequest request) {
@@ -170,7 +251,6 @@ public class PlantService {
         rdfService.exportGarden(location);
         rdfService.exportPlantInstance(savedPlant);
         rdfService.collegaGardenPlant(location, savedPlant);
-//        rdfService.salvaRDFSuFile("data/orto.ttl");
         rdfService.persist();
 
         return PlantDTO.fromEntity(savedPlant);
@@ -227,6 +307,30 @@ public class PlantService {
         plantInstanceRepository.deleteById(id);
     }
 
+    // ===============================
+    // Utility
+    // ===============================
+
+
+    private PlantInstance creaCopiaPiantaPerPreview(PlantInstance original) {
+        PlantInstance copy = new PlantInstance();
+
+        /*
+         * Manteniamo l'id solo per poter riconoscere la pianta nel DTO.
+         * Non salveremo mai questa copia nel DB.
+         */
+        copy.setPlantId(original.getPlantId());
+
+        copy.setNome(original.getNome());
+        copy.setLocation(original.getLocation());
+        copy.setPlantSpecie(original.getPlantSpecie());
+        copy.setDataInsert(original.getDataInsert());
+        copy.setStoreGDD(original.getStoreGDD());
+        copy.setGrowthStage(original.getGrowthStage());
+        copy.setNote(original.getNote());
+
+        return copy;
+    }
 
     private void validateCreatePlantRequest(CreatePlantRequest request) {
         if (request == null) {

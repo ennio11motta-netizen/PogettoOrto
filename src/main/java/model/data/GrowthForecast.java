@@ -84,6 +84,10 @@ public class GrowthForecast {
     public GrowthForecast() {
     }
 
+    public PlantInstance getPlantInstance() {
+        return plantInstance;
+    }
+
     @Override
     public String toString() {
         return "GrowthForecast{" +

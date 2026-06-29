@@ -21,8 +21,11 @@ import {
   addPlant,
   deletePlant,
   getPlantsByLocation,
-  runGardenSimulation,
+
   deleteGardenSimulation,
+  previewGardenSimulation,
+  applyGardenSimulation,
+
   getRdfSimulationHistory,
   resetGardenSimulationHistory
 
@@ -450,8 +453,7 @@ function App() {
     }
   }
 
-  async function handleRunSimulation(event) {
-    event.preventDefault();
+  async function handlePreviewSimulation() {
     resetFeedback();
 
     if (!currentLocationId) {
@@ -459,26 +461,70 @@ function App() {
       return;
     }
 
+    if (!days || Number(days) <= 0) {
+      setError("Inserisci un numero di giorni valido.");
+      return;
+    }
+
     setLoading(true);
 
     try {
-      const data = await runGardenSimulation({
+      const data = await previewGardenSimulation({
         locationId: Number(currentLocationId),
         giorni: Number(days)
       });
 
-
       setSimulationResults(data);
 
-      await loadRdfSimulationHistory(currentLocationId);
-
-      setMessage("Simulazione completata correttamente.");
+      setMessage(
+          "Previsione generata correttamente. Nessun dato è stato salvato nel DB o nel grafo RDF."
+      );
     } catch (err) {
       setError(err.message);
     } finally {
       setLoading(false);
     }
   }
+
+  async function handleApplySimulation(event) {
+    if (event) {
+      event.preventDefault();
+    }
+
+    resetFeedback();
+
+    if (!currentLocationId) {
+      setError("Seleziona prima un orto.");
+      return;
+    }
+
+    if (!days || Number(days) <= 0) {
+      setError("Inserisci un numero di giorni valido.");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const data = await applyGardenSimulation({
+        locationId: Number(currentLocationId),
+        giorni: Number(days)
+      });
+
+      setSimulationResults(data);
+
+      await loadPlants(currentLocationId);
+      await loadRdfSimulationHistory(currentLocationId);
+
+      setMessage("Simulazione applicata correttamente e salvata nello storico RDF.");
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+
 
 
   function updateNewSpecies(field, value) {
@@ -581,14 +627,14 @@ function App() {
               days={days}
               onSelectGarden={handleSelectGarden}
               onDaysChange={setDays}
-              onRunSimulation={handleRunSimulation}
               loading={loading}
           />
 
           <SimulationResults
               results={simulationResults}
               onClear={handleClearSimulationResults}
-              onDeleteSimulation={handleDeleteSimulation}
+              onPreviewSimulation={handlePreviewSimulation}
+              onApplySimulation={handleApplySimulation}
               loading={loading}
               hasSelectedGarden={!!currentLocationId}
           />

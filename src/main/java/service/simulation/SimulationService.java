@@ -5,6 +5,7 @@ package service.simulation;
 import dto.model.PlantSimulationResultDTO;
 import dto.model.SimulationStepDTO;
 import exception.GrowthStage;
+import exception.SimulationMode;
 import model.data.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,7 +22,6 @@ import java.util.List;
 
 /**
  * Service orchestratore del sistema.
- *
  * Responsabilità:
  * - validare la simulazione generale
  * - recuperare dati meteo previsionali
@@ -104,7 +104,9 @@ public class SimulationService {
         List<SimulationStepResult> results = new ArrayList<>();
 
         for (WeatherDay weatherDay : forecast) {
-            results.add(simulationProcessor.processStep(plant, weatherDay));
+            results.add(simulationProcessor.processStep(plant, weatherDay,
+                    SimulationMode.APPLIED
+            ));
         }
 
         finalizzaRDF();
@@ -149,7 +151,9 @@ public class SimulationService {
 
 
             for (WeatherDay weatherDay : forecast) {
-                results.add(simulationProcessor.processStep(simulationUri,plant, weatherDay));
+                results.add(simulationProcessor.processStep(simulationUri,plant, weatherDay,
+                        SimulationMode.APPLIED
+                ));
             }
 
             List<SimulationStepDTO> dtoResults = toDTOList(results);
@@ -167,6 +171,137 @@ public class SimulationService {
 
         return response;
     }
+
+    // =========================================================
+    // PREVIEW SIMULATION GIARDINO
+    // =========================================================
+//    public List<PlantSimulationResultDTO> previewGardenSimulation(
+//            Integer locationId,
+//            Integer giorni
+//    ) {
+//        validateRunGardenSimulationRequest(locationId, giorni);
+//
+//        Location location = locationRepository.findById(locationId)
+//                .orElseThrow(() -> new IllegalArgumentException("Location non trovata"));
+//
+//        List<PlantInstance> plants =
+//                plantInstanceRepository.findByLocation(location);
+//
+//        if (plants.isEmpty()) {
+//            throw new IllegalArgumentException("Nessuna pianta trovata");
+//        }
+//
+//        List<WeatherDay> forecast =
+//                externalWeatherService.fetchForecast(location, giorni);
+//
+//        List<PlantSimulationResultDTO> response = new ArrayList<>();
+//
+//        for (PlantInstance plant : plants) {
+//            List<SimulationStepResult> results = new ArrayList<>();
+//
+//
+//
+//            for (WeatherDay weatherDay : forecast) {
+//                results.add(
+//                        simulationProcessor.processStep(
+//                                plant,
+//                                weatherDay,
+//                                SimulationMode.PREVIEW
+//                        )
+//                );
+//            }
+//
+//            List<SimulationStepDTO> dtoResults = toDTOList(results);
+//
+//            response.add(new PlantSimulationResultDTO(
+//                    plant.getPlantId(),
+//                    plant.getNome(),
+//                    location.getLocationId(),
+//                    location.getNome(),
+//                    dtoResults
+//            ));
+//        }
+//
+//        return response;
+//    }
+//    ////////////////////////////////////////////////
+    // =========================================================
+// PREVIEW SIMULATION GIARDINO
+// =========================================================
+    public List<PlantSimulationResultDTO> previewGardenSimulation(
+            Integer locationId,
+            Integer giorni
+    ) {
+        validateRunGardenSimulationRequest(locationId, giorni);
+
+        Location location = locationRepository.findById(locationId)
+                .orElseThrow(() -> new IllegalArgumentException("Location non trovata"));
+
+        List<PlantInstance> plants =
+                plantInstanceRepository.findByLocation(location);
+
+        if (plants.isEmpty()) {
+            throw new IllegalArgumentException("Nessuna pianta trovata");
+        }
+
+        List<WeatherDay> forecast =
+                externalWeatherService.fetchForecast(location, giorni);
+
+        List<PlantSimulationResultDTO> response = new ArrayList<>();
+
+        for (PlantInstance plant : plants) {
+            List<SimulationStepResult> results = new ArrayList<>();
+
+            /*
+             * IMPORTANTE:
+             * previewCurrentPlant rappresenta lo stato simulato della pianta
+             * durante la preview.
+             *
+             * Non viene salvata nel DB.
+             * Serve solo per accumulare GDD giorno dopo giorno.
+             */
+            PlantInstance previewCurrentPlant = plant;
+
+            for (WeatherDay weatherDay : forecast) {
+                SimulationStepResult stepResult =
+                        simulationProcessor.processStep(
+                                previewCurrentPlant,
+                                weatherDay,
+                                SimulationMode.PREVIEW
+                        );
+
+                results.add(stepResult);
+
+                /*
+                 * La preview del giorno successivo deve partire dallo stato
+                 * previsto del giorno precedente.
+                 */
+                if (
+                        stepResult.getGrowthForecast() != null &&
+                                stepResult.getGrowthForecast().getPlantInstance() != null
+                ) {
+                    previewCurrentPlant =
+                            stepResult.getGrowthForecast().getPlantInstance();
+                }
+            }
+
+            List<SimulationStepDTO> dtoResults = toDTOList(results);
+
+            response.add(new PlantSimulationResultDTO(
+                    plant.getPlantId(),
+                    plant.getNome(),
+                    location.getLocationId(),
+                    location.getNome(),
+                    dtoResults
+            ));
+        }
+
+        return response;
+    }
+
+
+
+
     //==================================================
     //   DELETE
     //======================================================

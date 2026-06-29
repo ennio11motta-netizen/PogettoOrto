@@ -52,6 +52,28 @@ public class RiskService {
 
         return riskAssessmentRepository.saveOrUpdateByPlantAndDate(assessment);
     }
+    /*
+     * PREVIEW
+     */
+    public RiskAssessment generaValutazionePreview(
+            PlantInstance pianta,
+            WeatherDay weatherDay
+    ) {
+        validateInput(pianta, weatherDay);
+
+        /*
+         * Calcolo puro della valutazione.
+         * Non salviamo nulla nel DB.
+         */
+        RiskAssessment assessment =
+                riskCalculator.generaValutazione(pianta, weatherDay);
+
+        if (assessment.getDateTime() == null && weatherDay.getData() != null) {
+            assessment.setDateTime(weatherDay.getData());
+        }
+
+        return assessment;
+    }
 
 
     private void validateInput(

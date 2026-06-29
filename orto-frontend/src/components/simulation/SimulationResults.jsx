@@ -1,34 +1,55 @@
 export default function SimulationResults({
                                               results,
                                               onClear,
-                                          onDeleteSimulation,
-                                          loading,
-                                          hasSelectedGarden}) {
+                                              onPreviewSimulation,
+                                              onApplySimulation,
+                                              loading,
+                                              hasSelectedGarden
+                                          }) {
     return (
         <section className="card full-width">
             <div className="section-header">
-                <h2>7. Risultati simulazione</h2>
+                <h2>7. Previsione / simulazione crescita</h2>
 
                 <div className="inline-actions">
-                {results.length > 0 && (
-                    <button type="button" onClick={onClear}>
-                        Cancella risultati
-                    </button>
-                )}
-
-                <button
-                    type="button"
-                    onClick={onDeleteSimulation}
-                    disabled={loading || !hasSelectedGarden}
+                    <button
+                        type="button"
+                        onClick={onPreviewSimulation}
+                        disabled={loading || !hasSelectedGarden}
                     >
-                    Elimina ultima simulazione DB
-                </button>
+                        Genera previsione
+                    </button>
 
+
+                    <button
+                        type="button"
+                        onClick={() => {
+                            console.log("Click Applica simulazione");
+                            onApplySimulation();
+                        }}
+                        disabled={loading || !hasSelectedGarden}
+                    >
+                        Applica simulazione
+                    </button>
+
+
+                    {results.length > 0 && (
+                        <button
+                            type="button"
+                            onClick={onClear}
+                            disabled={loading}
+                        >
+                            Cancella risultati
+                        </button>
+                    )}
                 </div>
             </div>
 
             {results.length === 0 && (
-                <p>Nessun risultato disponibile.</p>
+                <p>
+                    Nessun risultato disponibile. Genera una previsione oppure applica una
+                    simulazione.
+                </p>
             )}
 
             {results.map((plantResult) => (
@@ -47,6 +68,7 @@ export default function SimulationResults({
                                 <th>Temp max</th>
                                 <th>Pioggia</th>
                                 <th>Stadio</th>
+                                <th>GDD accumulati</th>
                                 <th>% ciclo</th>
                                 <th>Rischio caldo</th>
                                 <th>Rischio malattia</th>
@@ -56,24 +78,29 @@ export default function SimulationResults({
                             </thead>
 
                             <tbody>
-                            {plantResult.risultati.map((step) => (
-                                <tr key={`${plantResult.plantId}-${step.forecastId}`}>
+                            {plantResult.risultati.map((step, index) => (
+                                <tr key={`${plantResult.plantId}-${step.date}-${index}`}>
                                     <td>{formatDate(step.date)}</td>
-                                    <td>{step.tempMin}</td>
-                                    <td>{step.tempMax}</td>
-                                    <td>{step.precipitazione}</td>
-                                    <td>{step.growthStage}</td>
+                                    <td>{formatNumber(step.tempMin)}</td>
+                                    <td>{formatNumber(step.tempMax)}</td>
+                                    <td>{formatNumber(step.precipitazione)}</td>
+                                    <td>{step.growthStage || "-"}</td>
+                                    <td>{formatNumber(step.storeGDD)}</td>
                                     <td>{formatNumber(step.percentCiclo)}%</td>
+
                                     <td>
                                         <RiskBadge value={step.riskCaldo} />
                                     </td>
+
                                     <td>
                                         <RiskBadge value={step.riskMalattia} />
                                     </td>
+
                                     <td>
                                         <IrrigationBadge value={step.irrigationLevel} />
                                     </td>
-                                    <td>{step.irrigationAdvice}</td>
+
+                                    <td>{step.irrigationAdvice || "-"}</td>
                                 </tr>
                             ))}
                             </tbody>
@@ -86,7 +113,7 @@ export default function SimulationResults({
 }
 
 function formatNumber(value) {
-    if (value === null || value === undefined) {
+    if (value === null || value === undefined || Number.isNaN(Number(value))) {
         return "-";
     }
 

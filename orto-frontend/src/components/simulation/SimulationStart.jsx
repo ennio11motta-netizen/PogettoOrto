@@ -1,20 +1,26 @@
 export default function SimulationStart({
-    gardens,
-    currentLocationId,
-    days,
-    onSelectGarden,
-    onDaysChange,
-    onRunSimulation,
-    loading
+                                            gardens,
+                                            currentLocationId,
+                                            days,
+                                            onSelectGarden,
+                                            onDaysChange,
+                                            loading
                                         }) {
     return (
         <section className="card">
-            <h2>6. Simula orto</h2>
+            <div className="section-header">
+                <h2>6. Impostazioni simulazione</h2>
+            </div>
+
+            <p>
+                Seleziona un orto e il numero di giorni da usare per la previsione o
+                per la simulazione applicata.
+            </p>
 
             <div className="inline-form">
                 <select
                     value={currentLocationId}
-                    onChange={(e) => onSelectGarden(e.target.value)}
+                    onChange={(event) => onSelectGarden(event.target.value)}
                     disabled={loading}
                 >
                     <option value="">Seleziona un orto</option>
@@ -29,20 +35,17 @@ export default function SimulationStart({
                 <input
                     type="number"
                     min="1"
-                    max="16"
                     value={days}
-                    onChange={(e) => onDaysChange(e.target.value)}
+                    onChange={(event) => onDaysChange(event.target.value)}
+                    disabled={loading}
                     placeholder="Giorni"
                 />
-
-                <button
-                    type="button"
-                    onClick={onRunSimulation}
-                    disabled={loading || !currentLocationId}
-                >
-                    Avvia simulazione
-                </button>
             </div>
+
+            <small>
+                Usa la Card 7 per generare una previsione oppure applicare davvero la
+                simulazione.
+            </small>
         </section>
-    )
+    );
 }

@@ -9,7 +9,9 @@ import org.springframework.stereotype.Service;
 
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 
 @Service
@@ -186,7 +188,9 @@ public class RdfSimulationRunService {
             Model model,
             String simulationUri
     ) {
-        List<RdfWeatherHistoryDTO> weatherDays = new ArrayList<>();
+//        List<RdfWeatherHistoryDTO> weatherDays = new ArrayList<>();
+
+        Map<String, RdfWeatherHistoryDTO> weatherByUri = new LinkedHashMap<>();
 
         String queryString = """
                 PREFIX orto: <http://orto.example/>
@@ -231,12 +235,16 @@ public class RdfSimulationRunService {
                 dto.setWindKmh(rdfQueryService.getLiteralDouble(solution, "windKmh"));
                 dto.setUvIndex(rdfQueryService.getLiteralDouble(solution, "uvIndex"));
 
-                weatherDays.add(dto);
+
+                if (dto.getWeatherUri() != null) {
+                    weatherByUri.putIfAbsent(dto.getWeatherUri(), dto);
+                }
             }
         }
 
-        return weatherDays;
+        return new ArrayList<>(weatherByUri.values());
     }
+
 
     // =========================================================
     // QUERY RISCHI
@@ -246,7 +254,8 @@ public class RdfSimulationRunService {
             Model model,
             String simulationUri
     ) {
-        List<RdfRiskHistoryDTO> risks = new ArrayList<>();
+//        List<RdfRiskHistoryDTO> risks = new ArrayList<>();
+        Map<String, RdfRiskHistoryDTO> risksByUri = new LinkedHashMap<>();
 
         String queryString = """
                 PREFIX orto: <http://orto.example/>
@@ -309,11 +318,15 @@ public class RdfSimulationRunService {
                 dto.setRiskMalattia(rdfQueryService.getLiteralString(solution, "riskMalattia"));
                 dto.setConsigli(rdfQueryService.getLiteralString(solution, "consigli"));
 
-                risks.add(dto);
+
+                if (dto.getRiskUri() != null) {
+                    risksByUri.putIfAbsent(dto.getRiskUri(), dto);
+                }
+
             }
         }
 
-        return risks;
+        return new ArrayList<>(risksByUri.values());
     }
 
     // =========================================================
@@ -325,6 +338,8 @@ public class RdfSimulationRunService {
             String simulationUri
     ) {
         List<RdfForecastHistoryDTO> forecasts = new ArrayList<>();
+
+        Map<String, RdfForecastHistoryDTO> forecastsByUri = new LinkedHashMap<>();
 
         String queryString = """
         PREFIX orto: <http://orto.example/>
@@ -386,18 +401,22 @@ public class RdfSimulationRunService {
                dto.setWeatherDateTime(rdfQueryService.getLiteralString(solution, "weatherDateTime"));
 
 
-               dto.setForecastCreatedAt(rdfQueryService.getLiteralString(solution, "forecastCreatedAt"));
+
+                dto.setForecastCreatedAt(rdfQueryService.getLiteralString(solution, "forecastCreatedAt"));
 
                 dto.setGddDaily(rdfQueryService.getLiteralDouble(solution, "gddDaily"));
                 dto.setPercentCiclo(rdfQueryService.getLiteralDouble(solution, "percentCiclo"));
                 dto.setGrowthStage(rdfQueryService.getLiteralString(solution, "growthStage"));
                 dto.setDaysToMaturity(rdfQueryService.getLiteralInteger(solution, "daysToMaturity"));
 
-                forecasts.add(dto);
+
+                if (dto.getForecastUri() != null) {
+                    forecastsByUri.putIfAbsent(dto.getForecastUri(), dto);
+                }
             }
         }
 
-        return forecasts;
+        return new ArrayList<>(forecastsByUri.values());
     }
 
     // =========================================================
