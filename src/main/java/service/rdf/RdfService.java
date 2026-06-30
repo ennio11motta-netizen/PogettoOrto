@@ -19,8 +19,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
-
 @Service
 public class RdfService {
 
@@ -58,7 +56,6 @@ public class RdfService {
     // ===============================
     // EXPORT GARDEN
     // ===============================
-
     public void exportGarden(Location location) {
         rdfExportService.exportGarden(model, location);
     }
@@ -66,7 +63,6 @@ public class RdfService {
     // ===============================
     // EXPORT PLANT
     // ===============================
-
     public void exportPlantInstance(PlantInstance pianta) {
         rdfExportService.exportPlantInstance(model, pianta);
     }
@@ -74,7 +70,6 @@ public class RdfService {
     // ===============================
     // EXPORT WEATHER
     // ===============================
-
     public void exportWeatherDay(WeatherDay wd) {
         rdfExportService.exportWeatherDay(model, wd);
     }
@@ -82,7 +77,6 @@ public class RdfService {
     // ===============================
     // EXPORT RISK
     // ===============================
-
     public void exportRiskAssessment(RiskAssessment risk) {
         rdfExportService.exportRiskAssessment(model, risk);
     }
@@ -90,7 +84,6 @@ public class RdfService {
     // ===============================
     // EXPORT FORECAST
     // ===============================
-
     public void exportGrowthForecast(GrowthForecast forecast) {
         rdfExportService.exportGrowthForecast(model, forecast);
     }
@@ -98,7 +91,6 @@ public class RdfService {
     // ===============================
     // EXPORT SIMULATION RUN
     // ===============================
-
     public String exportSimulationRun(Location location, String mode) {
         return rdfExportService.exportSimulationRun(model, location, mode);
     }
@@ -106,7 +98,6 @@ public class RdfService {
     // ===============================
     // RELAZIONI
     // ===============================
-
     public void collegaGardenPlant(Location location, PlantInstance plant) {
         if (location == null) {
             throw new IllegalArgumentException("Location non può essere null");
@@ -255,7 +246,6 @@ public class RdfService {
 
         model.add(inferito);
     }
-
     // ===============================
     // FILE RDF
     // ===============================
@@ -289,11 +279,6 @@ public class RdfService {
             throw new RuntimeException("Errore durante il caricamento RDF da file: " + filename, e);
         }
     }
-
-//    public void printRDF() {
-//        model.write(System.out, "TURTLE");
-//    }
-
 
     // ===============================
     // RESET RDF SIMULATION
@@ -372,9 +357,7 @@ public class RdfService {
 
         exportGarden(location);
     }
-
-
-        // ===============================
+    // ===============================
     // UTILITY
     // ===============================
 

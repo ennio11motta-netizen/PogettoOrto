@@ -1,24 +1,18 @@
 package dto.model;
-
-
-
 import model.data.PlantSpecie;
 
 public class PlantSpecieDTO {
 
     private Integer specieId;
     private String nome;
-
     private Double tempBase;
     private Double gddEmergenza;
     private Double gddSviluppo;
     private Double gddFioritura;
     private Double gddFruttificazione;
     private Double gddMaturazione;
-
     private Double sogliaStressCaldo;
     private Double sogliaStressFreddo;
-
     private String sensibilitaMalattie;
     private String noteAgronomiche;
 

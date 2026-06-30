@@ -1,7 +1,5 @@
 package dto.rdf;
 
-
-
 import java.util.List;
 
 public class RdfGardenDetailDTO {
@@ -11,7 +9,6 @@ public class RdfGardenDetailDTO {
     private String gardenName;
     private Double latitude;
     private Double longitude;
-
     private List<String> plantUris;
     private List<String> riskUris;
     private List<String> forecastUris;

@@ -1,9 +1,9 @@
 package repository;
+
 import model.data.Location;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -40,7 +40,6 @@ public class LocationRepository {
                 Location.class
         ).getResultList();
     }
-
     // ===============================
     // FIND BY NOME
     // ===============================
@@ -57,7 +56,6 @@ public class LocationRepository {
             return Optional.empty();
         }
     }
-
     // ===============================
     // UPDATE
     // ===============================
@@ -65,7 +63,6 @@ public class LocationRepository {
         return em.merge(location);
 
     }
-
     // ===============================
     // DELETE
     // ===============================

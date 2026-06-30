@@ -5,7 +5,6 @@ import jakarta.persistence.NoResultException;
 import model.data.Location;
 import model.data.WeatherDay;
 import org.springframework.stereotype.Repository;
-
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -27,7 +26,6 @@ public class WeatherDayRepository {
         return wd;
 
     }
-
     // ===============================
     // FIND BY ID
     // ===============================
@@ -120,7 +118,6 @@ public class WeatherDayRepository {
         }
 
     }
-
 
     public int deleteByLocation(Location location) {
         return em.createQuery(

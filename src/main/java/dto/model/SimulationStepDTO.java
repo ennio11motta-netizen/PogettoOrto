@@ -7,7 +7,6 @@ public class SimulationStepDTO {
     // ===============================
     private Integer weatherId;
     private String date;
-
     private Double tempMin;
     private Double tempMax;
     private Double umidita;
@@ -40,7 +39,6 @@ public class SimulationStepDTO {
     //==========================
     //DATI IRRIGAZIONE
     //========================
-
     private String irrigationLevel;
     private String irrigationAdvice;
 

@@ -4,9 +4,9 @@ import jakarta.persistence.EntityManager;
 import model.data.GrowthForecast;
 import model.data.PlantInstance;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 import java.util.Optional;
+
 @Repository
 public class GrowthForecastRepository {
 
@@ -86,7 +86,6 @@ public class GrowthForecastRepository {
         }
 
     }
-
 
     public int deleteByPlantInstance(PlantInstance pianta) {
         return em.createQuery(

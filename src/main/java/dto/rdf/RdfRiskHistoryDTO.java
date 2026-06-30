@@ -8,15 +8,10 @@ public class RdfRiskHistoryDTO {
     private String riskVento;
     private String riskMalattia;
     private String consigli;
-
     private String plantUri;
     private String plantName;
-
-
     private String weatherUri;
     private String dateTime;
-
-
 
     public RdfRiskHistoryDTO() {
     }

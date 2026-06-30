@@ -2,7 +2,6 @@ package model.data;
 
 import exception.RiskLevel;
 import jakarta.persistence.*;
-
 import java.time.LocalDateTime;
 
 @Entity
@@ -18,11 +17,9 @@ public class RiskAssessment {
     @JoinColumn(name = "plant_instance_id")
     private PlantInstance plantInstance;
 
-
     @ManyToOne
     @JoinColumn(name = "weather_day_id")
     private WeatherDay weatherDay;
-
 
     private LocalDateTime dateTime;
 
@@ -36,9 +33,6 @@ public class RiskAssessment {
     private RiskLevel riskMalattia;
 
     private String consigli;
-
-
-
 
     public String getConsigli() {
         return consigli;
@@ -107,9 +101,9 @@ public class RiskAssessment {
     public RiskAssessment() {
     }
 
-//    public WeatherDay getWeatherDay() {
-//        return weatherDay;
-//    }
+    public WeatherDay getWeatherDay() {
+        return weatherDay;
+    }
 
     public void setWeatherDay(WeatherDay weatherDay) {
         this.weatherDay = weatherDay;

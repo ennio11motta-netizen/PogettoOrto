@@ -1,16 +1,12 @@
 
 package service.model;
-
-
 import model.data.Location;
 import model.data.PlantInstance;
-
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import repository.*;
 import reqResp.CreateGardenRequest;
 import reqResp.GardenResponse;
-
 import java.util.List;
 import service.rdf.RdfService;
 
@@ -19,12 +15,9 @@ public class GardenSetupService {
 
     private final LocationRepository locationRepository;
     private final PlantInstanceRepository plantInstanceRepository;
-
-
     private final WeatherDayRepository weatherDayRepository;
     private final GrowthForecastRepository growthForecastRepository;
     private final RiskAssessmentRepository riskAssessmentRepository;
-
     private final RdfService rdfService;
 
 
@@ -59,7 +52,6 @@ public class GardenSetupService {
         Location savedLocation = locationRepository.save(location);
 
         rdfService.exportGarden(savedLocation);
-//        rdfService.salvaRDFSuFile("data/orto.ttl");
         rdfService.persist();
 
         return new GardenResponse(
@@ -118,7 +110,6 @@ public class GardenSetupService {
             throw new IllegalArgumentException("Longitudine non valida");
         }
     }
-
 
     @Transactional(readOnly = true)
     public List<GardenResponse> getAllGardens() {

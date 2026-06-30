@@ -98,7 +98,6 @@ export function applyGardenSimulation(payload) {
 }
 
 
-
 export function deleteGardenSimulation(locationId) {
     return request(`/simulation/garden/${locationId}`, {
         method: "DELETE"

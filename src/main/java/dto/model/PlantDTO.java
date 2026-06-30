@@ -1,7 +1,4 @@
 package dto.model;
-
-
-
 import model.data.PlantInstance;
 
 public class PlantDTO {

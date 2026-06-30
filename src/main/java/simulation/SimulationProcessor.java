@@ -1,4 +1,3 @@
-
 package simulation;
 
 import exception.SimulationMode;
@@ -49,7 +48,6 @@ public class SimulationProcessor {
         this.rdfService = rdfService;
     }
 
-    //////////////////////////////////
     @Transactional
     public SimulationStepResult processStep(
             PlantInstance pianta,
@@ -59,12 +57,9 @@ public class SimulationProcessor {
     ) {
         validateInput(pianta, weatherDay);
 
-
-
         if (mode == null) {
             throw new IllegalArgumentException("SimulationMode non può essere null");
         }
-
 
         if (mode == SimulationMode.PREVIEW) {
             return processPreviewStep(pianta, weatherDay);
@@ -74,61 +69,8 @@ public class SimulationProcessor {
             return processAppliedStep(pianta, weatherDay);
         }
 
-
         throw new IllegalArgumentException("SimulationMode non gestito: " + mode);
     }
-
-//
-//    /*
-//         * 1. Salvataggio dato meteo.
-//         */
-//        WeatherDay savedWeatherDay =
-//                weatherService.salvaWeatherDay(weatherDay);
-//
-//        /*
-//         * 2. Aggiornamento crescita e generazione forecast.
-//         */
-//        GrowthForecast growthForecast =
-//                plantService.aggiornaCrescitaEGeneraForecast(
-//                        pianta,
-//                        savedWeatherDay,
-//                        null
-//                );
-//
-//        /*
-//         * 3. Calcolo e salvataggio rischio.
-//         */
-//        RiskAssessment riskAssessment =
-//                riskService.generaESalvaValutazione(
-//                        pianta,
-//                        savedWeatherDay
-//                );
-//
-//
-//        if (mode == SimulationMode.APPLIED) {
-//            /*
-//             * 4. Esportazione RDF delle entità.
-//             */
-//            rdfService.exportWeatherDay(savedWeatherDay);
-//            rdfService.exportPlantInstance(pianta);
-//            rdfService.exportGrowthForecast(growthForecast);
-//            rdfService.exportRiskAssessment(riskAssessment);
-//
-//            /*
-//             * 5. Creazione relazioni RDF.
-//             */
-//            rdfService.collegaRelazioni(pianta, savedWeatherDay, riskAssessment);
-//            rdfService.collegaPlantForecast(pianta, growthForecast);
-//            rdfService.collegaForecastWeather(growthForecast, savedWeatherDay);
-//            rdfService.collegaPlantRisk(pianta, riskAssessment);
-//        }
-//        return new SimulationStepResult(
-//                savedWeatherDay,
-//                growthForecast,
-//                riskAssessment
-//        );
-//    }
-
 
     @Transactional
     public SimulationStepResult processStep(
@@ -166,8 +108,6 @@ public class SimulationProcessor {
         }
     }
 
-
-
     private SimulationStepResult processPreviewStep(
             PlantInstance pianta,
             WeatherDay weatherDay
@@ -180,7 +120,6 @@ public class SimulationProcessor {
          * - non salva RiskAssessment
          * - non esporta RDF
          */
-
         GrowthForecast growthForecast =
                 plantService.calcolaForecastPreview(
                         pianta,
@@ -206,7 +145,6 @@ public class SimulationProcessor {
                 riskAssessment
         );
     }
-
 
     private SimulationStepResult processAppliedStep(
             PlantInstance pianta,

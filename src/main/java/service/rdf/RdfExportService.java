@@ -11,9 +11,7 @@ import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.vocabulary.RDF;
 import org.springframework.stereotype.Service;
-
 import java.time.LocalDateTime;
-
 import static model.rdf.RdfVocabulary.*;
 
 @Service
@@ -51,7 +49,6 @@ public class RdfExportService {
             garden.addLiteral(LONGITUDE, location.getLongitudine());
         }
     }
-
     // ===============================
     // EXPORT PLANT
     // ===============================
@@ -106,7 +103,6 @@ public class RdfExportService {
             }
         }
     }
-
     // ===============================
     // EXPORT WEATHER
     // ===============================
@@ -155,7 +151,6 @@ public class RdfExportService {
             weather.addLiteral(UV_INDEX, wd.getUvIndex());
         }
     }
-
     // ===============================
     // EXPORT RISK
     // ===============================
@@ -217,7 +212,6 @@ public class RdfExportService {
             riskRes.addProperty(RDF.type, LOW_RISK);
         }
     }
-
     // ===============================
     // EXPORT FORECAST
     // ===============================
@@ -264,7 +258,6 @@ public class RdfExportService {
             );
         }
     }
-
     // ===============================
     // EXPORT SIMULATION RUN
     // ===============================
@@ -318,7 +311,6 @@ public class RdfExportService {
 
         return simulation.getURI();
     }
-
     // ===============================
     // HELPER PRIVATI
     // ===============================

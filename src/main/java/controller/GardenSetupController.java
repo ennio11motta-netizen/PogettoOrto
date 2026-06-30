@@ -3,10 +3,8 @@ package controller;
 import org.springframework.http.ResponseEntity;
 import reqResp.CreateGardenRequest;
 import reqResp.GardenResponse;
-
 import org.springframework.web.bind.annotation.*;
 import service.model.GardenSetupService;
-
 import java.util.List;
 
 

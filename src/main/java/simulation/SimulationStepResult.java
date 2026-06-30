@@ -1,7 +1,5 @@
 package simulation;
 
-
-
 import model.data.GrowthForecast;
 import model.data.RiskAssessment;
 import model.data.WeatherDay;

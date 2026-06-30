@@ -5,11 +5,8 @@ import org.apache.jena.rdf.model.Literal;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.RDFNode;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
-
-
 import org.apache.jena.query.*;
 
 /**
@@ -155,7 +152,5 @@ public class RdfQueryService {
             throw new IllegalArgumentException("Query SPARQL obbligatoria");
         }
     }
-
-
 
 }

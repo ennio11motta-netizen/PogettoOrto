@@ -3,7 +3,6 @@ package model.rdf;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.vocabulary.RDFS;
 import org.springframework.stereotype.Component;
-
 import static model.rdf.RdfVocabulary.*;
 
 @Component

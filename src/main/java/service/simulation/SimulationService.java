@@ -16,7 +16,6 @@ import simulation.SimulationProcessor;
 import simulation.SimulationStepResult;
 import util.IrrigationCalculator;
 import util.IrrigationResult;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,12 +34,9 @@ public class SimulationService {
     private final SimulationProcessor simulationProcessor;
     private final LocationRepository locationRepository;
     private final PlantInstanceRepository plantInstanceRepository;
-
-
     private final GrowthForecastRepository growthForecastRepository;
     private final RiskAssessmentRepository riskAssessmentRepository;
     private final WeatherDayRepository weatherDayRepository;
-
 
     public SimulationService(
             ExternalWeatherService externalWeatherService,
@@ -81,7 +77,6 @@ public class SimulationService {
         this.riskAssessmentRepository = riskAssessmentRepository;
         this.weatherDayRepository = weatherDayRepository;
     }
-
     // =========================================================
     // RUN SIMULATION - SINGOLA PIANTA
     // =========================================================
@@ -113,7 +108,6 @@ public class SimulationService {
 
         return toDTOList(results);
     }
-
     // =========================================================
     // RUN SIMULATION GIARDINO
     // =========================================================
@@ -171,60 +165,6 @@ public class SimulationService {
 
         return response;
     }
-
-    // =========================================================
-    // PREVIEW SIMULATION GIARDINO
-    // =========================================================
-//    public List<PlantSimulationResultDTO> previewGardenSimulation(
-//            Integer locationId,
-//            Integer giorni
-//    ) {
-//        validateRunGardenSimulationRequest(locationId, giorni);
-//
-//        Location location = locationRepository.findById(locationId)
-//                .orElseThrow(() -> new IllegalArgumentException("Location non trovata"));
-//
-//        List<PlantInstance> plants =
-//                plantInstanceRepository.findByLocation(location);
-//
-//        if (plants.isEmpty()) {
-//            throw new IllegalArgumentException("Nessuna pianta trovata");
-//        }
-//
-//        List<WeatherDay> forecast =
-//                externalWeatherService.fetchForecast(location, giorni);
-//
-//        List<PlantSimulationResultDTO> response = new ArrayList<>();
-//
-//        for (PlantInstance plant : plants) {
-//            List<SimulationStepResult> results = new ArrayList<>();
-//
-//
-//
-//            for (WeatherDay weatherDay : forecast) {
-//                results.add(
-//                        simulationProcessor.processStep(
-//                                plant,
-//                                weatherDay,
-//                                SimulationMode.PREVIEW
-//                        )
-//                );
-//            }
-//
-//            List<SimulationStepDTO> dtoResults = toDTOList(results);
-//
-//            response.add(new PlantSimulationResultDTO(
-//                    plant.getPlantId(),
-//                    plant.getNome(),
-//                    location.getLocationId(),
-//                    location.getNome(),
-//                    dtoResults
-//            ));
-//        }
-//
-//        return response;
-//    }
-//    ////////////////////////////////////////////////
     // =========================================================
 // PREVIEW SIMULATION GIARDINO
 // =========================================================
@@ -299,9 +239,6 @@ public class SimulationService {
         return response;
     }
 
-
-
-
     //==================================================
     //   DELETE
     //======================================================
@@ -362,7 +299,6 @@ public class SimulationService {
         rdfService.resetSimulationDataForGarden(location, plants);
         rdfService.persist();
     }
-
 
     // =========================================================
     // VALIDAZIONI

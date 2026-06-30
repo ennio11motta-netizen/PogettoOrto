@@ -1,22 +1,15 @@
 package dto.rdf;
 
-
-
 public class RdfForecastHistoryDTO {
 
     private String forecastUri;
-
     private String forecastCreatedAt;
-
     private Double gddDaily;
     private Double percentCiclo;
     private String growthStage;
     private Integer daysToMaturity;
-
     private String plantUri;
     private String plantName;
-
-
     private String weatherUri;
     private String weatherDateTime;
 
@@ -32,8 +25,6 @@ public class RdfForecastHistoryDTO {
     public void setForecastUri(String forecastUri) {
         this.forecastUri = forecastUri;
     }
-
-
 
     public Double getGddDaily() {
         return gddDaily;

@@ -6,7 +6,6 @@ import jakarta.persistence.EntityManager;
 import model.data.PlantSpecie;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.Optional;
 
 @Repository
@@ -27,14 +26,12 @@ public class PlantInstanceRepository {
         return  pianta;
 
     }
-
     // ===============================
     // FIND BY ID
     // ===============================
     public Optional<PlantInstance> findById(Integer id) {
         return Optional.ofNullable(em.find(PlantInstance.class, id));
     }
-
     // ===============================
     // FIND ALL
     // ===============================
@@ -44,7 +41,6 @@ public class PlantInstanceRepository {
                 PlantInstance.class
         ).getResultList();
     }
-
     // ===============================
     // FIND BY SPECIE
     // ===============================
@@ -84,10 +80,7 @@ public class PlantInstanceRepository {
         if (pianta != null) {
             em.remove(pianta);
         }
-
-
     }
-
     //====================================
     //FIND BY LOCATION
     //===================================

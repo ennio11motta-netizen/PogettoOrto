@@ -1,11 +1,9 @@
-
 package repository;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
 import model.data.PlantSpecie;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -25,7 +23,6 @@ public class PlantSpecieRepository {
         em.persist(specie);
         return specie;
     }
-
     // ===============================
     // FIND BY ID
     // ===============================
@@ -42,7 +39,6 @@ public class PlantSpecieRepository {
                 PlantSpecie.class
         ).getResultList();
     }
-
     // ===============================
     // FIND BY NOME
     // ===============================

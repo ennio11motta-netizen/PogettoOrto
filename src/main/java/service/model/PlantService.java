@@ -9,7 +9,6 @@ import service.rdf.RdfService;
 import repository.*;
 import reqResp.CreatePlantRequest;
 import util.GrowthCalculator;
-
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -29,10 +28,7 @@ public class PlantService {
     private final GrowthCalculator growthCalculator;
     private final LocationRepository locationRepository;
     private final RiskAssessmentRepository riskAssessmentRepository;
-
     private final RdfService rdfService;
-
-
 
     public PlantService(
             LocationRepository locationRepository,
@@ -53,7 +49,6 @@ public class PlantService {
         this.rdfService = rdfService;
 
     }
-
     /**
      * Metodo principale di business:
      * - aggiorna la crescita della pianta
@@ -123,7 +118,6 @@ public class PlantService {
                         gddMedioEffettivo
                 );
 
-
         // ===============================
         // 3. CREAZIONE FORECAST
         // ===============================
@@ -141,77 +135,76 @@ public class PlantService {
         // ===============================
         return growthForecastRepository.save(forecast);
     }
-/////////////////////
-///
+
 /// usa una copia della pianta
 /// calcola forecast
 /// non salva niente
-/// non modifica niente/////////////////////////////
-public GrowthForecast calcolaForecastPreview(
+/// non modifica niente////
+    public GrowthForecast calcolaForecastPreview(
         PlantInstance pianta,
         WeatherDay weatherDay,
         Double gddMedioPrevisto
-) {
-    if (pianta == null) {
+    ) {
+        if (pianta == null) {
         throw new IllegalArgumentException("PlantInstance non può essere null");
-    }
+        }
 
-    if (weatherDay == null) {
+        if (weatherDay == null) {
         throw new IllegalArgumentException("WeatherDay non può essere null");
-    }
+        }
 
-    if (pianta.getPlantSpecie() == null) {
+        if (pianta.getPlantSpecie() == null) {
         throw new IllegalArgumentException("La pianta deve avere una specie associata");
+        }
+
+        /*
+         * IMPORTANTE:
+         *  copia temporanea della pianta,
+         *  la PREVIEW non modifica la PlantInstance.
+         */
+        PlantInstance previewPlant = creaCopiaPiantaPerPreview(pianta);
+
+        /*
+         * Aggiorna crescita SOLO sulla copia.
+         */
+        growthCalculator.aggiornaCrescita(previewPlant, weatherDay);
+
+        Double gddGiornaliero = growthCalculator.calcolaGDDGiornaliero(
+                previewPlant.getPlantSpecie(),
+                weatherDay
+        );
+
+        Double percentuale = growthCalculator.calcolaPercentualeCiclo(
+                previewPlant.getPlantSpecie(),
+                previewPlant.getStoreGDD()
+        );
+
+        Double gddMedioEffettivo = gddMedioPrevisto;
+
+        if (gddMedioEffettivo == null || gddMedioEffettivo <= 0) {
+            gddMedioEffettivo = gddGiornaliero;
+        }
+
+        Integer giorniAllaMaturazione =
+                growthCalculator.stimaGiorniAllaMaturazione(
+                        previewPlant,
+                        gddMedioEffettivo
+                );
+
+        /*
+         * Forecast non persistito.
+         * Non chiama growthForecastRepository.save(...)
+         */
+        GrowthForecast forecast = new GrowthForecast();
+        forecast.setPlantInstance(previewPlant);
+        forecast.setDateTime(LocalDateTime.now());
+        forecast.setGddPrevistiGiorn(gddGiornaliero);
+        forecast.setPercentCiclo(percentuale);
+        forecast.setStadioPrevisto(previewPlant.getGrowthStage());
+        forecast.setGiorniNuovoStadio(giorniAllaMaturazione);
+
+        return forecast;
     }
-
-    /*
-     * IMPORTANTE:
-     *  copia temporanea della pianta,
-     *  la PREVIEW non modifica la PlantInstance.
-     */
-    PlantInstance previewPlant = creaCopiaPiantaPerPreview(pianta);
-
-    /*
-     * Aggiorna crescita SOLO sulla copia.
-     */
-    growthCalculator.aggiornaCrescita(previewPlant, weatherDay);
-
-    Double gddGiornaliero = growthCalculator.calcolaGDDGiornaliero(
-            previewPlant.getPlantSpecie(),
-            weatherDay
-    );
-
-    Double percentuale = growthCalculator.calcolaPercentualeCiclo(
-            previewPlant.getPlantSpecie(),
-            previewPlant.getStoreGDD()
-    );
-
-    Double gddMedioEffettivo = gddMedioPrevisto;
-
-    if (gddMedioEffettivo == null || gddMedioEffettivo <= 0) {
-        gddMedioEffettivo = gddGiornaliero;
-    }
-
-    Integer giorniAllaMaturazione =
-            growthCalculator.stimaGiorniAllaMaturazione(
-                    previewPlant,
-                    gddMedioEffettivo
-            );
-
-    /*
-     * Forecast non persistito.
-     * Non chiama growthForecastRepository.save(...)
-     */
-    GrowthForecast forecast = new GrowthForecast();
-    forecast.setPlantInstance(previewPlant);
-    forecast.setDateTime(LocalDateTime.now());
-    forecast.setGddPrevistiGiorn(gddGiornaliero);
-    forecast.setPercentCiclo(percentuale);
-    forecast.setStadioPrevisto(previewPlant.getGrowthStage());
-    forecast.setGiorniNuovoStadio(giorniAllaMaturazione);
-
-    return forecast;
-}
 
 
 

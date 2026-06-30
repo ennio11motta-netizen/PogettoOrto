@@ -1,6 +1,4 @@
 package dto.model;
-
-
 import java.util.List;
 
 public class PlantSimulationResultDTO {

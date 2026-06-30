@@ -16,13 +16,9 @@ import java.util.List;
 public class SimulationController {
 
     private final SimulationService simulationService;
-
-
     public SimulationController(SimulationService simulationService) {
         this.simulationService = simulationService;
     }
-
-
 
     @PostMapping("/run")
     public List<SimulationStepDTO> runSimulation(@RequestBody SimulationRunRequest request) {
@@ -35,8 +31,6 @@ public class SimulationController {
                 );
 
     }
-
-
 
     @PostMapping("/run-garden")
     public List<PlantSimulationResultDTO> runGardenSimulation(
@@ -91,9 +85,6 @@ public class SimulationController {
         simulationService.resetGardenSimulationHistory(locationId);
         return ResponseEntity.noContent().build();
     }
-
-
-
 
     private void validateGardenSimulationRequest(GardenSimulationRequest request) {
         if (request == null) {

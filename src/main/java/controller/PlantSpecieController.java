@@ -6,7 +6,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reqResp.CreatePlantSpecieRequest;
 import service.model.PlantSpecieService;
-
 import java.util.List;
 
 @RestController

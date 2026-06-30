@@ -1,11 +1,9 @@
-
 package service.model;
 
 import model.data.WeatherDay;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import repository.WeatherDayRepository;
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Optional;

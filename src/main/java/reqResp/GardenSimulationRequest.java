@@ -1,7 +1,5 @@
 package reqResp;
 
-
-
 public class GardenSimulationRequest {
 
     private Integer locationId;

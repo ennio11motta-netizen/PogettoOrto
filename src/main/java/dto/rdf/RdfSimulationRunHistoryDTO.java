@@ -1,7 +1,5 @@
 package dto.rdf;
 
-
-
 import java.util.List;
 
 public class RdfSimulationRunHistoryDTO {
@@ -11,7 +9,6 @@ public class RdfSimulationRunHistoryDTO {
     private String mode;
     private String createdAt;
     private String gardenUri;
-
     private List<RdfPlantHistoryDTO> plants;
     private List<RdfWeatherHistoryDTO> weatherDays;
     private List<RdfRiskHistoryDTO> risks;

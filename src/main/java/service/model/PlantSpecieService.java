@@ -15,10 +15,7 @@ import java.util.List;
 public class PlantSpecieService {
 
     private final PlantSpecieRepository plantSpecieRepository;
-
-
     private final PlantInstanceRepository plantInstanceRepository;
-
 
     public PlantSpecieService(PlantSpecieRepository plantSpecieRepository,
                               PlantInstanceRepository plantInstanceRepository) {
@@ -148,7 +145,6 @@ public class PlantSpecieService {
 
         plantSpecieRepository.deleteById(id);
     }
-
 
 }
 

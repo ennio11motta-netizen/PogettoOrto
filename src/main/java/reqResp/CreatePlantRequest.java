@@ -1,7 +1,5 @@
 package reqResp;
 
-
-
 public class CreatePlantRequest {
 
     private Integer locationId;

@@ -2,7 +2,6 @@ package model.data;
 
 import exception.GrowthStage;
 import jakarta.persistence.*;
-
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -20,10 +19,8 @@ public class PlantInstance {
     @JoinColumn(name = "specie_id")
     private PlantSpecie plantSpecie;
 
-
     @Column(name = "nome")
     private String nome;
-
 
     private LocalDateTime dataInsert;
 
@@ -34,25 +31,20 @@ public class PlantInstance {
 
     private String note;
 
-//    //1 PlantInstance → N GrowthForecast
+   //1 PlantInstance → N GrowthForecast
     @OneToMany(mappedBy = "plantInstance")
    private Set<GrowthForecast> growthForecasts = new HashSet<>();
 
-//    //1 PlantInstance → N RiskAssessment
+    //1 PlantInstance → N RiskAssessment
     @OneToMany(mappedBy = "plantInstance")
     private Set<RiskAssessment> riskAssessments =new  HashSet<>();
-
 
     @ManyToOne
     @JoinColumn(name = "location_id")
     private Location location;
 
-
-
-
     public PlantInstance() {
     }
-
 
     public LocalDateTime getDataInsert() {
         return dataInsert;
@@ -94,7 +86,6 @@ public class PlantInstance {
         this.storeGDD = storeGDD;
     }
 
-
     public PlantSpecie getPlantSpecie() {
         return plantSpecie;
     }
@@ -126,7 +117,6 @@ public class PlantInstance {
     public void setRiskAssessments(Set<RiskAssessment> riskAssessments) {
         this.riskAssessments = riskAssessments;
     }
-
 
     public String getNome() {
         return nome;

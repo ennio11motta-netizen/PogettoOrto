@@ -1,7 +1,5 @@
 package util;
 
-
-
 import exception.IrrigationLevel;
 
 public class IrrigationResult {

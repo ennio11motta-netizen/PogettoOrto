@@ -1,7 +1,5 @@
 package controller;
 
-
-
 import org.springframework.http.ResponseEntity;
 import reqResp.CreatePlantRequest;
 import dto.model.PlantDTO;

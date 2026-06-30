@@ -1,6 +1,5 @@
 package reqResp;
 
-
 public class SimulationRunRequest {
 
     private Integer locationId;

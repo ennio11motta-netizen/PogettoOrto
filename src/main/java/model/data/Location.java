@@ -12,22 +12,16 @@ public class Location {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer locationid;
-
     private String nome;
-
     private Double latitudine;
-
     private Double longitudine;
 
     //relazione dati meteo per ogni giorno della settimana
     @OneToMany(mappedBy = "location")
     private Set<WeatherDay> weatherDays=new HashSet<WeatherDay>();
 
-
     @OneToMany(mappedBy = "location")
     private Set<PlantInstance> plantInstances = new HashSet<>();
-
-
 
     public Location() {}
 

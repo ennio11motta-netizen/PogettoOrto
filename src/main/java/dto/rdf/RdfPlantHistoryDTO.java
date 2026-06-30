@@ -1,7 +1,5 @@
 package dto.rdf;
 
-
-
 public class RdfPlantHistoryDTO {
 
     private String plantUri;

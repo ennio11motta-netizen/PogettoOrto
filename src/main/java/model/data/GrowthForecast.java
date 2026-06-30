@@ -66,7 +66,6 @@ public class GrowthForecast {
         this.percentCiclo = percentCiclo;
     }
 
-
     public void setPlantInstance(PlantInstance plantInstance) {
         this.plantInstance = plantInstance;
     }
@@ -75,11 +74,9 @@ public class GrowthForecast {
         this.stadioPrevisto = stadioPrevisto;
     }
 
-
     public GrowthStage getStadioPrevisto() {
         return stadioPrevisto;
     }
-
 
     public GrowthForecast() {
     }

@@ -1,7 +1,5 @@
 package util;
 
-
-
 import exception.GrowthStage;
 import exception.IrrigationLevel;
 import model.data.PlantInstance;

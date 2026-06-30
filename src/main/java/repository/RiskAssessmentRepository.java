@@ -4,7 +4,6 @@ import jakarta.persistence.NoResultException;
 import model.data.PlantInstance;
 import model.data.RiskAssessment;
 import org.springframework.stereotype.Repository;
-
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -132,8 +131,6 @@ public class RiskAssessmentRepository {
             throw new IllegalArgumentException("RiskAssessment deve avere una data");
         }
     }
-
-
 
     public int deleteByPlantInstance(PlantInstance pianta) {
         return em.createQuery(

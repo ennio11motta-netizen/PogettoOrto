@@ -1,18 +1,14 @@
 package service.rdf;
 
-
 import dto.rdf.*;
 import org.apache.jena.query.*;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.RDFNode;
 import org.springframework.stereotype.Service;
-
-
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-
 
 @Service
 public class RdfSimulationRunService {
@@ -29,8 +25,6 @@ public class RdfSimulationRunService {
         this.rdfService = rdfService;
         this.rdfQueryService = rdfQueryService;
     }
-
-
     // =========================================================
     // HISTORY COMPLETO PER CARD 8
     // =========================================================
@@ -75,10 +69,8 @@ public class RdfSimulationRunService {
 
             history.add(dto);
         }
-
         return history;
     }
-
 
     private void loadHistoryMetadata(
             Model model,
@@ -124,7 +116,6 @@ public class RdfSimulationRunService {
             }
         }
     }
-
     // =========================================================
     // QUERY PIANte
     // =========================================================
@@ -179,7 +170,6 @@ public class RdfSimulationRunService {
 
         return plants;
     }
-
     // =========================================================
     // QUERY METEO
     // =========================================================
@@ -188,8 +178,6 @@ public class RdfSimulationRunService {
             Model model,
             String simulationUri
     ) {
-//        List<RdfWeatherHistoryDTO> weatherDays = new ArrayList<>();
-
         Map<String, RdfWeatherHistoryDTO> weatherByUri = new LinkedHashMap<>();
 
         String queryString = """
@@ -245,7 +233,6 @@ public class RdfSimulationRunService {
         return new ArrayList<>(weatherByUri.values());
     }
 
-
     // =========================================================
     // QUERY RISCHI
     // =========================================================
@@ -254,7 +241,6 @@ public class RdfSimulationRunService {
             Model model,
             String simulationUri
     ) {
-//        List<RdfRiskHistoryDTO> risks = new ArrayList<>();
         Map<String, RdfRiskHistoryDTO> risksByUri = new LinkedHashMap<>();
 
         String queryString = """
@@ -328,7 +314,6 @@ public class RdfSimulationRunService {
 
         return new ArrayList<>(risksByUri.values());
     }
-
     // =========================================================
     // QUERY FORECAST
     // =========================================================
@@ -418,7 +403,6 @@ public class RdfSimulationRunService {
 
         return new ArrayList<>(forecastsByUri.values());
     }
-
     // =========================================================
     // UTILITY LOCALE
     // =========================================================

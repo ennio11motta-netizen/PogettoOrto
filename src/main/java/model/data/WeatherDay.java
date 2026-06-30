@@ -1,7 +1,6 @@
 package model.data;
 
 import jakarta.persistence.*;
-
 import java.time.LocalDateTime;
 
 @Entity
@@ -30,7 +29,6 @@ public class WeatherDay {
     private Double ventoKmh;
 
     private Double uvIndex;
-
 
     public WeatherDay() {
     }

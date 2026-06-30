@@ -9,7 +9,6 @@ import SimulationStart from "./components/simulation/SimulationStart";
 import SimulationResults from "./components/simulation/SimulationResults";
 import RdfSimulationRuns from "./components/simulation/RdfSimulationRuns";
 
-
 //API
 import {
   getSpecies,
@@ -53,14 +52,17 @@ function App() {
   //  STATI
   //=========
   const [species, setSpecies] = useState([]); //Specie disponibili
-  const [plants, setPlants] = useState([]);   //Piante orto select
-  const [gardens, setGardens] = useState([]); //orti disponibili
-  const [simulationResults, setSimulationResults] = useState([]);//Risultati simulazione
 
+  const [plants, setPlants] = useState([]);   //Piante orto select
+
+  const [gardens, setGardens] = useState([]); //orti disponibili
+
+  const [simulationResults, setSimulationResults] = useState([]);//Risultati simulazione
 
   const [rdfSimulationHistory, setRdfSimulationHistory] = useState([]);
 
   const [currentLocationId, setCurrentLocationId] = useState(""); //Stato: caricP+Sim+DeleteSim
+
   const [days, setDays] = useState(2); //Giorni da simulare card6
 
   const [newSpecies, setNewSpecies] = useState(emptySpeciesForm); //stato iniziale del form card2
@@ -87,10 +89,6 @@ function App() {
     loadGardens();
   }, []);
 
-
-
-//////////////////////////////////////////////////////////////////
-  ////////////////////////////////////////////////
 
   async function handleResetSimulationHistory(locationId = currentLocationId) {
     resetFeedback();
@@ -304,8 +302,6 @@ function App() {
       setLoading(false);
     }
   }
-
-
 
 
   async function handleAddPlant(event) {
@@ -526,7 +522,6 @@ function App() {
 
 
 
-
   function updateNewSpecies(field, value) {
     setNewSpecies((prev) => ({
       ...prev,
@@ -654,8 +649,6 @@ function App() {
       </div>
   );
 }
-
-
 
 //Utility
 function toNumberOrNull(value) {

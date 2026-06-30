@@ -8,7 +8,6 @@ import mapper.WeatherMapper;
 import model.data.Location;
 import model.data.WeatherDay;
 import org.springframework.stereotype.Service;
-
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;

@@ -1,7 +1,6 @@
 package model.data;
 
 import jakarta.persistence.*;
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,7 +12,6 @@ public class PlantSpecie {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "specie_id")
     private Integer specieId;
-
     private String nome;
     private Double tempBase;
     private Double gddEmergenza;
@@ -25,10 +23,10 @@ public class PlantSpecie {
     private Double sogliaStressFreddo;
     private String sensibilitaMalattie;
     private String noteAgronomiche;
+
     //1 plantSpecies -> n plantInstances
     @OneToMany(mappedBy = "plantSpecie")
     private Set<PlantInstance> plantInstances = new HashSet<PlantInstance>();
-
 
     public PlantSpecie() {
     }
@@ -88,8 +86,6 @@ public class PlantSpecie {
     public void setNoteAgronomiche(String noteAgronomiche) {
         this.noteAgronomiche = noteAgronomiche;
     }
-
-
 
     public String getSensibilitaMalattie() {
         return sensibilitaMalattie;

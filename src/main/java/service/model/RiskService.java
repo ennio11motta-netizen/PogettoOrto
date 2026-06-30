@@ -1,4 +1,3 @@
-
 package service.model;
 
 import model.data.PlantInstance;
@@ -11,7 +10,6 @@ import util.RiskCalculator;
 
 /**
  * Service responsabile della valutazione del rischio.
- *
  * Responsabilità:
  * - validare input applicativi
  * - usare RiskCalculator per generare la valutazione
@@ -74,7 +72,6 @@ public class RiskService {
 
         return assessment;
     }
-
 
     private void validateInput(
             PlantInstance pianta,

@@ -1,6 +1,5 @@
 package dto.rdf;
 
-
 public class RdfWeatherRiskRelationDTO {
 
     private String weatherUri;
